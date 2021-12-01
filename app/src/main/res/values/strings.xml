@@ -1,0 +1,30 @@
+<resources>
+  <string name="app_name">Rest Garden</string>
+  <string name="enigma_it_bootcamp">Enigma IT Bootcamp</string>
+  <string name="sign_in">Sign In</string>
+  <string name="register">Register</string>
+  <string name="dont_have_account">Don\'t have account ?</string>
+  <string name="have_account">Have account ?</string>
+  <string name="search">Search</string>
+  <string name="profile">Profile</string>
+  <string name="booking_list">Booking List</string>
+  <string name="name">Name</string>
+  <string name="username">Username</string>
+  <string name="password">Password</string>
+  <string name="full_name">Full Name</string>
+  <string name="address">Address</string>
+  <string name="email">Email</string>
+  <string name="phone_number">Phone Number</string>
+  <string name="edit_profile">Edit Profile</string>
+  <string name="status">Status</string>
+  <string name="date_reservation">Date Reservation</string>
+  <string name="date_expired">Date Expired</string>
+  <string name="reserved_slots">Reserved Slots</string>
+  <string name="cancel">Cancel</string>
+  <string name="thank_you">Thank You</string>
+  <string name="back">Back</string>
+  <string name="grave">Grave</string>
+  <string name="notes">Notes</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

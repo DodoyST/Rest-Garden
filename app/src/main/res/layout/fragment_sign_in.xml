@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/re_green"
+  tools:context=".ui.screen.SignInFragment">
+  
+  <ImageView
+    android:id="@+id/iv_sign_in_in_the_office"
+    android:layout_width="230dp"
+    android:layout_height="185dp"
+    android:layout_marginTop="46dp"
+    android:contentDescription="@string/sign_in"
+    android:src="@drawable/ic_undraw_in_the_office_re_jtgc"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0"
+    tools:ignore="ImageContrastCheck" />
+  
+  <LinearLayout
+    android:id="@+id/llv_sign_in_form"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="58dp"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/iv_sign_in_in_the_office"
+    app:layout_constraintVertical_bias="1.0">
+    
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/tv_sign_in"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:gravity="center_horizontal"
+      android:text="@string/sign_in"
+      android:textSize="50sp" />
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/et_sign_in_username_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="284dp"
+      android:layout_height="63dp"
+      android:layout_marginTop="8dp"
+      android:hint="@string/username"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_sign_in_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/et_sign_in_password_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="284dp"
+      android:layout_height="63dp"
+      android:layout_marginTop="8dp"
+      android:hint="@string/password"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp"
+      app:hintAnimationEnabled="false">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_sign_in_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textColorHint="@color/re_dark_yellow" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_sign_in_submit"
+      android:layout_width="197dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/sign_in"
+      android:textSize="18sp"
+      app:cornerRadius="20dp" />
+    
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/tv_sign_in_ask"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/dont_have_account"
+      android:textSize="18sp" />
+    
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_sign_in_register"
+      android:layout_width="197dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="24dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:shadowColor="@color/re_black"
+      android:text="@string/register"
+      android:textColor="@color/black"
+      android:textSize="18sp"
+      app:backgroundTint="@color/re_dark_yellow"
+      app:cornerRadius="20dp" />
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
