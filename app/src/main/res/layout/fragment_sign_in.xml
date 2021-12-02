@@ -11,7 +11,7 @@
     android:id="@+id/iv_sign_in_in_the_office"
     android:layout_width="230dp"
     android:layout_height="185dp"
-    android:layout_marginTop="46dp"
+    android:layout_marginTop="40dp"
     android:contentDescription="@string/sign_in"
     android:src="@drawable/ic_undraw_in_the_office_re_jtgc"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
       android:id="@+id/tv_sign_in"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="4dp"
+      android:layout_marginTop="8dp"
       android:gravity="center_horizontal"
       android:text="@string/sign_in"
       android:textSize="50sp" />
@@ -48,7 +48,7 @@
       android:id="@+id/et_sign_in_username_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="284dp"
-      android:layout_height="63dp"
+      android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:hint="@string/username"
       app:boxCornerRadiusBottomEnd="18dp"
@@ -62,14 +62,15 @@
         android:id="@+id/et_sign_in_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/et_sign_in_password_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="284dp"
-      android:layout_height="63dp"
+      android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:hint="@string/password"
       app:boxCornerRadiusBottomEnd="18dp"
@@ -83,16 +84,15 @@
       
       <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/et_sign_in_password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:textColorHint="@color/re_dark_yellow" />
+        android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.button.MaterialButton
       android:id="@+id/btn_sign_in_submit"
-      android:layout_width="197dp"
+      android:layout_width="200dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:fontFamily="@font/poppins_semibold"
@@ -110,10 +110,10 @@
     
     <com.google.android.material.button.MaterialButton
       android:id="@+id/btn_sign_in_register"
-      android:layout_width="197dp"
+      android:layout_width="200dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
-      android:layout_marginBottom="24dp"
+      android:layout_marginBottom="16dp"
       android:fontFamily="@font/poppins_semibold"
       android:shadowColor="@color/re_black"
       android:text="@string/register"

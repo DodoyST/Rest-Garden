@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
-import com.example.restgarden.databinding.FragmentSignInBinding
+import com.example.restgarden.databinding.FragmentRegisterBinding
 
-class SignInFragment : Fragment() {
-  private var _binding: FragmentSignInBinding? = null
+class RegisterFragment : Fragment() {
+  private var _binding: FragmentRegisterBinding? = null
   private val binding get() = _binding!!
   
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +22,7 @@ class SignInFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     // Inflate the layout for this fragment
-    _binding = FragmentSignInBinding.inflate(inflater, container, false)
+    _binding = FragmentRegisterBinding.inflate(inflater, container, false)
     return binding.root
   }
   
@@ -30,8 +30,8 @@ class SignInFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     
     binding.apply {
-      btnSignInRegister.setOnClickListener {
-        findNavController().navigate(R.id.action_global_signInFragment_to_registerFragment)
+      btnRegisterSignIn.setOnClickListener {
+        findNavController().navigate(R.id.action_global_registerFragment_to_signInFragment)
       }
     }
   }

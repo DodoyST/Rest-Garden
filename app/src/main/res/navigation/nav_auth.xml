@@ -10,4 +10,15 @@
     android:name="com.example.restgarden.ui.screen.SignInFragment"
     android:label="fragment_sign_in"
     tools:layout="@layout/fragment_sign_in" />
+  <fragment
+    android:id="@+id/registerFragment"
+    android:name="com.example.restgarden.ui.screen.RegisterFragment"
+    android:label="fragment_register"
+    tools:layout="@layout/fragment_register" />
+  <action
+    android:id="@+id/action_global_signInFragment_to_registerFragment"
+    app:destination="@id/registerFragment" />
+  <action
+    android:id="@+id/action_global_registerFragment_to_signInFragment"
+    app:destination="@id/signInFragment" />
 </navigation>
