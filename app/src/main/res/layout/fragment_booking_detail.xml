@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/re_green"
+  tools:context=".ui.screen.BookingDetailFragment">
+  
+  <ImageView
+    android:id="@+id/iv_booking_detail"
+    android:layout_width="0dp"
+    android:layout_height="200dp"
+    android:scaleType="centerCrop"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:src="@tools:sample/backgrounds/scenic" />
+  
+  <ImageView
+    android:id="@+id/container_booking_detail"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="16dp"
+    android:scaleType="matrix"
+    android:src="@drawable/ic_rectangle_76"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/iv_booking_detail" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="20dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="@string/name"
+    android:textSize="30sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/container_booking_detail" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_short_address"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/address"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_name"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_name" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_status"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="@string/status"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_short_address"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_short_address" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_status_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/status"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_status"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_status" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_date_reservation"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="@string/date_reservation"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_status_value"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_status_value" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_date_reservation_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/date_reservation"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_date_reservation"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_date_reservation" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_date_expired"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="@string/date_expired"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_date_reservation_value"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_date_reservation_value" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_date_expired_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/date_expired"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_date_expired"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_date_expired" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_address"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="@string/address"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_date_expired_value"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_date_expired_value" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_address_value"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/address"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_address"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_address" />
+  
+  <TextView
+    android:id="@+id/tv_booking_detail_reserved_slot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="20dp"
+    android:fontFamily="@font/poppins_medium"
+    android:text="@string/reserved_slots"
+    android:textSize="14sp"
+    app:layout_constraintBottom_toBottomOf="@+id/tv_booking_detail_status"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toEndOf="@+id/tv_booking_detail_status"
+    app:layout_constraintTop_toTopOf="@+id/tv_booking_detail_status" />
+  
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/tv_booking_detail_reserved_slot_value"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@color/re_green"
+    android:gravity="center"
+    android:padding="16dp"
+    android:text="@string/_0"
+    android:textColor="@color/white"
+    android:textSize="34sp"
+    app:layout_constraintEnd_toEndOf="@+id/tv_booking_detail_reserved_slot"
+    app:layout_constraintStart_toStartOf="@+id/tv_booking_detail_reserved_slot"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_reserved_slot" />
+  
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/btn_booking_detail_cancel"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="@string/cancel"
+    android:textAllCaps="false"
+    android:textSize="25sp"
+    app:cornerRadius="30dp"
+    app:layout_constraintBottom_toBottomOf="@+id/container_booking_detail"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_detail_address_value" />
+  
+  <ImageButton
+    android:id="@+id/btn_booking_detail_back"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:backgroundTint="@color/transparent"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:tint="@color/black" />
+</androidx.constraintlayout.widget.ConstraintLayout>

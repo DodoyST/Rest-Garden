@@ -11,7 +11,7 @@
     android:id="@+id/iv_sign_in_in_the_office"
     android:layout_width="230dp"
     android:layout_height="185dp"
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="32dp"
     android:contentDescription="@string/sign_in"
     android:src="@drawable/ic_undraw_in_the_office_re_jtgc"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -51,19 +51,21 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:hint="@string/username"
+      android:textColorHint="@color/re_green"
       app:boxCornerRadiusBottomEnd="18dp"
       app:boxCornerRadiusBottomStart="18dp"
       app:boxCornerRadiusTopEnd="18dp"
       app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
       app:boxStrokeWidth="5dp"
-      app:boxStrokeWidthFocused="5dp">
+      app:boxStrokeWidthFocused="5dp"
+      app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/et_sign_in_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="20sp" />
+        android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.textfield.TextInputLayout
@@ -73,6 +75,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:hint="@string/password"
+      android:textColorHint="@color/re_green"
       app:boxCornerRadiusBottomEnd="18dp"
       app:boxCornerRadiusBottomStart="18dp"
       app:boxCornerRadiusTopEnd="18dp"
@@ -80,14 +83,14 @@
       app:boxStrokeColor="@color/re_green"
       app:boxStrokeWidth="5dp"
       app:boxStrokeWidthFocused="5dp"
-      app:hintAnimationEnabled="false">
+      app:hintAnimationEnabled="false"
+      app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/et_sign_in_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:textSize="20sp" />
+        android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.button.MaterialButton
@@ -119,7 +122,7 @@
       android:text="@string/register"
       android:textColor="@color/black"
       android:textSize="18sp"
-      app:backgroundTint="@color/re_dark_yellow"
+      app:backgroundTint="@color/re_yellow"
       app:cornerRadius="20dp" />
   </LinearLayout>
 

@@ -27,12 +27,15 @@
     android:layout_marginStart="56dp"
     android:layout_marginTop="32dp"
     android:hint="@string/username"
+    android:textColorHint="@color/re_green"
     app:boxCornerRadiusBottomEnd="18dp"
     app:boxCornerRadiusBottomStart="18dp"
     app:boxCornerRadiusTopEnd="18dp"
     app:boxCornerRadiusTopStart="18dp"
+    app:boxStrokeColor="@color/re_green"
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
+    app:hintTextColor="@color/re_black"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +45,7 @@
       android:id="@+id/et_register_username"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="text"
-      android:textSize="20sp" />
+      android:inputType="text" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout
@@ -53,12 +55,15 @@
     android:layout_height="wrap_content"
     android:layout_marginEnd="56dp"
     android:hint="@string/password"
+    android:textColorHint="@color/re_green"
     app:boxCornerRadiusBottomEnd="18dp"
     app:boxCornerRadiusBottomStart="18dp"
     app:boxCornerRadiusTopEnd="18dp"
     app:boxCornerRadiusTopStart="18dp"
+    app:boxStrokeColor="@color/re_green"
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
+    app:hintTextColor="@color/re_black"
     app:layout_constraintBottom_toBottomOf="@+id/et_register_username_field"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="1.0"
@@ -69,8 +74,7 @@
       android:id="@+id/et_register_password"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textPassword"
-      android:textSize="20sp" />
+      android:inputType="textPassword" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout
@@ -79,12 +83,15 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:hint="@string/full_name"
+    android:textColorHint="@color/re_green"
     app:boxCornerRadiusBottomEnd="18dp"
     app:boxCornerRadiusBottomStart="18dp"
     app:boxCornerRadiusTopEnd="18dp"
     app:boxCornerRadiusTopStart="18dp"
+    app:boxStrokeColor="@color/re_green"
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
+    app:hintTextColor="@color/re_black"
     app:layout_constraintEnd_toEndOf="@+id/et_register_password_field"
     app:layout_constraintStart_toStartOf="@+id/et_register_username_field"
     app:layout_constraintTop_toBottomOf="@+id/et_register_username_field">
@@ -93,8 +100,7 @@
       android:id="@+id/et_register_full_name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textPersonName"
-      android:textSize="20sp" />
+      android:inputType="textPersonName" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout
@@ -103,12 +109,15 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:hint="@string/address"
+    android:textColorHint="@color/re_green"
     app:boxCornerRadiusBottomEnd="18dp"
     app:boxCornerRadiusBottomStart="18dp"
     app:boxCornerRadiusTopEnd="18dp"
     app:boxCornerRadiusTopStart="18dp"
+    app:boxStrokeColor="@color/re_green"
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
+    app:hintTextColor="@color/re_black"
     app:layout_constraintEnd_toEndOf="@+id/et_register_full_name_field"
     app:layout_constraintStart_toStartOf="@+id/et_register_full_name_field"
     app:layout_constraintTop_toBottomOf="@+id/et_register_full_name_field">
@@ -117,8 +126,7 @@
       android:id="@+id/et_register_address"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="text"
-      android:textSize="20sp" />
+      android:inputType="text" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout
@@ -127,12 +135,15 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:hint="@string/email"
+    android:textColorHint="@color/re_green"
     app:boxCornerRadiusBottomEnd="18dp"
     app:boxCornerRadiusBottomStart="18dp"
     app:boxCornerRadiusTopEnd="18dp"
     app:boxCornerRadiusTopStart="18dp"
+    app:boxStrokeColor="@color/re_green"
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
+    app:hintTextColor="@color/re_black"
     app:layout_constraintEnd_toEndOf="@+id/et_register_address_field"
     app:layout_constraintStart_toStartOf="@+id/et_register_address_field"
     app:layout_constraintTop_toBottomOf="@+id/et_register_address_field">
@@ -141,8 +152,7 @@
       android:id="@+id/et_register_email"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textEmailAddress"
-      android:textSize="20sp" />
+      android:inputType="textEmailAddress" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout
@@ -151,12 +161,15 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:hint="@string/phone_number"
+    android:textColorHint="@color/re_green"
     app:boxCornerRadiusBottomEnd="18dp"
     app:boxCornerRadiusBottomStart="18dp"
     app:boxCornerRadiusTopEnd="18dp"
     app:boxCornerRadiusTopStart="18dp"
+    app:boxStrokeColor="@color/re_green"
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
+    app:hintTextColor="@color/re_black"
     app:layout_constraintEnd_toEndOf="@+id/et_register_email_field"
     app:layout_constraintStart_toStartOf="@+id/et_register_email_field"
     app:layout_constraintTop_toBottomOf="@+id/et_register_email_field">
@@ -165,8 +178,7 @@
       android:id="@+id/et_register_phone_number"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="phone"
-      android:textSize="20sp" />
+      android:inputType="phone" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.button.MaterialButton
@@ -196,13 +208,11 @@
     android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
     android:fontFamily="@font/poppins_semibold"
     android:text="@string/sign_in"
     android:textColor="@color/black"
-    app:backgroundTint="@color/re_dark_yellow"
+    app:backgroundTint="@color/re_yellow"
     app:cornerRadius="20dp"
-    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/tv_register_ask" />
