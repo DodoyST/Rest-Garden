@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
     setContentView(binding.root)
     
     Handler(Looper.getMainLooper()).postDelayed({
-      val intent = Intent(this@SplashActivity, AuthActivity::class.java)
+      val intent = Intent(this@SplashActivity, HomeActivity::class.java)
       startActivity(intent)
       finish()
     }, 1000)

@@ -7,15 +7,20 @@
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable/ic_side.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/card_booking.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_booking_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/card_grave_horizontal.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/card_grave_vertical.xml" value="0.4273381294964029" />
+        <entry key="app/src/main/res/layout/fragment_booking_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_booking_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_grave_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_grave_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_transaction.xml" value="0.25" />
       </map>
     </option>
   </component>
