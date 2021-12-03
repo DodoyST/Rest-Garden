@@ -33,4 +33,7 @@
   <string name="error_occurred">Error Occurred</string>
   <string name="something_wrong">Something Wrong…</string>
   <string name="menu">Menu</string>
+  <string name="container">Container</string>
+  <string name="please_wait">Please Wait…</string>
+  <string name="description">Description</string>
 </resources>

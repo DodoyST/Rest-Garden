@@ -1,6 +1,7 @@
 package com.example.restgarden.di.module
 
 import com.example.restgarden.ui.HomeActivity
+import com.example.restgarden.ui.screen.GraveDetailFragment
 import com.example.restgarden.ui.screen.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,4 +14,7 @@ abstract class ActivityModule {
   
   @ContributesAndroidInjector
   abstract fun contributeHomeFragment(): HomeFragment
+  
+  @ContributesAndroidInjector
+  abstract fun contributeGraveDetailFragment(): GraveDetailFragment
 }

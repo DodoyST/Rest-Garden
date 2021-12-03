@@ -7,130 +7,17 @@
   android:background="@color/re_green"
   tools:context=".ui.screen.GraveDetailFragment">
   
+  
   <ImageView
     android:id="@+id/iv_grave_detail"
     android:layout_width="0dp"
-    android:layout_height="200dp"
+    android:layout_height="250dp"
+    android:contentDescription="@string/grave"
     android:scaleType="centerCrop"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     tools:src="@tools:sample/backgrounds/scenic" />
-  
-  <ImageView
-    android:id="@+id/container_grave_detail"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_marginTop="24dp"
-    android:scaleType="matrix"
-    android:src="@drawable/ic_rectangle_76"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/iv_grave_detail" />
-  
-  <TextView
-    android:id="@+id/tv_grave_detail_name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="20dp"
-    android:fontFamily="@font/poppins_semibold"
-    android:text="@string/name"
-    android:textSize="30sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/container_grave_detail" />
-  
-  <TextView
-    android:id="@+id/tv_grave_detail_short_address"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/address"
-    app:layout_constraintStart_toStartOf="@+id/tv_grave_detail_name"
-    app:layout_constraintTop_toBottomOf="@+id/tv_grave_detail_name" />
-  
-  <com.google.android.material.imageview.ShapeableImageView
-    android:id="@+id/iv_grave_detail_slot"
-    android:layout_width="55dp"
-    android:layout_height="55dp"
-    android:layout_marginTop="8dp"
-    android:background="@color/re_green"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.25"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv_grave_detail_short_address" />
-  
-  <com.google.android.material.imageview.ShapeableImageView
-    android:id="@+id/iv_grave_detail_type"
-    android:layout_width="55dp"
-    android:layout_height="55dp"
-    android:background="@color/re_green"
-    app:layout_constraintBottom_toBottomOf="@+id/iv_grave_detail_slot"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.75"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/iv_grave_detail_slot" />
-  
-  <TextView
-    android:id="@+id/tv_grave_detail_slot"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:fontFamily="@font/poppins_semibold"
-    android:text="@string/_0"
-    android:textSize="20sp"
-    app:layout_constraintEnd_toEndOf="@+id/iv_grave_detail_slot"
-    app:layout_constraintStart_toStartOf="@+id/iv_grave_detail_slot"
-    app:layout_constraintTop_toBottomOf="@+id/iv_grave_detail_slot" />
-  
-  <TextView
-    android:id="@+id/tv_grave_detail_type"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:fontFamily="@font/poppins_semibold"
-    android:text="@string/type"
-    android:textSize="20sp"
-    app:layout_constraintEnd_toEndOf="@+id/iv_grave_detail_type"
-    app:layout_constraintStart_toStartOf="@+id/iv_grave_detail_type"
-    app:layout_constraintTop_toBottomOf="@+id/iv_grave_detail_type" />
-  
-  <TextView
-    android:id="@+id/tv_grave_detail_address"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:fontFamily="@font/poppins_semibold"
-    android:text="@string/address"
-    android:textSize="25sp"
-    app:layout_constraintStart_toStartOf="@+id/tv_grave_detail_short_address"
-    app:layout_constraintTop_toBottomOf="@+id/tv_grave_detail_slot" />
-  
-  <TextView
-    android:id="@+id/tv_grave_detail_address_value"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="20dp"
-    android:inputType="textMultiLine"
-    android:minHeight="48dp"
-    android:text="@string/address"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="@+id/tv_grave_detail_address"
-    app:layout_constraintTop_toBottomOf="@+id/tv_grave_detail_address"
-    tools:ignore="TextViewEdits" />
-  
-  <Button
-    android:id="@+id/btn_grave_detail_booking"
-    android:layout_width="243dp"
-    android:layout_height="wrap_content"
-    android:fontFamily="@font/poppins_semibold"
-    android:text="@string/booking"
-    android:textAllCaps="false"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="@+id/container_grave_detail"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv_grave_detail_address_value" />
   
   <ImageButton
     android:id="@+id/btn_grave_detail_back"
@@ -139,10 +26,142 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:backgroundTint="@color/transparent"
+    android:contentDescription="@string/back"
     android:scaleType="centerCrop"
     android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:tint="@color/black" />
-
+  
+  <LinearLayout
+    android:id="@+id/lnl_grave_detail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="32dp"
+    android:background="@drawable/card_white"
+    android:orientation="vertical"
+    android:padding="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/iv_grave_detail"
+    app:layout_constraintVertical_bias="1.0">
+    
+    <TextView
+      android:id="@+id/tv_grave_detail_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/name"
+      android:textSize="24sp" />
+    
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="8dp"
+      android:orientation="horizontal">
+      
+      <TextView
+        android:id="@+id/tv_grave_detail_slot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_weight="1"
+        android:background="@drawable/card_green_full"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="@string/_0"
+        android:textColor="@color/white" />
+      
+      <TextView
+        android:id="@+id/tv_grave_detail_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_weight="1"
+        android:background="@drawable/card_green_full"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="@string/type"
+        android:textColor="@color/white" />
+    </LinearLayout>
+    
+    <TextView
+      android:id="@+id/tv_grave_detail_phone_number"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/phone_number"
+      android:textSize="20sp" />
+  
+    <TextView
+      android:id="@+id/tv_grave_detail_phone_number_value"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/phone_number"
+      android:textSize="17sp" />
+    
+    <TextView
+      android:id="@+id/tv_grave_detail_address"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/address"
+      android:textSize="20sp" />
+  
+    <TextView
+      android:id="@+id/tv_grave_detail_address_value"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:lines="2"
+      android:maxLines="3"
+      android:singleLine="false"
+      android:text="@string/address"
+      android:textSize="17sp" />
+    
+    <TextView
+      android:id="@+id/tv_grave_detail_description"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/description"
+      android:textSize="20sp" />
+  
+    <TextView
+      android:id="@+id/tv_grave_detail_description_value"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:lines="2"
+      android:maxLines="3"
+      android:singleLine="false"
+      android:text="@string/description"
+      android:textSize="17sp" />
+    
+    <Button
+      android:id="@+id/btn_grave_detail_booking"
+      android:layout_width="243dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/booking"
+      android:textAllCaps="false"
+      android:textSize="20sp" />
+  </LinearLayout>
+  
+  <ProgressBar
+    android:id="@+id/pb_grave_detail"
+    style="@android:style/Widget.Material.ProgressBar.Large"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:indeterminateTint="@color/re_black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

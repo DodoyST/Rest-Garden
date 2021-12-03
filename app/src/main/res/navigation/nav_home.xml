@@ -38,4 +38,15 @@
   <action
     android:id="@+id/action_global_bookingListFragment_to_profileFragment"
     app:destination="@id/profileFragment" />
+  <fragment
+    android:id="@+id/graveDetailFragment"
+    android:name="com.example.restgarden.ui.screen.GraveDetailFragment"
+    android:label="fragment_grave_detail"
+    tools:layout="@layout/fragment_grave_detail" />
+  <action
+    android:id="@+id/action_global_graveDetailFragment_to_homeFragment"
+    app:destination="@id/homeFragment" />
+  <action
+    android:id="@+id/action_global_homeFragment_to_graveDetailFragment"
+    app:destination="@id/graveDetailFragment" />
 </navigation>

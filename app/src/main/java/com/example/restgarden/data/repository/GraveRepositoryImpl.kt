@@ -8,4 +8,5 @@ import javax.inject.Inject
 class GraveRepositoryImpl @Inject constructor(private val apiService: ApiService) :
   GraveRepository {
   override suspend fun getAllGraves(): Response<List<Grave>> = apiService.getAllGrave()
+  override suspend fun getGraveById(id: String): Response<Grave> = apiService.getGraveById(id)
 }

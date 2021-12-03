@@ -17,10 +17,12 @@
       android:id="@+id/iv_card_grave_horizontal"
       android:layout_width="match_parent"
       android:layout_height="250dp"
+      android:contentDescription="@string/grave"
       android:scaleType="centerCrop"
       tools:srcCompat="@tools:sample/backgrounds/scenic" />
     
     <com.google.android.material.card.MaterialCardView
+      android:id="@+id/cv_card_grave_horizontal"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginHorizontal="16dp"
@@ -35,7 +37,7 @@
         android:padding="16dp">
         
         <TextView
-          android:id="@+id/tv_card_grave_horizpntal_name"
+          android:id="@+id/tv_card_grave_horizontal_name"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:fontFamily="@font/poppins_semibold"

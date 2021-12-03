@@ -9,8 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restgarden.R
 import com.example.restgarden.data.adapter.viewholder.GraveVerticalViewHolder
 import com.example.restgarden.data.model.Grave
+import com.example.restgarden.data.viewmodel.GraveViewModel
 
-class GraveVerticalAdapter(private val graveList: List<Grave>) :
+class GraveVerticalAdapter(
+  private val graveList: List<Grave>,
+  private val graveViewModel: GraveViewModel
+) :
   RecyclerView.Adapter<GraveVerticalViewHolder>(), Filterable {
   
   var graveFilterList = ArrayList<Grave>()
@@ -22,7 +26,7 @@ class GraveVerticalAdapter(private val graveList: List<Grave>) :
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GraveVerticalViewHolder {
     val view =
       LayoutInflater.from(parent.context).inflate(R.layout.card_grave_vertical, parent, false)
-    return GraveVerticalViewHolder(view)
+    return GraveVerticalViewHolder(view, graveViewModel)
   }
   
   override fun onBindViewHolder(holderHorizontal: GraveVerticalViewHolder, position: Int) {
