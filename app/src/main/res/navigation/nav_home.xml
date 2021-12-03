@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_home"
+  app:startDestination="@id/homeFragment">
+  
+  <fragment
+    android:id="@+id/homeFragment"
+    android:name="com.example.restgarden.ui.screen.HomeFragment"
+    android:label="fragment_home"
+    tools:layout="@layout/fragment_home" />
+  <fragment
+    android:id="@+id/profileFragment"
+    android:name="com.example.restgarden.ui.screen.ProfileFragment"
+    android:label="fragment_profile"
+    tools:layout="@layout/fragment_profile" />
+  <fragment
+    android:id="@+id/bookingListFragment"
+    android:name="com.example.restgarden.ui.screen.BookingListFragment"
+    android:label="fragment_booking_list"
+    tools:layout="@layout/fragment_booking_list" />
+  <action
+    android:id="@+id/action_global_homeFragment_to_profileFragment"
+    app:destination="@id/profileFragment" />
+  <action
+    android:id="@+id/action_global_homeFragment_to_bookingListFragment"
+    app:destination="@id/bookingListFragment" />
+  <action
+    android:id="@+id/action_global_profileFragment_to_homeFragment"
+    app:destination="@id/homeFragment" />
+  <action
+    android:id="@+id/action_global_profileFragment_to_bookingListFragment"
+    app:destination="@id/bookingListFragment" />
+  <action
+    android:id="@+id/action_global_bookingListFragment_to_homeFragment"
+    app:destination="@id/homeFragment" />
+  <action
+    android:id="@+id/action_global_bookingListFragment_to_profileFragment"
+    app:destination="@id/profileFragment" />
+</navigation>
