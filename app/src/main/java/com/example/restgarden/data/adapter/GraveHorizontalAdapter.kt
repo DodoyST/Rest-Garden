@@ -15,8 +15,8 @@ class GraveHorizontalAdapter(private val graveList: List<Grave>) :
     return GraveHorizontalViewHolder(view)
   }
   
-  override fun onBindViewHolder(holder: GraveHorizontalViewHolder, position: Int) {
-    holder.bind(graveList[position])
+  override fun onBindViewHolder(holderHorizontal: GraveHorizontalViewHolder, position: Int) {
+    holderHorizontal.bind(graveList[position])
   }
   
   override fun getItemCount(): Int = graveList.size
