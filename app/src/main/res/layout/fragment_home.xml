@@ -35,6 +35,7 @@
     app:layout_constraintTop_toBottomOf="@+id/iv_grave_list" />
   
   <ScrollView
+    android:id="@+id/sv_hove_grave"
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginStart="8dp"
@@ -69,5 +70,16 @@
         tools:listitem="@layout/card_grave_vertical" />
     </LinearLayout>
   </ScrollView>
+  
+  <ProgressBar
+    android:id="@+id/pb_home"
+    style="@android:style/Widget.Material.ProgressBar.Large"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:indeterminateTint="@color/re_black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/et_grave_list_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
