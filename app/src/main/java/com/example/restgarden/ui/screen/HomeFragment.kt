@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restgarden.data.adapter.GraveHorizontalAdapter
+import com.example.restgarden.data.adapter.GraveVerticalAdapter
 import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.FragmentHomeBinding
@@ -25,6 +26,7 @@ class HomeFragment : DaggerFragment() {
   @Inject
   lateinit var graveRepositoryImpl: GraveRepositoryImpl
   private lateinit var graveHorizontalAdapter: GraveHorizontalAdapter
+  private lateinit var graveVerticalAdapter: GraveVerticalAdapter
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -62,15 +64,21 @@ class HomeFragment : DaggerFragment() {
         is AppResource.Success -> {
           if (it.data != null) {
             val response = it.data
-            if (response.size > 3) {
+            graveHorizontalAdapter = if (response.size > 3) {
               val randomGraves = response.asSequence().shuffled().take(3).toList()
-              graveHorizontalAdapter = GraveHorizontalAdapter(randomGraves)
-            } else graveHorizontalAdapter = GraveHorizontalAdapter(response)
+              GraveHorizontalAdapter(randomGraves)
+            } else GraveHorizontalAdapter(response)
+            graveVerticalAdapter = GraveVerticalAdapter(response)
             binding.apply {
               rvCardGraveHorizontal.apply {
                 adapter = graveHorizontalAdapter
                 layoutManager =
                   LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+              }
+              rvCardGraveVertical.apply {
+                adapter = graveVerticalAdapter
+                layoutManager =
+                  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
               }
             }
           }

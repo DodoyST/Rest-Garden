@@ -14,14 +14,14 @@
     android:padding="16dp">
     
     <TextView
-      android:id="@+id/textView"
+      android:id="@+id/tv_card_grave_vertical_name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/name" />
     
     <TextView
-      android:id="@+id/textView2"
+      android:id="@+id/tv_card_grave_vertical_address"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="@string/address" />

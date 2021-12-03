@@ -86,7 +86,7 @@
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_card_grave_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_grave_vertical" />
