@@ -11,64 +11,40 @@
     android:layout_width="255dp"
     android:layout_height="59dp"
     android:layout_marginTop="25dp"
+    android:contentDescription="@string/app_name"
     android:src="@drawable/ic_rest_garden"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
   
-  <ImageButton
-    android:id="@+id/btn_grave_list_menu"
-    android:layout_width="60dp"
-    android:layout_height="60dp"
-    android:layout_marginTop="38dp"
-    android:backgroundTint="@color/transparent"
-    android:scaleType="centerCrop"
-    android:src="@drawable/ic_baseline_menu_24"
-    app:layout_constraintEnd_toStartOf="@+id/et_grave_list_search_field"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/iv_grave_list"
-    app:tint="@color/black"
-    tools:ignore="SpeakableTextPresentCheck" />
-  
-  <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/et_grave_list_search_field"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+  <SearchView
+    android:id="@+id/et_grave_list_search"
     android:layout_width="288dp"
     android:layout_height="wrap_content"
-    android:hint="@string/search"
-    android:textColorHint="@color/re_green"
-    app:boxCornerRadiusBottomEnd="18dp"
-    app:boxCornerRadiusBottomStart="18dp"
-    app:boxCornerRadiusTopEnd="18dp"
-    app:boxCornerRadiusTopStart="18dp"
-    app:boxStrokeColor="@color/re_green"
-    app:boxStrokeWidth="5dp"
-    app:boxStrokeWidthFocused="5dp"
-    app:hintTextColor="@color/re_black"
-    app:layout_constraintBottom_toBottomOf="@+id/btn_grave_list_menu"
+    android:layout_marginTop="32dp"
+    android:background="@drawable/box_stroke"
+    android:defaultFocusHighlightEnabled="true"
+    android:focusedByDefault="false"
+    android:iconifiedByDefault="false"
+    android:inputType="text"
+    android:paddingHorizontal="4dp"
+    android:queryBackground="@color/transparent"
+    android:queryHint="@string/search"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/btn_grave_list_menu"
-    app:layout_constraintTop_toTopOf="@+id/btn_grave_list_menu">
-    
-    <com.google.android.material.textfield.TextInputEditText
-      android:id="@+id/et_grave_list_search"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
-  </com.google.android.material.textfield.TextInputLayout>
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/iv_grave_list" />
   
   <ScrollView
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="32dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="32dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/btn_grave_list_menu">
+    app:layout_constraintTop_toBottomOf="@+id/et_grave_list_search">
     
     <LinearLayout
       android:layout_width="match_parent"
@@ -87,6 +63,7 @@
         android:id="@+id/rv_card_grave_vertical"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_grave_vertical" />

@@ -18,11 +18,11 @@ class GraveViewModel @Inject constructor(private val graveRepository: GraveRepos
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
       else {
         emit(AppResource.Error(null, response.errorBody().toString()))
-        
+        Log.i("GRAVE", "getAllGrave: ${response.errorBody()}")
       }
     } catch (e: Exception) {
       emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
-      Log.i("GRAVE", "getAll2: ${e.localizedMessage}")
+      Log.i("GRAVE", "getAllGrave: ${e.localizedMessage}")
     }
   }
 }

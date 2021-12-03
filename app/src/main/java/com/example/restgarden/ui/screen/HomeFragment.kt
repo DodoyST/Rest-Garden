@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -50,6 +51,16 @@ class HomeFragment : DaggerFragment() {
     })[GraveViewModel::class.java]
     
     subscribe()
+    
+    binding.apply {
+      etGraveListSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(query: String?): Boolean = true
+        override fun onQueryTextChange(newText: String?): Boolean {
+          graveVerticalAdapter.filter.filter(newText)
+          return true
+        }
+      })
+    }
   }
   
   override fun onDestroy() {
@@ -83,13 +94,12 @@ class HomeFragment : DaggerFragment() {
             }
           }
         }
-        is AppResource.Error -> Toast.makeText(
-          requireContext(),
-          "Something Wrong...",
-          Toast.LENGTH_LONG
-        ).show()
-        is AppResource.Loading -> Toast.makeText(requireContext(), "Loading...", Toast.LENGTH_LONG)
-          .show()
+        is AppResource.Error -> {
+          Toast.makeText(requireContext(), "Something Wrong...", Toast.LENGTH_LONG).show()
+        }
+        is AppResource.Loading -> {
+          Toast.makeText(requireContext(), "Loading...", Toast.LENGTH_LONG).show()
+        }
       }
     })
   }
