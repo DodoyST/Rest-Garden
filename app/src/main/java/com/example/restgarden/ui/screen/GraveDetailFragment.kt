@@ -1,5 +1,6 @@
 package com.example.restgarden.ui.screen
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.FragmentGraveDetailBinding
 import com.example.restgarden.util.AppResource
+import com.example.restgarden.util.SessionManager
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -23,6 +25,9 @@ class GraveDetailFragment : DaggerFragment() {
   
   @Inject
   lateinit var graveRepositoryImpl: GraveRepositoryImpl
+  
+  @Inject
+  lateinit var sessionManager: SessionManager
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -52,6 +57,10 @@ class GraveDetailFragment : DaggerFragment() {
         findNavController().navigate(R.id.action_global_graveDetailFragment_to_homeFragment)
         graveViewModel.clearGrave()
       }
+      
+      btnGraveDetailBooking.setOnClickListener {
+        dialogNeedSignIn()
+      }
     }
   }
   
@@ -74,7 +83,7 @@ class GraveDetailFragment : DaggerFragment() {
               tvGraveDetailPhoneNumberValue.text = response.phoneNumber
               tvGraveDetailAddressValue.text = response.address
               tvGraveDetailDescriptionValue.text = response.description
-              if (response.type != "Public") btnGraveDetailBooking.visibility = View.GONE
+              if (response.type == "Public") btnGraveDetailBooking.visibility = View.GONE
               else btnGraveDetailBooking.visibility = View.VISIBLE
             }
             isNotLoading()
@@ -98,5 +107,16 @@ class GraveDetailFragment : DaggerFragment() {
       pbGraveDetail.visibility = View.VISIBLE
       lnlGraveDetail.visibility = View.GONE
     }
+  }
+  
+  private fun dialogNeedSignIn() {
+    AlertDialog.Builder(requireContext()).setTitle(getString(R.string.sign_in))
+      .setMessage("You need login access to book a grave, want to go to the login page?")
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        findNavController().navigate(R.id.action_global_graveDetailFragment_to_authActivity)
+        dialog.dismiss()
+      }.show()
   }
 }
