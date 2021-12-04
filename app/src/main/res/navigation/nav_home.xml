@@ -49,4 +49,12 @@
   <action
     android:id="@+id/action_global_homeFragment_to_graveDetailFragment"
     app:destination="@id/graveDetailFragment" />
+  <activity
+    android:id="@+id/authActivity"
+    android:name="com.example.restgarden.ui.AuthActivity"
+    android:label="activity_auth"
+    tools:layout="@layout/activity_auth" />
+  <action
+    android:id="@+id/action_global_graveDetailFragment_to_authActivity"
+    app:destination="@id/authActivity" />
 </navigation>
