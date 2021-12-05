@@ -1,7 +1,8 @@
 package com.example.restgarden.di.module
 
-import com.example.restgarden.data.api.ApiService
 import com.example.restgarden.data.api.AuthInterceptors
+import com.example.restgarden.data.api.AuthService
+import com.example.restgarden.data.api.GraveService
 import com.example.restgarden.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -15,7 +16,12 @@ class ApiModule {
   
   @Provides
   @Singleton
-  fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+  fun provideGraveService(retrofit: Retrofit): GraveService =
+    retrofit.create(GraveService::class.java)
+  
+  @Provides
+  @Singleton
+  fun provideAuthService(retrofit: Retrofit): AuthService = retrofit.create(AuthService::class.java)
   
   @Provides
   @Singleton

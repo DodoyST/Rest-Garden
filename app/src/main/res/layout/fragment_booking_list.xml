@@ -8,33 +8,21 @@
   
   <ImageView
     android:id="@+id/iv_booking_list"
-    android:layout_width="241dp"
+    android:layout_width="255dp"
     android:layout_height="wrap_content"
-    android:layout_marginTop="48dp"
+    android:layout_marginTop="24dp"
+    android:contentDescription="@string/app_name"
     android:src="@drawable/ic_rest_garden"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
-  
-  <ImageButton
-    android:id="@+id/btn_booking_list_back"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:layout_marginStart="8dp"
-    android:backgroundTint="@color/transparent"
-    android:scaleType="centerCrop"
-    android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/iv_booking_list"
-    app:tint="@color/black"
-    tools:ignore="SpeakableTextPresentCheck" />
   
   <TextView
     android:id="@+id/tv_booking_list"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
-    android:layout_marginTop="43dp"
+    android:layout_marginTop="48dp"
     android:fontFamily="@font/poppins_semibold"
     android:text="@string/booking_list"
     android:textSize="24sp"
@@ -43,27 +31,15 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/iv_booking_list" />
   
-  <ImageView
-    android:id="@+id/container_booking_list"
-    android:layout_width="0dp"
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_booking_list"
+    android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_marginTop="16dp"
-    android:background="@drawable/ic_rectangle_83"
+    android:background="@drawable/card_green_top"
+    android:padding="24dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv_booking_list"
-    app:layout_constraintVertical_bias="0.0" />
-  
-  <androidx.recyclerview.widget.RecyclerView
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginStart="24dp"
-    android:layout_marginTop="24dp"
-    android:layout_marginEnd="24dp"
-    android:layout_marginBottom="24dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/container_booking_list"
-    app:layout_constraintStart_toStartOf="@+id/container_booking_list"
-    app:layout_constraintTop_toTopOf="@+id/container_booking_list" />
+    app:layout_constraintTop_toBottomOf="@+id/tv_booking_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,11 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 
-interface ApiService {
+interface GraveService {
+  
   @GET("${Constants.GRAVE_URL}s")
-  suspend fun getAllGrave(): Response<List<Grave>>
+  suspend fun getAll(): Response<List<Grave>>
   
   @GET("${Constants.GRAVE_URL}/{id}")
-  suspend fun getGraveById(@Path("id") id: String): Response<Grave>
+  suspend fun getById(@Path("id") id: String): Response<Grave>
 }

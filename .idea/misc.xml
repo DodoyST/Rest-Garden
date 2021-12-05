@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_rectangle_76.xml" value="0.2140625" />
+        <entry key="app/src/main/res/drawable-v24/ic_rectangle_83.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable/box_stroke.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable/card_green_full.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable/card_white.xml" value="0.2140625" />
@@ -24,6 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_transaction.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/menu_home.xml" value="0.18" />
       </map>
     </option>
   </component>

@@ -4,14 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
 import com.example.restgarden.databinding.FragmentSignInBinding
+import com.example.restgarden.util.SessionManager
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class SignInFragment : Fragment() {
+class SignInFragment : DaggerFragment() {
   private var _binding: FragmentSignInBinding? = null
   private val binding get() = _binding!!
+  
+  @Inject
+  lateinit var sessionManager: SessionManager
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -30,6 +35,10 @@ class SignInFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     
     binding.apply {
+      btnSignInSubmit.setOnClickListener {
+        sessionManager.setLoggedIn(true)
+      }
+      
       btnSignInRegister.setOnClickListener {
         findNavController().navigate(R.id.action_global_signInFragment_to_registerFragment)
       }

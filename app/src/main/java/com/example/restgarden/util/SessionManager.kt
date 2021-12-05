@@ -6,14 +6,14 @@ class SessionManager(private val sharedPreferences: SharedPreferences) {
   
   companion object {
     const val TOKEN = "token"
-    const val USERNAME = "username"
+    const val ID = "id"
     const val IS_LOGGED_IN = "is_logged_in"
   }
   
-  fun saveAuthToken(token: String, username: String) {
+  fun saveAuthToken(token: String, id: String) {
     val editor = sharedPreferences.edit()
     editor.putString(TOKEN, token)
-    editor.putString(USERNAME, username)
+    editor.putString(ID, id)
     editor.apply()
   }
   
@@ -21,8 +21,8 @@ class SessionManager(private val sharedPreferences: SharedPreferences) {
     return sharedPreferences.getString(TOKEN, null)
   }
   
-  fun fetchAuthUsername(): String? {
-    return sharedPreferences.getString(USERNAME, null)
+  fun fetchAuthId(): String? {
+    return sharedPreferences.getString(ID, null)
   }
   
   fun isLoggedIn(): Boolean = sharedPreferences.getBoolean(IS_LOGGED_IN, false)

@@ -15,4 +15,17 @@
     app:navGraph="@navigation/nav_home"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp" />
+  
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bnv_home"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/card_background"
+    app:itemIconTint="@color/re_black"
+    app:itemTextColor="@color/re_black"
+    app:labelVisibilityMode="selected"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/menu_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>
