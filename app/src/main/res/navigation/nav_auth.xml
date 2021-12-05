@@ -21,4 +21,12 @@
   <action
     android:id="@+id/action_global_registerFragment_to_signInFragment"
     app:destination="@id/signInFragment" />
+  <activity
+    android:id="@+id/homeActivity"
+    android:name="com.example.restgarden.ui.HomeActivity"
+    android:label="activity_home"
+    tools:layout="@layout/activity_home" />
+  <action
+    android:id="@+id/action_global_signInFragment_to_homeActivity"
+    app:destination="@id/homeActivity" />
 </navigation>

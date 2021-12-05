@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -59,7 +60,7 @@ class GraveDetailFragment : DaggerFragment() {
       }
       
       btnGraveDetailBooking.setOnClickListener {
-        dialogNeedSignIn()
+        if (!sessionManager.isLoggedIn()) dialogNeedSignIn()
       }
     }
   }
@@ -89,7 +90,11 @@ class GraveDetailFragment : DaggerFragment() {
             isNotLoading()
           }
         }
-        is AppResource.Error -> findNavController().navigate(R.id.action_global_graveDetailFragment_to_homeFragment)
+        is AppResource.Error -> Toast.makeText(
+          requireContext(),
+          getString(R.string.something_wrong),
+          Toast.LENGTH_LONG
+        ).show()
         is AppResource.Loading -> isLoading()
       }
     })

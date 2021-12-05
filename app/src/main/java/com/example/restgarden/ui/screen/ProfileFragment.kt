@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.restgarden.databinding.FragmentProfileBinding
+import com.example.restgarden.util.SessionManager
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : DaggerFragment() {
   private var _binding: FragmentProfileBinding? = null
   private val binding get() = _binding!!
+  
+  @Inject
+  lateinit var sessionManager: SessionManager
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -27,6 +32,13 @@ class ProfileFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     
+    binding.apply {
+      btnProfileLogout.setOnClickListener {
+        sessionManager.clearPref()
+        requireActivity().finish()
+        requireActivity().startActivity(requireActivity().intent)
+      }
+    }
   }
   
   override fun onDestroy() {
