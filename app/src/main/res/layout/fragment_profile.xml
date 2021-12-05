@@ -26,6 +26,7 @@
     android:layout_height="55dp"
     android:layout_marginEnd="32dp"
     android:backgroundTint="@color/transparent"
+    android:contentDescription="@string/logout"
     android:scaleType="centerCrop"
     android:src="@drawable/ic_baseline_logout_24"
     app:layout_constraintBottom_toBottomOf="@+id/tv_profile"
@@ -33,28 +34,17 @@
     app:layout_constraintTop_toTopOf="@+id/tv_profile"
     app:tint="@color/black" />
   
-  <ImageView
-    android:id="@+id/iv_profile_picture"
-    android:layout_width="140dp"
-    android:layout_height="140dp"
-    android:layout_marginTop="16dp"
-    android:scaleType="centerCrop"
-    android:src="@drawable/ic_launcher_foreground"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv_profile" />
-  
   <TextView
     android:id="@+id/tv_profile_name"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
+    android:layout_marginTop="64dp"
     android:fontFamily="@font/poppins_semibold"
     android:text="@string/name"
     android:textSize="30sp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/iv_profile_picture" />
+    app:layout_constraintTop_toBottomOf="@+id/tv_profile" />
   
   <TextView
     android:id="@+id/tv_profile_email"
@@ -118,7 +108,7 @@
     app:layout_constraintTop_toBottomOf="@+id/tv_profile_address" />
   
   <Button
-    android:id="@+id/button"
+    android:id="@+id/btn_profile_edit_profile"
     android:layout_width="166dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="24dp"
@@ -129,5 +119,16 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/tv_profile_address_value" />
+  
+  <ProgressBar
+    android:id="@+id/pb_profile"
+    style="@android:style/Widget.Material.ProgressBar.Large"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:indeterminateTint="@color/re_black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

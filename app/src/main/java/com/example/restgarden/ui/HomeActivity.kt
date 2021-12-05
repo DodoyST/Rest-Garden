@@ -31,6 +31,10 @@ class HomeActivity : DaggerAppCompatActivity() {
       supportFragmentManager.findFragmentById(binding.navHostHome.id) as NavHostFragment
     navController = navHostFragment.findNavController()
     binding.bnvHome.setupWithNavController(navController)
+    
+    if (sessionManager.fetchAuthToken().isNullOrEmpty()) {
+      sessionManager.clearPref()
+    }
   }
   
   override fun onStart() {

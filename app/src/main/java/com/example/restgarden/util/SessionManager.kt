@@ -17,13 +17,9 @@ class SessionManager(private val sharedPreferences: SharedPreferences) {
     editor.apply()
   }
   
-  fun fetchAuthToken(): String? {
-    return sharedPreferences.getString(TOKEN, null)
-  }
+  fun fetchAuthToken(): String? = sharedPreferences.getString(TOKEN, null)
   
-  fun fetchAuthId(): String? {
-    return sharedPreferences.getString(ID, null)
-  }
+  fun fetchAuthId(): String? = sharedPreferences.getString(ID, null)
   
   fun isLoggedIn(): Boolean = sharedPreferences.getBoolean(IS_LOGGED_IN, false)
   

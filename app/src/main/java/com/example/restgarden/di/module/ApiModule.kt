@@ -3,6 +3,7 @@ package com.example.restgarden.di.module
 import com.example.restgarden.data.api.AuthInterceptors
 import com.example.restgarden.data.api.AuthService
 import com.example.restgarden.data.api.GraveService
+import com.example.restgarden.data.api.UserService
 import com.example.restgarden.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -25,9 +26,13 @@ class ApiModule {
   
   @Provides
   @Singleton
+  fun provideUserService(retrofit: Retrofit): UserService = retrofit.create(UserService::class.java)
+  
+  @Provides
+  @Singleton
   fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
     Retrofit.Builder().baseUrl(Constants.BASE_URL)
-      .addConverterFactory(GsonConverterFactory.create()).build()
+      .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient).build()
   
   @Provides
   @Singleton
