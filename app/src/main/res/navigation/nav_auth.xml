@@ -16,10 +16,10 @@
     android:label="fragment_register"
     tools:layout="@layout/fragment_register" />
   <action
-    android:id="@+id/action_global_signInFragment_to_registerFragment"
+    android:id="@+id/action_global_registerFragment"
     app:destination="@id/registerFragment" />
   <action
-    android:id="@+id/action_global_registerFragment_to_signInFragment"
+    android:id="@+id/action_global_signInFragment"
     app:destination="@id/signInFragment" />
   <activity
     android:id="@+id/homeActivity"
@@ -27,6 +27,6 @@
     android:label="activity_home"
     tools:layout="@layout/activity_home" />
   <action
-    android:id="@+id/action_global_signInFragment_to_homeActivity"
+    android:id="@+id/action_global_homeActivity"
     app:destination="@id/homeActivity" />
 </navigation>

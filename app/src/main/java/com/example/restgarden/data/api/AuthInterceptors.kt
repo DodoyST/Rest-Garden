@@ -11,7 +11,10 @@ class AuthInterceptors @Inject constructor(private val sessionManager: SessionMa
   override fun intercept(chain: Interceptor.Chain): Response {
     val originalRequest = chain.request()
     val url = originalRequest.url.toString()
-    if (!url.contains(Constants.SIGN_IN_URL) && !url.contains(Constants.GRAVE_URL)) {
+    if (!url.contains(Constants.SIGN_IN_URL) && !url.contains(Constants.GRAVE_URL) && !url.contains(
+        Constants.REGISTER_URL
+      )
+    ) {
       val requestBuilder = originalRequest.newBuilder()
       requestBuilder.addHeader(
         "Authorization",

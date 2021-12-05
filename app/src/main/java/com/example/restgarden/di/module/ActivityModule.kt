@@ -2,10 +2,7 @@ package com.example.restgarden.di.module
 
 import com.example.restgarden.ui.AuthActivity
 import com.example.restgarden.ui.HomeActivity
-import com.example.restgarden.ui.screen.GraveDetailFragment
-import com.example.restgarden.ui.screen.HomeFragment
-import com.example.restgarden.ui.screen.ProfileFragment
-import com.example.restgarden.ui.screen.SignInFragment
+import com.example.restgarden.ui.screen.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -29,4 +26,7 @@ abstract class ActivityModule {
   
   @ContributesAndroidInjector
   abstract fun contributeProfileFragment(): ProfileFragment
+  
+  @ContributesAndroidInjector
+  abstract fun contributeRegisterFragment(): RegisterFragment
 }

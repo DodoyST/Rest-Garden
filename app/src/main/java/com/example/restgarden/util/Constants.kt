@@ -5,4 +5,5 @@ object Constants {
   const val SIGN_IN_URL = "signin"
   const val GRAVE_URL = "grave"
   const val USER_URL = "user"
+  const val REGISTER_URL = "register"
 }
