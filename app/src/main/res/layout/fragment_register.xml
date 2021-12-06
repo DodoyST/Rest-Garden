@@ -36,8 +36,8 @@
     app:boxStrokeWidth="5dp"
     app:boxStrokeWidthFocused="5dp"
     app:hintTextColor="@color/re_black"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintEnd_toStartOf="@+id/et_register_password_field"
+    app:layout_constraintHorizontal_bias="0.5"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/tv_register">
     
@@ -45,7 +45,8 @@
       android:id="@+id/et_register_username"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="text" />
+      android:inputType="text"
+      android:textSize="16sp" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout
@@ -66,15 +67,16 @@
     app:hintTextColor="@color/re_black"
     app:layout_constraintBottom_toBottomOf="@+id/et_register_username_field"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="1.0"
-    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/et_register_username_field"
     app:layout_constraintTop_toTopOf="@+id/et_register_username_field">
     
     <com.google.android.material.textfield.TextInputEditText
       android:id="@+id/et_register_password"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textPassword" />
+      android:inputType="textPassword"
+      android:textSize="16sp" />
   </com.google.android.material.textfield.TextInputLayout>
   
   <com.google.android.material.textfield.TextInputLayout

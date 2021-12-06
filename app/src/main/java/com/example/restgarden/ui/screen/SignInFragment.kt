@@ -94,7 +94,6 @@ class SignInFragment : DaggerFragment() {
     isNotLoading()
     formClear()
     requireActivity().finish()
-    findNavController().navigate(R.id.action_global_homeActivity)
   }
   
   private fun signInError() {

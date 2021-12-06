@@ -101,7 +101,8 @@
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/sign_in"
       android:textSize="18sp"
-      app:cornerRadius="20dp" />
+      app:cornerRadius="20dp"
+      tools:ignore="DuplicateSpeakableTextCheck" />
     
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/tv_sign_in_ask"

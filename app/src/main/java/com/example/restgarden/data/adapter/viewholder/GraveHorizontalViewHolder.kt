@@ -24,7 +24,7 @@ class GraveHorizontalViewHolder(itemView: View, private val graveViewModel: Grav
   
   init {
     binding.cvCardGraveHorizontal.setOnClickListener {
-      itemView.findNavController().navigate(R.id.action_global_homeFragment_to_graveDetailFragment)
+      itemView.findNavController().navigate(R.id.action_global_graveDetailFragment)
       graveViewModel.getById(id)
     }
   }

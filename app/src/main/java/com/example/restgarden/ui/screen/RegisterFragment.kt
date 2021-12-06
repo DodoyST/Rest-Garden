@@ -1,9 +1,11 @@
 package com.example.restgarden.ui.screen
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -43,6 +45,8 @@ class RegisterFragment : DaggerFragment() {
     super.onViewCreated(view, savedInstanceState)
     
     instanceViewModel()
+    
+    formValidation()
     
     binding.apply {
       
@@ -132,6 +136,17 @@ class RegisterFragment : DaggerFragment() {
       tvRegisterAsk.visibility = View.INVISIBLE
       btnRegisterSignIn.isEnabled = false
       btnRegisterSignIn.visibility = View.INVISIBLE
+    }
+  }
+  
+  private fun formValidation() {
+    binding.apply {
+      etRegisterEmail.setOnFocusChangeListener { _, hasFocus ->
+        if (!hasFocus && !Patterns.EMAIL_ADDRESS.matcher(etRegisterEmail.text.toString())
+            .matches()
+        ) Toast.makeText(requireContext(), getString(R.string.something_wrong), Toast.LENGTH_SHORT)
+          .show()
+      }
     }
   }
   

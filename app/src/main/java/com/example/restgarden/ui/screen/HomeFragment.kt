@@ -8,6 +8,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restgarden.R
 import com.example.restgarden.data.adapter.GraveHorizontalAdapter
@@ -16,6 +17,7 @@ import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.FragmentHomeBinding
 import com.example.restgarden.util.AppResource
+import com.example.restgarden.util.SessionManager
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -29,6 +31,9 @@ class HomeFragment : DaggerFragment() {
   lateinit var graveRepositoryImpl: GraveRepositoryImpl
   private lateinit var graveHorizontalAdapter: GraveHorizontalAdapter
   private lateinit var graveVerticalAdapter: GraveVerticalAdapter
+  
+  @Inject
+  lateinit var sessionManager: SessionManager
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -54,6 +59,10 @@ class HomeFragment : DaggerFragment() {
     subscribe()
     
     binding.apply {
+      btnGraveList.setOnClickListener {
+        if (!sessionManager.isLoggedIn()) findNavController().navigate(R.id.action_global_authActivity)
+      }
+      
       etGraveListSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(query: String?): Boolean = true
         override fun onQueryTextChange(newText: String?): Boolean {

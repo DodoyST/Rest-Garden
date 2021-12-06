@@ -55,7 +55,7 @@ class GraveDetailFragment : DaggerFragment() {
     
     binding.apply {
       btnGraveDetailBack.setOnClickListener {
-        findNavController().navigate(R.id.action_global_graveDetailFragment_to_homeFragment)
+        findNavController().navigate(R.id.action_global_homeFragment)
         graveViewModel.clearGrave()
       }
       
@@ -120,7 +120,7 @@ class GraveDetailFragment : DaggerFragment() {
       .setNegativeButton(getString(R.string.no)) { dialog, _ ->
         dialog.dismiss()
       }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
-        findNavController().navigate(R.id.action_global_graveDetailFragment_to_authActivity)
+        findNavController().navigate(R.id.action_global_authActivity)
         dialog.dismiss()
       }.show()
   }
