@@ -5,5 +5,6 @@ import com.example.restgarden.data.model.request.BookingRequest
 import retrofit2.Response
 
 interface TransactionRepository {
+  suspend fun getAllBooking(): Response<List<Booking>>
   suspend fun booking(bookingRequest: BookingRequest): Response<Booking>
 }

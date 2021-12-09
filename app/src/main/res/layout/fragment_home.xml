@@ -9,7 +9,7 @@
   <androidx.appcompat.widget.AppCompatImageButton
     android:id="@+id/btn_grave_list"
     android:layout_width="255dp"
-    android:layout_height="wrap_content"
+    android:layout_height="59dp"
     android:layout_marginTop="24dp"
     android:backgroundTint="@color/transparent"
     android:contentDescription="@string/app_name"

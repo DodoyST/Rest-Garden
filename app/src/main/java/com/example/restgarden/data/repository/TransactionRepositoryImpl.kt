@@ -8,6 +8,8 @@ import javax.inject.Inject
 
 class TransactionRepositoryImpl @Inject constructor(private val transactionService: TransactionService) :
   TransactionRepository {
+  
+  override suspend fun getAllBooking(): Response<List<Booking>> = transactionService.getAllBooking()
   override suspend fun booking(bookingRequest: BookingRequest): Response<Booking> =
     transactionService.booking(bookingRequest)
 }

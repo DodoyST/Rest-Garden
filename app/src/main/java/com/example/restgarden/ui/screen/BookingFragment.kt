@@ -173,8 +173,8 @@ class BookingFragment : DaggerFragment() {
   
   private fun booking() {
     binding.apply {
-      sessionManager.fetchAuthId()?.let {
-        bookingViewModel.booking(binding.etBookingNotesValue.text.toString(), id, it)
+      sessionManager.fetchAuthId()?.let { userId ->
+        bookingViewModel.booking(binding.etBookingNotesValue.text.toString(), id, userId)
           .observe(viewLifecycleOwner, {
             when (it) {
               is AppResource.Success -> bookingSuccess()
@@ -191,6 +191,7 @@ class BookingFragment : DaggerFragment() {
     isNotLoading()
     findNavController().navigate(R.id.action_global_homeFragment)
     formClear()
+    homeActivity.showBnvHome()
   }
   
   private fun bookingError() {

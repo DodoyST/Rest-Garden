@@ -64,4 +64,15 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
       }
     }
   }
+  
+  fun getAll() = liveData(Dispatchers.IO) {
+    emit(AppResource.Loading)
+    try {
+      val response = transactionRepository.getAllBooking()
+      if (response.isSuccessful) emit(AppResource.Success(response.body()))
+      else emit(AppResource.Error(null, response.errorBody().toString()))
+    } catch (e: Exception) {
+      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+    }
+  }
 }

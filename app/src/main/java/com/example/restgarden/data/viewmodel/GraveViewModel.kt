@@ -47,6 +47,17 @@ class GraveViewModel @Inject constructor(private val graveRepository: GraveRepos
     }
   }
   
+  fun getByIdWithoutSave(id: String) = liveData(Dispatchers.IO) {
+    emit(AppResource.Loading)
+    try {
+      val response = graveRepository.getGraveById(id)
+      if (response.isSuccessful) emit(AppResource.Success(response.body()))
+      else emit(AppResource.Error(null, response.errorBody().toString()))
+    } catch (e: Exception) {
+      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+    }
+  }
+  
   fun clearGrave() {
     _grave.value = AppResource.Success(Grave("", "", 0, 0.0, "", "", "", ""))
   }
