@@ -45,8 +45,8 @@ class RegisterFragment : DaggerFragment() {
     super.onViewCreated(view, savedInstanceState)
     
     instanceViewModel()
-    
-    formValidation()
+
+//    formValidation()
     
     binding.apply {
       

@@ -45,4 +45,12 @@
   <action
     android:id="@+id/action_global_authActivity"
     app:destination="@id/authActivity" />
+  <fragment
+    android:id="@+id/bookingFragment"
+    android:name="com.example.restgarden.ui.screen.BookingFragment"
+    android:label="fragment_booking"
+    tools:layout="@layout/fragment_booking" />
+  <action
+    android:id="@+id/action_global_bookingFragment"
+    app:destination="@id/bookingFragment" />
 </navigation>

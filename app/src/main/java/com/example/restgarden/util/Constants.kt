@@ -6,4 +6,5 @@ object Constants {
   const val GRAVE_URL = "grave"
   const val USER_URL = "user"
   const val REGISTER_URL = "register"
+  const val RESERVATION_URL = "reservation"
 }

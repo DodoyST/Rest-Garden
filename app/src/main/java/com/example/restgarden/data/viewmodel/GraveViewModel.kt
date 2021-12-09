@@ -48,6 +48,6 @@ class GraveViewModel @Inject constructor(private val graveRepository: GraveRepos
   }
   
   fun clearGrave() {
-    _grave.value = AppResource.Success(Grave("", "", 0, 0, "", "", "", ""))
+    _grave.value = AppResource.Success(Grave("", "", 0, 0.0, "", "", "", ""))
   }
 }

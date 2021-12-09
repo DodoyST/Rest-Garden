@@ -41,4 +41,15 @@
   <string name="home">Home</string>
   <string name="sign_in_error">Wrong username or password</string>
   <string name="logout">Logout</string>
+  <string name="price">Price</string>
+  <string name="plus">+</string>
+  <string name="minus">−</string>
+  <string name="payment_method">Payment Method</string>
+  <string name="dana">DANA</string>
+  <string name="ovo">OVO</string>
+  <string name="link_aja">Link Aja</string>
+  <string name="break_line">Break Line</string>
+  <string name="booking_fee">Booking Fee</string>
+  <string name="payment_summary">Payment Summary</string>
+  <string name="total_payment">Total Payment</string>
 </resources>

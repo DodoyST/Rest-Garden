@@ -13,6 +13,7 @@ import com.example.restgarden.R
 import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.FragmentGraveDetailBinding
+import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
 import dagger.android.support.DaggerFragment
@@ -21,6 +22,8 @@ import javax.inject.Inject
 class GraveDetailFragment : DaggerFragment() {
   private var _binding: FragmentGraveDetailBinding? = null
   private val binding get() = _binding!!
+  
+  private lateinit var homeActivity: HomeActivity
   
   private lateinit var graveViewModel: GraveViewModel
   
@@ -46,6 +49,9 @@ class GraveDetailFragment : DaggerFragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     
+    homeActivity = activity as HomeActivity
+    if (sessionManager.isLoggedIn()) homeActivity.showBnvHome()
+    
     graveViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
         GraveViewModel(graveRepositoryImpl) as T
@@ -61,7 +67,9 @@ class GraveDetailFragment : DaggerFragment() {
       
       btnGraveDetailBooking.setOnClickListener {
         if (!sessionManager.isLoggedIn()) dialogNeedSignIn()
+        else findNavController().navigate(R.id.action_global_bookingFragment)
       }
+      
     }
   }
   
