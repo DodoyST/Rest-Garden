@@ -50,6 +50,11 @@ class BookingDetailFragment : DaggerFragment() {
     instanceViewModel()
     
     binding.apply {
+      btnBookingDetailBack.setOnClickListener {
+        clear()
+        findNavController().navigate(R.id.action_global_bookingListFragment)
+      }
+      
       btnBookingDetailCancel.setOnClickListener {
         alertCancel()
       }
@@ -106,6 +111,7 @@ class BookingDetailFragment : DaggerFragment() {
       pbBookingDetail.visibility = View.GONE
       ivBookingDetail.visibility = View.VISIBLE
       lnlBookingDetail.visibility = View.VISIBLE
+      btnBookingDetailBack.visibility = View.VISIBLE
     }
   }
   
@@ -114,6 +120,7 @@ class BookingDetailFragment : DaggerFragment() {
       pbBookingDetail.visibility = View.VISIBLE
       ivBookingDetail.visibility = View.INVISIBLE
       lnlBookingDetail.visibility = View.INVISIBLE
+      btnBookingDetailBack.visibility = View.GONE
     }
   }
   
