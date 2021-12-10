@@ -1,5 +1,6 @@
 package com.example.restgarden.ui.screen
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.FragmentBookingDetailBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.toDate
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -47,6 +49,12 @@ class BookingDetailFragment : DaggerFragment() {
     
     instanceViewModel()
     
+    binding.apply {
+      btnBookingDetailCancel.setOnClickListener {
+        alertCancel()
+      }
+    }
+    
     subscribe()
   }
   
@@ -54,6 +62,7 @@ class BookingDetailFragment : DaggerFragment() {
     super.onDestroy()
     
     _binding = null
+    clear()
   }
   
   private fun instanceViewModel() {
@@ -88,6 +97,7 @@ class BookingDetailFragment : DaggerFragment() {
   private fun subscribeError(message: String) {
     findNavController().navigate(R.id.action_global_bookingListFragment)
     isNotLoading()
+    clear()
     Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
   }
   
@@ -109,5 +119,36 @@ class BookingDetailFragment : DaggerFragment() {
   
   private fun clear() {
     id = ""
+  }
+  
+  private fun alertCancel() {
+    AlertDialog.Builder(requireContext()).setMessage("Do you want to cancel this order?")
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        dialog.dismiss()
+        cancel()
+      }.show()
+  }
+  
+  private fun cancel() {
+    bookingViewModel.cancelBooking(id).observe(viewLifecycleOwner, {
+      when (it) {
+        is AppResource.Success -> cancelSuccess()
+        is AppResource.Error -> it.message?.let { it1 -> cancelError(it1) }
+        is AppResource.Loading -> isLoading()
+      }
+    })
+  }
+  
+  private fun cancelSuccess() {
+    findNavController().navigate(R.id.action_global_homeFragment)
+    isNotLoading()
+    clear()
+  }
+  
+  private fun cancelError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+    isNotLoading()
   }
 }

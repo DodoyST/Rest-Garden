@@ -84,11 +84,22 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
   fun getById(id: String) = viewModelScope.launch(Dispatchers.IO) {
     _booking.postValue(AppResource.Loading)
     try {
-      val response = transactionRepository.getBokkingById(id)
+      val response = transactionRepository.getBookingById(id)
       if (response.isSuccessful) _booking.postValue(AppResource.Success(response.body()))
       else _booking.postValue(AppResource.Error(null, response.errorBody().toString()))
     } catch (e: Exception) {
       _booking.postValue(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+    }
+  }
+  
+  fun cancelBooking(id: String) = liveData(Dispatchers.IO) {
+    emit(AppResource.Loading)
+    try {
+      val response = transactionRepository.cancelBooking(id)
+      if (response.isSuccessful) emit(AppResource.Success(response.body()))
+      else emit(AppResource.Error(null, response.errorBody().toString()))
+    } catch (e: Exception) {
+      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
     }
   }
 }

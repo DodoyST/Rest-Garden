@@ -6,6 +6,7 @@ import retrofit2.Response
 
 interface TransactionRepository {
   suspend fun getAllBooking(): Response<List<Booking>>
-  suspend fun getBokkingById(id: String): Response<Booking>
+  suspend fun getBookingById(id: String): Response<Booking>
   suspend fun booking(bookingRequest: BookingRequest): Response<Booking>
+  suspend fun cancelBooking(id: String): Response<Unit>
 }
