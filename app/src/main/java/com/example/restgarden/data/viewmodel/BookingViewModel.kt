@@ -34,8 +34,8 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
     _price.value = priceValue
   }
   
-  fun increment() {
-    _amount.value = _amount.value?.plus(1)
+  fun increment(slot: Int) {
+    if (_amount.value!! < slot) _amount.value = _amount.value?.plus(1)
     setTotalPrice()
   }
   
