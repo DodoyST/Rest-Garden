@@ -69,12 +69,15 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
     }
   }
   
-  fun getAll() = liveData(Dispatchers.IO) {
+  fun getAll(userId: String) = liveData(Dispatchers.IO) {
     emit(AppResource.Loading)
     try {
-      val response = transactionRepository.getAllBooking()
+      val response = transactionRepository.getAllBooking(userId)
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
-      else emit(AppResource.Error(null, response.errorBody().toString()))
+      else {
+        Log.i("BOOKING", "getAll: ${response.errorBody()}")
+        emit(AppResource.Error(null, response.errorBody().toString()))
+      }
     } catch (e: Exception) {
       Log.i("BOOKING", "getAll: ${e.localizedMessage}")
       emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))

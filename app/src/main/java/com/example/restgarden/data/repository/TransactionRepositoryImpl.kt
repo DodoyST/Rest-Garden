@@ -9,7 +9,9 @@ import javax.inject.Inject
 class TransactionRepositoryImpl @Inject constructor(private val transactionService: TransactionService) :
   TransactionRepository {
   
-  override suspend fun getAllBooking(): Response<List<Booking>> = transactionService.getAllBooking()
+  override suspend fun getAllBooking(userId: String): Response<List<Booking>> =
+    transactionService.getAllBooking(userId)
+  
   override suspend fun getBookingById(id: String): Response<Booking> =
     transactionService.getBookingById(id)
   

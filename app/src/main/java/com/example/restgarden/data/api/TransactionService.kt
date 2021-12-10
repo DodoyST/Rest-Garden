@@ -8,8 +8,8 @@ import retrofit2.http.*
 
 interface TransactionService {
   
-  @GET("${Constants.RESERVATION_URL}s")
-  suspend fun getAllBooking(): Response<List<Booking>>
+  @GET("${Constants.RESERVATION_URL}/${Constants.USER_URL}/{id}")
+  suspend fun getAllBooking(@Path("id") userId: String): Response<List<Booking>>
   
   @GET("${Constants.RESERVATION_URL}/{id}")
   suspend fun getBookingById(@Path("id") id: String): Response<Booking>

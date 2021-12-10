@@ -14,6 +14,7 @@ import com.example.restgarden.data.repository.TransactionRepository
 import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.FragmentBookingListBinding
 import com.example.restgarden.util.AppResource
+import com.example.restgarden.util.SessionManager
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -27,6 +28,9 @@ class BookingListFragment : DaggerFragment() {
   lateinit var transactionRepository: TransactionRepository
   
   private lateinit var bookingAdapter: BookingAdapter
+  
+  @Inject
+  lateinit var sessionManager: SessionManager
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -63,13 +67,15 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun subscribe() {
-    bookingViewModel.getAll().observe(viewLifecycleOwner, {
-      when (it) {
-        is AppResource.Success -> if (it.data != null) subscribeSuccess(it.data)
-        is AppResource.Error -> subscribeError()
-        is AppResource.Loading -> isLoading()
-      }
-    })
+    sessionManager.fetchAuthId()?.let { userId ->
+      bookingViewModel.getAll(userId).observe(viewLifecycleOwner, {
+        when (it) {
+          is AppResource.Success -> if (it.data != null) subscribeSuccess(it.data)
+          is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
+          is AppResource.Loading -> isLoading()
+        }
+      })
+    }
   }
   
   private fun subscribeSuccess(bookingList: List<Booking>) {
@@ -81,8 +87,8 @@ class BookingListFragment : DaggerFragment() {
     isNotLoading()
   }
   
-  private fun subscribeError() {
-    Toast.makeText(requireContext(), "Something Wrong...", Toast.LENGTH_LONG).show()
+  private fun subscribeError(message: String) {
+    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     isNotLoading()
   }
   
