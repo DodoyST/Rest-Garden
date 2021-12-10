@@ -28,6 +28,7 @@ class BookingFragment : DaggerFragment() {
   private val binding get() = _binding!!
   
   private var id = ""
+  private var slot = 0
   
   private lateinit var homeActivity: HomeActivity
   
@@ -71,7 +72,7 @@ class BookingFragment : DaggerFragment() {
         formClear()
       }
       btnBookingPlus.setOnClickListener {
-        bookingViewModel.increment()
+        bookingViewModel.increment(slot)
       }
       btnBookingMinus.setOnClickListener {
         bookingViewModel.decrement()
@@ -139,6 +140,7 @@ class BookingFragment : DaggerFragment() {
   private fun getByIdSuccess(grave: Grave) {
     binding.apply {
       id = grave.id
+      slot = grave.availableSlots
       tvBookingName.text = grave.name
       tvBookingAddress.text = grave.address
       tvBookingGravePrice.text = grave.price.currencyFormat()
