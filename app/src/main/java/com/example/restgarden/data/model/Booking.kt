@@ -7,6 +7,7 @@ data class Booking(
   var gravePrice: Double,
   var status: String,
   var totalPayment: Double,
+  var expiredDate: Long,
   var description: String,
   var graveId: String,
   var userId: String,

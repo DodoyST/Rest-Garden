@@ -53,4 +53,12 @@
   <action
     android:id="@+id/action_global_bookingFragment"
     app:destination="@id/bookingFragment" />
+  <fragment
+    android:id="@+id/bookingDetailFragment"
+    android:name="com.example.restgarden.ui.screen.BookingDetailFragment"
+    android:label="fragment_booking_detail"
+    tools:layout="@layout/fragment_booking_detail" />
+  <action
+    android:id="@+id/action_global_bookingDetailFragment"
+    app:destination="@id/bookingDetailFragment" />
 </navigation>

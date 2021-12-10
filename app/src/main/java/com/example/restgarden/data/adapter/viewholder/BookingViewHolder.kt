@@ -1,11 +1,15 @@
 package com.example.restgarden.data.adapter.viewholder
 
 import android.view.View
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.restgarden.R
 import com.example.restgarden.data.model.Booking
+import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.CardBookingBinding
 
-class BookingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class BookingViewHolder(itemView: View, private val bookingViewModel: BookingViewModel) :
+  RecyclerView.ViewHolder(itemView) {
   
   private val binding = CardBookingBinding.bind(itemView)
   var id = ""
@@ -16,6 +20,13 @@ class BookingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
       tvCardBookingName.text = booking.graveName
       tvCardBookingAddress.text = booking.graveAddress
       tvCardBookingSlot.text = booking.totalSlot.toString()
+    }
+  }
+  
+  init {
+    itemView.setOnClickListener {
+      itemView.findNavController().navigate(R.id.action_global_bookingDetailFragment)
+      bookingViewModel.getById(id)
     }
   }
 }

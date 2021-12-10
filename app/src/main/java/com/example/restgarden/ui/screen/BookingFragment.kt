@@ -178,7 +178,7 @@ class BookingFragment : DaggerFragment() {
           .observe(viewLifecycleOwner, {
             when (it) {
               is AppResource.Success -> bookingSuccess()
-              is AppResource.Error -> bookingError()
+              is AppResource.Error -> it.message?.let { it1 -> bookingError(it1) }
               is AppResource.Loading -> isLoading()
             }
           })
@@ -194,8 +194,8 @@ class BookingFragment : DaggerFragment() {
     homeActivity.showBnvHome()
   }
   
-  private fun bookingError() {
-    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
+  private fun bookingError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   

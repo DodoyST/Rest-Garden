@@ -46,6 +46,6 @@
       android:gravity="center"
       android:text="@string/_0"
       android:textColor="@color/white"
-      android:textSize="20sp" />
+      android:textSize="24sp" />
   </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -35,4 +35,7 @@ abstract class ActivityModule {
   
   @ContributesAndroidInjector
   abstract fun contributeBookingListFragment(): BookingListFragment
+  
+  @ContributesAndroidInjector
+  abstract fun contributeBookingDetailFragment(): BookingDetailFragment
 }

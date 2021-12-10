@@ -73,7 +73,7 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun subscribeSuccess(bookingList: List<Booking>) {
-    bookingAdapter = BookingAdapter(bookingList)
+    bookingAdapter = BookingAdapter(bookingList, bookingViewModel)
     binding.rvBookingList.apply {
       adapter = bookingAdapter
       layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
