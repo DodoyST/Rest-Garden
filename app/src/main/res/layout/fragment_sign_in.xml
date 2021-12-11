@@ -26,7 +26,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="58dp"
-    android:background="@color/white"
+    android:background="@drawable/card_white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     app:layout_constraintBottom_toBottomOf="parent"
