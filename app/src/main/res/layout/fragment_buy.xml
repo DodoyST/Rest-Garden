@@ -5,10 +5,10 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/re_green"
-  tools:context=".ui.screen.BookingFragment">
+  tools:context=".ui.screen.BuyFragment">
   
   <TextView
-    android:id="@+id/tv_booking_name"
+    android:id="@+id/tv_buy_name"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginStart="64dp"
@@ -23,7 +23,7 @@
     app:layout_constraintTop_toTopOf="parent" />
   
   <TextView
-    android:id="@+id/tv_booking_address"
+    android:id="@+id/tv_buy_address"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:ellipsize="end"
@@ -31,12 +31,12 @@
     android:text="@string/address"
     android:textColor="@color/white"
     android:textSize="17sp"
-    app:layout_constraintEnd_toEndOf="@+id/tv_booking_name"
-    app:layout_constraintStart_toStartOf="@+id/tv_booking_name"
-    app:layout_constraintTop_toBottomOf="@+id/tv_booking_name" />
+    app:layout_constraintEnd_toEndOf="@+id/tv_buy_name"
+    app:layout_constraintStart_toStartOf="@+id/tv_buy_name"
+    app:layout_constraintTop_toBottomOf="@+id/tv_buy_name" />
   
   <ImageButton
-    android:id="@+id/btn_booking_back"
+    android:id="@+id/btn_buy_back"
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:layout_marginStart="8dp"
@@ -50,7 +50,7 @@
     app:tint="@color/black" />
   
   <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/csl_booking"
+    android:id="@+id/csl_buy"
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginTop="24dp"
@@ -60,11 +60,10 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv_booking_address">
-    
+    app:layout_constraintTop_toBottomOf="@+id/tv_buy_address">
     
     <TextView
-      android:id="@+id/tv_booking_grave"
+      android:id="@+id/tv_buy_grave"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:fontFamily="@font/poppins_semibold"
@@ -74,15 +73,15 @@
       app:layout_constraintTop_toTopOf="parent" />
     
     <TextView
-      android:id="@+id/tv_booking_grave_price"
+      android:id="@+id/tv_buy_grave_price"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/price"
-      app:layout_constraintStart_toStartOf="@+id/tv_booking_grave"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_grave" />
+      app:layout_constraintStart_toStartOf="@+id/tv_buy_grave"
+      app:layout_constraintTop_toBottomOf="@+id/tv_buy_grave" />
     
     <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_booking_plus"
+      android:id="@+id/btn_buy_plus"
       android:layout_width="48dp"
       android:layout_height="58dp"
       android:contentDescription="@string/plus"
@@ -92,24 +91,24 @@
       android:textSize="24sp"
       app:backgroundTint="@color/white"
       app:cornerRadius="50dp"
-      app:layout_constraintBottom_toBottomOf="@+id/tv_booking_grave_price"
+      app:layout_constraintBottom_toBottomOf="@+id/tv_buy_grave_price"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/tv_booking_grave"
+      app:layout_constraintTop_toTopOf="@+id/tv_buy_grave"
       app:strokeWidth="1dp" />
     
     <TextView
-      android:id="@+id/tv_booking_amount"
+      android:id="@+id/tv_buy_amount"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
       android:text="@string/_0"
       android:textSize="24sp"
-      app:layout_constraintBottom_toBottomOf="@+id/btn_booking_plus"
-      app:layout_constraintEnd_toStartOf="@+id/btn_booking_plus"
-      app:layout_constraintTop_toTopOf="@+id/btn_booking_plus" />
+      app:layout_constraintBottom_toBottomOf="@+id/btn_buy_plus"
+      app:layout_constraintEnd_toStartOf="@+id/btn_buy_plus"
+      app:layout_constraintTop_toTopOf="@+id/btn_buy_plus" />
     
     <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_booking_minus"
+      android:id="@+id/btn_buy_minus"
       android:layout_width="48dp"
       android:layout_height="58dp"
       android:layout_marginEnd="8dp"
@@ -119,13 +118,13 @@
       android:textSize="24sp"
       app:backgroundTint="@color/white"
       app:cornerRadius="50dp"
-      app:layout_constraintBottom_toBottomOf="@+id/tv_booking_amount"
-      app:layout_constraintEnd_toStartOf="@+id/tv_booking_amount"
-      app:layout_constraintTop_toTopOf="@+id/tv_booking_amount"
+      app:layout_constraintBottom_toBottomOf="@+id/tv_buy_amount"
+      app:layout_constraintEnd_toStartOf="@+id/tv_buy_amount"
+      app:layout_constraintTop_toTopOf="@+id/tv_buy_amount"
       app:strokeWidth="1dp" />
     
     <ImageView
-      android:id="@+id/imageView"
+      android:id="@+id/imageView3"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
@@ -133,10 +132,10 @@
       android:src="@drawable/black_line"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_grave_price" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_buy_grave_price" />
     
     <ImageView
-      android:id="@+id/iv_booking_notes"
+      android:id="@+id/iv_buy_notes"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="8dp"
@@ -144,23 +143,23 @@
       android:contentDescription="@string/notes"
       android:src="@drawable/ic_baseline_event_note_24"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView"
+      app:layout_constraintTop_toBottomOf="@+id/imageView3"
       app:tint="@color/black" />
     
     <TextView
-      android:id="@+id/tv_booking_notes"
+      android:id="@+id/tv_buy_notes"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="4dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/notes"
       android:textSize="16sp"
-      app:layout_constraintBottom_toBottomOf="@+id/iv_booking_notes"
-      app:layout_constraintStart_toEndOf="@+id/iv_booking_notes"
-      app:layout_constraintTop_toTopOf="@+id/iv_booking_notes" />
+      app:layout_constraintBottom_toBottomOf="@+id/iv_buy_notes"
+      app:layout_constraintStart_toEndOf="@+id/iv_buy_notes"
+      app:layout_constraintTop_toTopOf="@+id/iv_buy_notes" />
     
     <com.google.android.material.textfield.TextInputEditText
-      android:id="@+id/et_booking_notes_value"
+      android:id="@+id/et_buy_notes_value"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
@@ -173,31 +172,31 @@
       android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/iv_booking_notes"
+      app:layout_constraintTop_toBottomOf="@+id/iv_buy_notes"
       tools:ignore="SpeakableTextPresentCheck" />
     
     <TextView
-      android:id="@+id/tv_booking_payment_method"
+      android:id="@+id/tv_buy_payment_method"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/payment_method"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/et_booking_notes_value" />
+      app:layout_constraintTop_toBottomOf="@+id/et_buy_notes_value" />
     
     <RadioGroup
-      android:id="@+id/rdg_booking_payment_method"
+      android:id="@+id/rdg_buy_payment_method"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:orientation="horizontal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_payment_method">
+      app:layout_constraintTop_toBottomOf="@+id/tv_buy_payment_method">
       
       <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rdbtn_booking_dana"
+        android:id="@+id/rdbtn_buy_dana"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginHorizontal="4dp"
@@ -212,7 +211,7 @@
         tools:ignore="TouchTargetSizeCheck" />
       
       <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rdbtn_booking_ovo"
+        android:id="@+id/rdbtn_buy_ovo"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginHorizontal="4dp"
@@ -227,7 +226,7 @@
         tools:ignore="TouchTargetSizeCheck" />
       
       <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rdbtn_booking_link_aja"
+        android:id="@+id/rdbtn_buy_link_aja"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginHorizontal="4dp"
@@ -243,52 +242,34 @@
     </RadioGroup>
     
     <TextView
-      android:id="@+id/tv_booking_payment_summary"
+      android:id="@+id/tv_buy_payment_summary"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/payment_summary"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/rdg_booking_payment_method" />
+      app:layout_constraintTop_toBottomOf="@+id/rdg_buy_payment_method" />
     
     <TextView
-      android:id="@+id/tv_booking_price"
+      android:id="@+id/tv_buy_price"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/price"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_payment_summary" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_buy_payment_summary" />
     
     <TextView
-      android:id="@+id/tv_booking_price_value"
+      android:id="@+id/tv_buy_price_value"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/_0"
-      app:layout_constraintBottom_toBottomOf="@+id/tv_booking_price"
+      app:layout_constraintBottom_toBottomOf="@+id/tv_buy_price"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/tv_booking_price" />
-    
-    <TextView
-      android:id="@+id/tv_booking_fee"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/booking_fee"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_price" />
-    
-    <TextView
-      android:id="@+id/tv_booking_fee_value"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/_0"
-      app:layout_constraintBottom_toBottomOf="@+id/tv_booking_fee"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/tv_booking_fee"
-      app:layout_constraintVertical_bias="1.0" />
+      app:layout_constraintTop_toTopOf="@+id/tv_buy_price" />
     
     <ImageView
-      android:id="@+id/imageView2"
+      android:id="@+id/imageView4"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
@@ -296,44 +277,43 @@
       android:src="@drawable/black_line"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_fee" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_buy_price" />
     
     <TextView
-      android:id="@+id/tv_booking_total_payment"
+      android:id="@+id/tv_buy_total_payment"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:text="@string/total_payment"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+      app:layout_constraintTop_toBottomOf="@+id/imageView4" />
     
     <TextView
-      android:id="@+id/tv_booking_total_payment_value"
+      android:id="@+id/tv_buy_total_payment_value"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/_0"
-      app:layout_constraintBottom_toBottomOf="@+id/tv_booking_total_payment"
+      app:layout_constraintBottom_toBottomOf="@+id/tv_buy_total_payment"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/tv_booking_total_payment" />
+      app:layout_constraintTop_toTopOf="@+id/tv_buy_total_payment" />
     
-    <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_booking_submit"
+    <Button
+      android:id="@+id/btn_buy_submit"
       android:layout_width="203dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:fontFamily="@font/poppins_semibold"
-      android:text="@string/booking"
+      android:text="@string/buy"
       android:textAllCaps="false"
       android:textSize="20sp"
       app:cornerRadius="30dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tv_booking_total_payment" />
-  
+      app:layout_constraintTop_toBottomOf="@+id/tv_buy_total_payment" />
   </androidx.constraintlayout.widget.ConstraintLayout>
   
   <ProgressBar
-    android:id="@+id/pb_booking"
+    android:id="@+id/pb_buy"
     style="@android:style/Widget.Material.ProgressBar.Large"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -341,5 +321,4 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

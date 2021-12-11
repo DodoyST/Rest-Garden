@@ -118,6 +118,21 @@
       </LinearLayout>
     </LinearLayout>
     
+    <TextView
+      android:id="@+id/tv_booking_detail_notes"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/notes"
+      android:textSize="20sp" />
+    
+    <TextView
+      android:id="@+id/tv_booking_detail_notes_value"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/notes" />
+    
     <com.google.android.material.button.MaterialButton
       android:id="@+id/btn_booking_detail_cancel"
       android:layout_width="match_parent"

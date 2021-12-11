@@ -65,6 +65,11 @@ class GraveDetailFragment : DaggerFragment() {
         graveViewModel.clearGrave()
       }
       
+      btnGraveDetailBuy.setOnClickListener {
+        if (!sessionManager.isLoggedIn()) dialogNeedSignIn()
+        else findNavController().navigate(R.id.action_global_buyFragment)
+      }
+      
       btnGraveDetailBooking.setOnClickListener {
         if (!sessionManager.isLoggedIn()) dialogNeedSignIn()
         else findNavController().navigate(R.id.action_global_bookingFragment)

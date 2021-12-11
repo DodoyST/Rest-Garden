@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
-import com.example.restgarden.data.model.Booking
+import com.example.restgarden.data.model.Transaction
 import com.example.restgarden.data.repository.TransactionRepository
-import com.example.restgarden.data.viewmodel.BookingViewModel
+import com.example.restgarden.data.viewmodel.TransactionViewModel
 import com.example.restgarden.databinding.FragmentBookingDetailBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.toDate
@@ -26,7 +26,7 @@ class BookingDetailFragment : DaggerFragment() {
   
   private var id = ""
   
-  private lateinit var bookingViewModel: BookingViewModel
+  private lateinit var transactionViewModel: TransactionViewModel
   
   @Inject
   lateinit var transactionRepository: TransactionRepository
@@ -71,14 +71,14 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun instanceViewModel() {
-    bookingViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+    transactionViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        BookingViewModel(transactionRepository) as T
-    })[BookingViewModel::class.java]
+        TransactionViewModel(transactionRepository) as T
+    })[TransactionViewModel::class.java]
   }
   
   private fun subscribe() {
-    bookingViewModel.booking.observe(viewLifecycleOwner, {
+    transactionViewModel.transaction.observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
         is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
@@ -87,14 +87,22 @@ class BookingDetailFragment : DaggerFragment() {
     })
   }
   
-  private fun subscribeSuccess(booking: Booking) {
-    id = booking.id
+  private fun subscribeSuccess(transaction: Transaction) {
+    id = transaction.id
     binding.apply {
-      tvBookingDetailGraveName.text = booking.graveName
-      tvBookingDetailGraveAddress.text = booking.graveAddress
-      tvBookingDetailStatusValue.text = booking.status
-      tvBookingDetailDateExpiredValue.text = booking.expiredDate.toDate()
-      tvBookingDetailReservedSlotsValue.text = booking.totalSlot.toString()
+      tvBookingDetailGraveName.text = transaction.graveName
+      tvBookingDetailGraveAddress.text = transaction.graveAddress
+      tvBookingDetailStatusValue.text = transaction.status
+      tvBookingDetailDateExpiredValue.text = transaction.expiredDate.toDate()
+      tvBookingDetailReservedSlotsValue.text = transaction.totalSlot.toString()
+      if (transaction.description.trim().isNotBlank()) {
+        tvBookingDetailNotes.visibility = View.VISIBLE
+        tvBookingDetailNotesValue.visibility = View.VISIBLE
+        tvBookingDetailNotesValue.text = transaction.description
+      } else {
+        tvBookingDetailNotes.visibility = View.GONE
+        tvBookingDetailNotesValue.visibility = View.GONE
+      }
     }
     isNotLoading()
   }
@@ -139,7 +147,7 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun cancel() {
-    bookingViewModel.cancelBooking(id).observe(viewLifecycleOwner, {
+    transactionViewModel.cancelBooking(id).observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> cancelSuccess()
         is AppResource.Error -> it.message?.let { it1 -> cancelError(it1) }

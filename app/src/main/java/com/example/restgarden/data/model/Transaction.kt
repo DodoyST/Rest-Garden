@@ -1,6 +1,6 @@
 package com.example.restgarden.data.model
 
-data class Booking(
+data class Transaction(
   var id: String,
   var graveName: String,
   var graveAddress: String,

@@ -13,6 +13,7 @@
     <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     <!-- Customize your theme here. -->
     <item name="android:textColor">@color/black</item>
+    <item name="android:indeterminateTint">@color/re_black</item>
     <item name="android:fontFamily">@font/poppins</item>
     <item name="android:windowActionBar">false</item>
     <item name="android:windowNoTitle">true</item>

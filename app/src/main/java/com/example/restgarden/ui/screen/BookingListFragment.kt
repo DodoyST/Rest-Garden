@@ -8,10 +8,11 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restgarden.R
 import com.example.restgarden.data.adapter.BookingAdapter
-import com.example.restgarden.data.model.Booking
+import com.example.restgarden.data.model.Transaction
 import com.example.restgarden.data.repository.TransactionRepository
-import com.example.restgarden.data.viewmodel.BookingViewModel
+import com.example.restgarden.data.viewmodel.TransactionViewModel
 import com.example.restgarden.databinding.FragmentBookingListBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
@@ -22,7 +23,7 @@ class BookingListFragment : DaggerFragment() {
   private var _binding: FragmentBookingListBinding? = null
   private val binding get() = _binding!!
   
-  private lateinit var bookingViewModel: BookingViewModel
+  private lateinit var transactionViewModel: TransactionViewModel
   
   @Inject
   lateinit var transactionRepository: TransactionRepository
@@ -60,15 +61,15 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun instanceViewModel() {
-    bookingViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+    transactionViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        BookingViewModel(transactionRepository) as T
-    })[BookingViewModel::class.java]
+        TransactionViewModel(transactionRepository) as T
+    })[TransactionViewModel::class.java]
   }
   
   private fun subscribe() {
     sessionManager.fetchAuthId()?.let { userId ->
-      bookingViewModel.getAll(userId).observe(viewLifecycleOwner, {
+      transactionViewModel.getAll(userId).observe(viewLifecycleOwner, {
         when (it) {
           is AppResource.Success -> if (it.data != null) subscribeSuccess(it.data)
           is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
@@ -78,8 +79,8 @@ class BookingListFragment : DaggerFragment() {
     }
   }
   
-  private fun subscribeSuccess(bookingList: List<Booking>) {
-    bookingAdapter = BookingAdapter(bookingList, bookingViewModel)
+  private fun subscribeSuccess(transactionList: List<Transaction>) {
+    bookingAdapter = BookingAdapter(transactionList, transactionViewModel)
     binding.rvBookingList.apply {
       adapter = bookingAdapter
       layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -88,13 +89,12 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun subscribeError(message: String) {
-    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+    Toast.makeText(requireContext(), getString(R.string.something_wrong), Toast.LENGTH_LONG).show()
     isNotLoading()
   }
   
   private fun isNotLoading() {
     binding.apply {
-      tvBookingList.visibility = View.VISIBLE
       rvBookingList.visibility = View.VISIBLE
       pbBookingList.visibility = View.GONE
     }
@@ -102,7 +102,6 @@ class BookingListFragment : DaggerFragment() {
   
   private fun isLoading() {
     binding.apply {
-      tvBookingList.visibility = View.INVISIBLE
       rvBookingList.visibility = View.INVISIBLE
       pbBookingList.visibility = View.VISIBLE
     }

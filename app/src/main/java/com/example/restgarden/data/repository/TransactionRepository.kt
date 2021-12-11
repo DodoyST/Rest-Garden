@@ -1,12 +1,13 @@
 package com.example.restgarden.data.repository
 
-import com.example.restgarden.data.model.Booking
-import com.example.restgarden.data.model.request.BookingRequest
+import com.example.restgarden.data.model.Transaction
+import com.example.restgarden.data.model.request.TransactionRequest
 import retrofit2.Response
 
 interface TransactionRepository {
-  suspend fun getAllBooking(userId: String): Response<List<Booking>>
-  suspend fun getBookingById(id: String): Response<Booking>
-  suspend fun booking(bookingRequest: BookingRequest): Response<Booking>
+  suspend fun getAllBooking(userId: String): Response<List<Transaction>>
+  suspend fun getBookingById(id: String): Response<Transaction>
+  suspend fun booking(transactionRequest: TransactionRequest): Response<Transaction>
   suspend fun cancelBooking(id: String): Response<Unit>
+  suspend fun buy(transactionRequest: TransactionRequest): Response<Transaction>
 }

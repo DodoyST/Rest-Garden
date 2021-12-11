@@ -89,8 +89,9 @@
     
     <ScrollView
       android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:layout_marginTop="8dp">
+      android:layout_height="175dp"
+      android:layout_marginTop="8dp"
+      android:fadeScrollbars="false">
       
       <LinearLayout
         android:layout_width="match_parent"
@@ -152,12 +153,24 @@
       </LinearLayout>
     </ScrollView>
     
-    <Button
-      android:id="@+id/btn_grave_detail_booking"
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_grave_detail_buy"
       android:layout_width="243dp"
       android:layout_height="wrap_content"
       android:layout_gravity="center_horizontal"
       android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/buy"
+      android:textAllCaps="false"
+      android:textSize="20sp"
+      app:cornerRadius="30dp" />
+    
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_grave_detail_booking"
+      android:layout_width="243dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="4dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/booking"
       android:textAllCaps="false"

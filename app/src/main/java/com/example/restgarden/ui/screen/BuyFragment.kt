@@ -14,7 +14,7 @@ import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.repository.TransactionRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.data.viewmodel.TransactionViewModel
-import com.example.restgarden.databinding.FragmentBookingBinding
+import com.example.restgarden.databinding.FragmentBuyBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
@@ -23,8 +23,8 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class BookingFragment : DaggerFragment() {
-  private var _binding: FragmentBookingBinding? = null
+class BuyFragment : DaggerFragment() {
+  private var _binding: FragmentBuyBinding? = null
   private val binding get() = _binding!!
   
   private var id = ""
@@ -54,7 +54,7 @@ class BookingFragment : DaggerFragment() {
     savedInstanceState: Bundle?
   ): View? {
     // Inflate the layout for this fragment
-    _binding = FragmentBookingBinding.inflate(inflater, container, false)
+    _binding = FragmentBuyBinding.inflate(inflater, container, false)
     return binding.root
   }
   
@@ -67,18 +67,17 @@ class BookingFragment : DaggerFragment() {
     instanceViewModel()
     
     binding.apply {
-      btnBookingBack.setOnClickListener {
+      btnBuyBack.setOnClickListener {
         findNavController().navigate(R.id.action_global_graveDetailFragment)
-        formClear()
       }
-      btnBookingPlus.setOnClickListener {
+      btnBuyPlus.setOnClickListener {
         transactionViewModel.increment(slot)
       }
-      btnBookingMinus.setOnClickListener {
+      btnBuyMinus.setOnClickListener {
         transactionViewModel.decrement()
       }
-      btnBookingSubmit.setOnClickListener {
-        booking()
+      btnBuySubmit.setOnClickListener {
+        buy()
       }
     }
     
@@ -108,13 +107,12 @@ class BookingFragment : DaggerFragment() {
     binding.apply {
       transactionViewModel.apply {
         amount.observe(viewLifecycleOwner, {
-          tvBookingAmount.text = it.toString()
-          btnBookingSubmit.visibility = if (it < 1) View.GONE else View.VISIBLE
+          tvBuyAmount.text = it.toString()
+          btnBuySubmit.visibility = if (it < 1) View.GONE else View.VISIBLE
         })
         totalPrice.observe(viewLifecycleOwner, {
-          tvBookingPriceValue.text = it?.currencyFormat()
-          tvBookingFeeValue.text = it?.times(0.2)?.currencyFormat()
-          tvBookingTotalPaymentValue.text = it?.times(1.2)?.currencyFormat()
+          tvBuyPriceValue.text = it?.currencyFormat()
+          tvBuyTotalPaymentValue.text = it?.currencyFormat()
         })
       }
     }
@@ -141,9 +139,9 @@ class BookingFragment : DaggerFragment() {
     binding.apply {
       id = grave.id
       slot = grave.availableSlots
-      tvBookingName.text = grave.name
-      tvBookingAddress.text = grave.address
-      tvBookingGravePrice.text = grave.price.currencyFormat()
+      tvBuyName.text = grave.name
+      tvBuyAddress.text = grave.address
+      tvBuyGravePrice.text = grave.price.currencyFormat()
       transactionViewModel.setPrice(grave.price)
     }
   }
@@ -155,32 +153,32 @@ class BookingFragment : DaggerFragment() {
   
   private fun isNotLoading() {
     binding.apply {
-      pbBooking.visibility = View.GONE
-      cslBooking.visibility = View.VISIBLE
-      btnBookingBack.visibility = View.VISIBLE
-      tvBookingName.visibility = View.VISIBLE
-      tvBookingAddress.visibility = View.VISIBLE
+      pbBuy.visibility = View.GONE
+      cslBuy.visibility = View.VISIBLE
+      btnBuyBack.visibility = View.VISIBLE
+      tvBuyName.visibility = View.VISIBLE
+      tvBuyAddress.visibility = View.VISIBLE
     }
   }
   
   private fun isLoading() {
     binding.apply {
-      pbBooking.visibility = View.VISIBLE
-      cslBooking.visibility = View.GONE
-      btnBookingBack.visibility = View.GONE
-      tvBookingName.visibility = View.GONE
-      tvBookingAddress.visibility = View.GONE
+      pbBuy.visibility = View.VISIBLE
+      cslBuy.visibility = View.GONE
+      btnBuyBack.visibility = View.GONE
+      tvBuyName.visibility = View.GONE
+      tvBuyAddress.visibility = View.GONE
     }
   }
   
-  private fun booking() {
+  private fun buy() {
     binding.apply {
       sessionManager.fetchAuthId()?.let { userId ->
-        transactionViewModel.booking(binding.etBookingNotesValue.text.toString(), id, userId)
+        transactionViewModel.buy(binding.etBuyNotesValue.text.toString(), id, userId)
           .observe(viewLifecycleOwner, {
             when (it) {
-              is AppResource.Success -> bookingSuccess()
-              is AppResource.Error -> it.message?.let { it1 -> bookingError(it1) }
+              is AppResource.Success -> buySuccess()
+              is AppResource.Error -> it.message?.let { it1 -> buyError(it1) }
               is AppResource.Loading -> isLoading()
             }
           })
@@ -188,23 +186,23 @@ class BookingFragment : DaggerFragment() {
     }
   }
   
-  private fun bookingSuccess() {
-    Toast.makeText(requireContext(), "Thank you for ordering the grave", Toast.LENGTH_LONG).show()
+  private fun buySuccess() {
+    Toast.makeText(requireContext(), "Thank you for buying grave", Toast.LENGTH_LONG).show()
     isNotLoading()
     findNavController().navigate(R.id.action_global_homeFragment)
     formClear()
     homeActivity.showBnvHome()
   }
   
-  private fun bookingError(message: String) {
-    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+  private fun buyError(message: String) {
+    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   
   private fun formClear() {
     binding.apply {
-      etBookingNotesValue.text?.clear()
-      rdgBookingPaymentMethod.clearCheck()
+      etBuyNotesValue.text?.clear()
+      rdgBuyPaymentMethod.clearCheck()
     }
     transactionViewModel.liveDataReset()
   }

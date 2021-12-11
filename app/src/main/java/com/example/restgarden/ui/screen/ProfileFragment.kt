@@ -104,6 +104,8 @@ class ProfileFragment : DaggerFragment() {
       tvProfilePhoneNumberValue.visibility = View.VISIBLE
       tvProfileAddressValue.visibility = View.VISIBLE
       pbProfile.visibility = View.GONE
+      btnProfileLogout.visibility = View.VISIBLE
+      btnProfileEditProfile.visibility = View.VISIBLE
     }
   }
   
@@ -112,6 +114,8 @@ class ProfileFragment : DaggerFragment() {
       tvProfilePhoneNumberValue.visibility = View.INVISIBLE
       tvProfileAddressValue.visibility = View.INVISIBLE
       pbProfile.visibility = View.VISIBLE
+      btnProfileLogout.visibility = View.INVISIBLE
+      btnProfileEditProfile.visibility = View.INVISIBLE
     }
   }
 }

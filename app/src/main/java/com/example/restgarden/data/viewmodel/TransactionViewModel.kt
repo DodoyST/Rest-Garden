@@ -3,19 +3,19 @@ package com.example.restgarden.data.viewmodel
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.restgarden.R
-import com.example.restgarden.data.model.Booking
-import com.example.restgarden.data.model.request.BookingRequest
+import com.example.restgarden.data.model.Transaction
+import com.example.restgarden.data.model.request.TransactionRequest
 import com.example.restgarden.data.repository.TransactionRepository
 import com.example.restgarden.util.AppResource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class BookingViewModel @Inject constructor(private val transactionRepository: TransactionRepository) :
+class TransactionViewModel @Inject constructor(private val transactionRepository: TransactionRepository) :
   ViewModel() {
   
-  private var _booking = MutableLiveData<AppResource<Booking>>()
-  val booking: LiveData<AppResource<Booking>>
+  private var _booking = MutableLiveData<AppResource<Transaction>>()
+  val transaction: LiveData<AppResource<Transaction>>
     get() = _booking
   
   private var _amount = MutableLiveData(0)
@@ -56,14 +56,14 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
   
   fun booking(description: String, graveId: String, userId: String) = liveData(Dispatchers.IO) {
     amount.value?.let {
-      val bookingRequest = BookingRequest(description, graveId, userId, it)
+      val transactionRequest = TransactionRequest(description, graveId, userId, it)
       emit(AppResource.Loading)
       try {
-        val response = transactionRepository.booking(bookingRequest)
+        val response = transactionRepository.booking(transactionRequest)
         if (response.isSuccessful) emit(AppResource.Success(response.body()))
         else emit(AppResource.Error(null, response.errorBody().toString()))
       } catch (e: Exception) {
-        Log.i("BOOKING", "booking: ${e.localizedMessage}")
+        Log.i("TRANSACTION", "booking: ${e.localizedMessage}")
         emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
       }
     }
@@ -75,11 +75,11 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
       val response = transactionRepository.getAllBooking(userId)
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
       else {
-        Log.i("BOOKING", "getAll: ${response.errorBody()}")
+        Log.i("TRANSACTION", "getAll: ${response.errorBody()}")
         emit(AppResource.Error(null, response.errorBody().toString()))
       }
     } catch (e: Exception) {
-      Log.i("BOOKING", "getAll: ${e.localizedMessage}")
+      Log.i("TRANSACTION", "getAll: ${e.localizedMessage}")
       emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
     }
   }
@@ -103,6 +103,21 @@ class BookingViewModel @Inject constructor(private val transactionRepository: Tr
       else emit(AppResource.Error(null, response.errorBody().toString()))
     } catch (e: Exception) {
       emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+    }
+  }
+  
+  fun buy(description: String, graveId: String, userId: String) = liveData(Dispatchers.IO) {
+    amount.value?.let {
+      val transactionRequest = TransactionRequest(description, graveId, userId, it)
+      emit(AppResource.Loading)
+      try {
+        val response = transactionRepository.buy(transactionRequest)
+        if (response.isSuccessful) emit(AppResource.Success(response.body()))
+        else emit(AppResource.Error(null, response.errorBody().toString()))
+      } catch (e: Exception) {
+        Log.i("TRANSACTION", "buy: ${e.localizedMessage}")
+        emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+      }
     }
   }
 }

@@ -61,4 +61,12 @@
   <action
     android:id="@+id/action_global_bookingDetailFragment"
     app:destination="@id/bookingDetailFragment" />
+  <fragment
+    android:id="@+id/buyFragment"
+    android:name="com.example.restgarden.ui.screen.BuyFragment"
+    android:label="fragment_buy"
+    tools:layout="@layout/fragment_buy" />
+  <action
+    android:id="@+id/action_global_buyFragment"
+    app:destination="@id/buyFragment" />
 </navigation>
