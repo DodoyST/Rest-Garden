@@ -1,11 +1,13 @@
 package com.example.restgarden.ui.screen
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.restgarden.R
 import com.example.restgarden.data.model.User
 import com.example.restgarden.data.repository.UserRepositoryImpl
 import com.example.restgarden.data.viewmodel.UserViewModel
@@ -52,7 +54,7 @@ class ProfileFragment : DaggerFragment() {
     
     binding.apply {
       btnProfileLogout.setOnClickListener {
-        signOut()
+        alertSignOut()
       }
     }
     
@@ -63,6 +65,16 @@ class ProfileFragment : DaggerFragment() {
     super.onDestroy()
     
     _binding = null
+  }
+  
+  private fun alertSignOut() {
+    AlertDialog.Builder(requireContext()).setMessage(getString(R.string.ask_logout))
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        dialog.dismiss()
+        signOut()
+      }.show()
   }
   
   private fun signOut() {
