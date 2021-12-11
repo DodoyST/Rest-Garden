@@ -10,7 +10,7 @@
   <ImageView
     android:id="@+id/iv_booking_detail"
     android:layout_width="0dp"
-    android:layout_height="225dp"
+    android:layout_height="240dp"
     android:contentDescription="@string/grave"
     android:scaleType="centerCrop"
     app:layout_constraintEnd_toEndOf="parent"

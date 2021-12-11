@@ -1,5 +1,6 @@
 package com.example.restgarden.data.model
 
+
 data class Grave(
   var id: String,
   var name: String,
@@ -8,5 +9,6 @@ data class Grave(
   var address: String,
   var phoneNumber: String,
   var type: String,
-  val description: String
+  var description: String,
+  var image: String
 )

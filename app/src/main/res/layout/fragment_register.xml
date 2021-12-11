@@ -22,7 +22,7 @@
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/et_register_username_field"
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    android:layout_width="147dp"
+    android:layout_width="145dp"
     android:layout_height="wrap_content"
     android:layout_marginStart="56dp"
     android:layout_marginTop="32dp"
@@ -52,7 +52,7 @@
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/et_register_password_field"
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    android:layout_width="147dp"
+    android:layout_width="145dp"
     android:layout_height="wrap_content"
     android:layout_marginEnd="56dp"
     android:hint="@string/password"
@@ -188,6 +188,7 @@
     android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
+    android:enabled="false"
     android:fontFamily="@font/poppins_semibold"
     android:text="@string/register"
     app:cornerRadius="20dp"

@@ -11,5 +11,6 @@ data class Transaction(
   var description: String,
   var graveId: String,
   var userId: String,
-  var totalSlot: Int
+  var totalSlot: Int,
+  var image: String
 )

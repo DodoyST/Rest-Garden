@@ -16,6 +16,7 @@ import com.example.restgarden.databinding.FragmentGraveDetailBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
+import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -97,6 +98,7 @@ class GraveDetailFragment : DaggerFragment() {
               tvGraveDetailPhoneNumberValue.text = response.phoneNumber
               tvGraveDetailAddressValue.text = response.address
               tvGraveDetailDescriptionValue.text = response.description
+              Picasso.get().load(response.image).into(ivGraveDetail)
               if (response.type == "Public") btnGraveDetailBooking.visibility = View.GONE
               else btnGraveDetailBooking.visibility = View.VISIBLE
             }

@@ -30,7 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_grave_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_thank.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_transaction.xml" value="0.25" />

@@ -17,6 +17,7 @@ import com.example.restgarden.databinding.FragmentBookingDetailBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.toDate
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -95,6 +96,7 @@ class BookingDetailFragment : DaggerFragment() {
       tvBookingDetailStatusValue.text = transaction.status
       tvBookingDetailDateExpiredValue.text = transaction.expiredDate.toDate()
       tvBookingDetailReservedSlotsValue.text = transaction.totalSlot.toString()
+      Picasso.get().load(transaction.image).into(ivBookingDetail)
       if (transaction.description.trim().isNotBlank()) {
         tvBookingDetailNotes.visibility = View.VISIBLE
         tvBookingDetailNotesValue.visibility = View.VISIBLE
