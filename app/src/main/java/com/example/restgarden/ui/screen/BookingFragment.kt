@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -189,9 +188,8 @@ class BookingFragment : DaggerFragment() {
   }
   
   private fun bookingSuccess() {
-    Toast.makeText(requireContext(), "Thank you for ordering the grave", Toast.LENGTH_LONG).show()
     isNotLoading()
-    findNavController().navigate(R.id.action_global_homeFragment)
+    findNavController().navigate(R.id.action_global_thankFragment)
     formClear()
     homeActivity.showBnvHome()
   }

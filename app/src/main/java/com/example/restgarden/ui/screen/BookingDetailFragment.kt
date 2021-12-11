@@ -157,7 +157,7 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun cancelSuccess() {
-    findNavController().navigate(R.id.action_global_homeFragment)
+    findNavController().navigate(R.id.action_bookingDetailFragment_to_homeFragment)
     isNotLoading()
     clear()
   }
