@@ -1,5 +1,6 @@
 package com.example.restgarden.ui.screen
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -85,6 +86,7 @@ class GraveDetailFragment : DaggerFragment() {
     _binding = null
   }
   
+  @SuppressLint("SetTextI18n")
   private fun subscribe() {
     graveViewModel.grave.observe(viewLifecycleOwner, {
       when (it) {
@@ -93,7 +95,7 @@ class GraveDetailFragment : DaggerFragment() {
           if (response != null) {
             binding.apply {
               tvGraveDetailName.text = response.name
-              tvGraveDetailSlot.text = response.availableSlots.toString()
+              tvGraveDetailSlot.text = "${response.availableSlots} Slots"
               tvGraveDetailType.text = response.type
               tvGraveDetailPhoneNumberValue.text = response.phoneNumber
               tvGraveDetailAddressValue.text = response.address

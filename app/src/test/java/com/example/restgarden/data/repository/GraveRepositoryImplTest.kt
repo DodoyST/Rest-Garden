@@ -24,8 +24,8 @@ class GraveRepositoryImplTest {
   private lateinit var graveRepository: GraveRepository
   
   private val graveListDummy = listOf(
-    Grave("1", "Grave1", 10, 1000000, "grave1", "12345", "Private", "grave1"),
-    Grave("2", "Grave2", 10, 1000000, "grave2", "67890", "Private", "grave2"),
+    Grave("1", "Grave1", 10, 1000000.0, "grave1", "12345", "Private", "grave1", "grave1"),
+    Grave("2", "Grave2", 10, 1000000.0, "grave2", "67890", "Private", "grave2", "grave2"),
   )
   
   @Before

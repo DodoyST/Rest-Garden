@@ -53,19 +53,41 @@
       android:layout_height="wrap_content"
       android:orientation="vertical">
       
+      <TextView
+        android:id="@+id/tv_home_private"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/private_graveyard"
+        android:textColor="@color/re_dark_green"
+        android:textSize="24sp" />
+      
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_card_grave_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/card_grave_horizontal" />
+        tools:listitem="@layout/card_grave_horizontal">
+      
+      </androidx.recyclerview.widget.RecyclerView>
+      
+      <TextView
+        android:id="@+id/tv_home_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/public_graveyard"
+        android:textColor="@color/re_green"
+        android:textSize="24sp" />
       
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_card_grave_vertical"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_grave_vertical" />

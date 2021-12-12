@@ -56,4 +56,6 @@
   <string name="ask_logout">Sure want to logout?</string>
   <string name="subscribe">Subscribe</string>
   <string name="assign">Assign</string>
+  <string name="private_graveyard">Private Graveyard</string>
+  <string name="public_graveyard">Public Graveyard</string>
 </resources>

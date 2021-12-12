@@ -66,6 +66,7 @@ class HomeFragment : DaggerFragment() {
       etGraveListSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(query: String?): Boolean = true
         override fun onQueryTextChange(newText: String?): Boolean {
+          graveHorizontalAdapter.filter.filter(newText)
           graveVerticalAdapter.filter.filter(newText)
           return true
         }
@@ -80,16 +81,16 @@ class HomeFragment : DaggerFragment() {
   }
   
   private fun subscribe() {
-    graveViewModel.getAll().observe(viewLifecycleOwner, {
-      when (it) {
+    graveViewModel.getAll().observe(viewLifecycleOwner, { state ->
+      when (state) {
         is AppResource.Success -> {
-          if (it.data != null) {
-            val response = it.data
-            graveHorizontalAdapter = if (response.size > 3) {
-              val randomGraves = response.asSequence().shuffled().take(3).toList()
-              GraveHorizontalAdapter(randomGraves, graveViewModel)
-            } else GraveHorizontalAdapter(response, graveViewModel)
-            graveVerticalAdapter = GraveVerticalAdapter(response, graveViewModel)
+          if (state.data != null) {
+            val response = state.data
+            
+            graveHorizontalAdapter =
+              GraveHorizontalAdapter(response.filter { it.type == "Private" }, graveViewModel)
+            graveVerticalAdapter =
+              GraveVerticalAdapter(response.filter { it.type == "Public" }, graveViewModel)
             binding.apply {
               rvCardGraveHorizontal.apply {
                 adapter = graveHorizontalAdapter

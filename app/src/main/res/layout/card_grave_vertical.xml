@@ -1,31 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:layout_margin="8dp"
-  app:cardBackgroundColor="@color/card_background"
+  app:cardBackgroundColor="@color/re_green"
   app:cardCornerRadius="20dp">
   
   <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     
-    <TextView
-      android:id="@+id/tv_card_grave_vertical_name"
+    <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins_semibold"
-      android:text="@string/name" />
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:orientation="vertical"
+      android:padding="16dp">
+      
+      <TextView
+        android:id="@+id/tv_card_grave_vertical_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/name"
+        android:textColor="@color/white" />
+      
+      <TextView
+        android:id="@+id/tv_card_grave_vertical_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/address"
+        android:textColor="@color/re_dark_yellow" />
     
-    <TextView
-      android:id="@+id/tv_card_grave_vertical_address"
+    </LinearLayout>
+    
+    <ImageView
+      android:id="@+id/iv_card_grave_vertical"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:ellipsize="end"
-      android:singleLine="true"
-      android:text="@string/address" />
+      android:layout_height="85dp"
+      android:layout_weight="2"
+      android:contentDescription="@string/grave"
+      android:scaleType="centerCrop"
+      tools:srcCompat="@tools:sample/backgrounds/scenic" />
   </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

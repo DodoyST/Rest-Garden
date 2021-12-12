@@ -7,6 +7,7 @@ import com.example.restgarden.R
 import com.example.restgarden.data.model.Grave
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.CardGraveVerticalBinding
+import com.squareup.picasso.Picasso
 
 class GraveVerticalViewHolder(itemView: View, private val graveViewModel: GraveViewModel) :
   RecyclerView.ViewHolder(itemView) {
@@ -19,6 +20,7 @@ class GraveVerticalViewHolder(itemView: View, private val graveViewModel: GraveV
       id = grave.id
       tvCardGraveVerticalName.text = grave.name
       tvCardGraveVerticalAddress.text = grave.address
+      Picasso.get().load(grave.image).into(ivCardGraveVertical)
     }
   }
   
