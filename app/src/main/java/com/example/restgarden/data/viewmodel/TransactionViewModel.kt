@@ -140,7 +140,10 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
       try {
         val response = transactionRepository.buy(transactionRequest)
         if (response.isSuccessful) emit(AppResource.Success(response.body()))
-        else emit(AppResource.Error(null, response.errorBody().toString()))
+        else {
+          Log.i("TRANSACTION", "buy: ${response.errorBody()}")
+          emit(AppResource.Error(null, response.errorBody().toString()))
+        }
       } catch (e: Exception) {
         Log.i("TRANSACTION", "buy: ${e.localizedMessage}")
         emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))

@@ -68,6 +68,7 @@ class BuyFragment : DaggerFragment() {
     binding.apply {
       btnBuyBack.setOnClickListener {
         findNavController().navigate(R.id.action_global_graveDetailFragment)
+        formClear()
       }
       btnBuyPlus.setOnClickListener {
         transactionViewModel.increment(slot)
@@ -201,6 +202,7 @@ class BuyFragment : DaggerFragment() {
     binding.apply {
       etBuyNotesValue.text?.clear()
       rdgBuyPaymentMethod.clearCheck()
+      
     }
     transactionViewModel.liveDataReset()
   }
