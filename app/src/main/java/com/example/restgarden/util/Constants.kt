@@ -8,4 +8,6 @@ object Constants {
   const val REGISTER_URL = "register"
   const val RESERVATION_URL = "reservation"
   const val TRANSACTION_URL = "transaction"
+  const val RESUBSCRIBE_URL = "resubscribe"
+  const val ASSIGN_URL = "assign"
 }

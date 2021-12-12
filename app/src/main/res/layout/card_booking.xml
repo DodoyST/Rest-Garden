@@ -23,7 +23,9 @@
         android:id="@+id/tv_card_booking_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
         android:fontFamily="@font/poppins_semibold"
+        android:singleLine="true"
         android:text="@string/name" />
       
       <TextView

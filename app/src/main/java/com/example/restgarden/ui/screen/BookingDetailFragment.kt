@@ -56,6 +56,14 @@ class BookingDetailFragment : DaggerFragment() {
         findNavController().navigate(R.id.action_global_bookingListFragment)
       }
       
+      btnBookingDetailSubscribe.setOnClickListener {
+        findNavController().navigate(R.id.action_global_reSubscribeFragment)
+      }
+      
+      btnBookingDetailAssign.setOnClickListener {
+        alertAssign()
+      }
+      
       btnBookingDetailCancel.setOnClickListener {
         alertCancel()
       }
@@ -138,6 +146,16 @@ class BookingDetailFragment : DaggerFragment() {
     id = ""
   }
   
+  private fun alertAssign() {
+    AlertDialog.Builder(requireContext()).setMessage("Do you want this grave filled?")
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        dialog.dismiss()
+        assign()
+      }.show()
+  }
+  
   private fun alertCancel() {
     AlertDialog.Builder(requireContext()).setMessage("Do you want to cancel this order?")
       .setNegativeButton(getString(R.string.no)) { dialog, _ ->
@@ -146,6 +164,16 @@ class BookingDetailFragment : DaggerFragment() {
         dialog.dismiss()
         cancel()
       }.show()
+  }
+  
+  private fun assign() {
+    transactionViewModel.assign(id).observe(viewLifecycleOwner, {
+      when (it) {
+        is AppResource.Success -> cancelSuccess()
+        is AppResource.Error -> it.message?.let { it1 -> cancelError(it1) }
+        is AppResource.Loading -> isLoading()
+      }
+    })
   }
   
   private fun cancel() {
@@ -165,7 +193,7 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun cancelError(message: String) {
-    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
 }

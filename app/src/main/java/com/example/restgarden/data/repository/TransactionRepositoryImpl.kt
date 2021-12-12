@@ -2,6 +2,7 @@ package com.example.restgarden.data.repository
 
 import com.example.restgarden.data.api.TransactionService
 import com.example.restgarden.data.model.Transaction
+import com.example.restgarden.data.model.request.ReSubscribeAssignRequest
 import com.example.restgarden.data.model.request.TransactionRequest
 import retrofit2.Response
 import javax.inject.Inject
@@ -20,6 +21,12 @@ class TransactionRepositoryImpl @Inject constructor(private val transactionServi
   
   override suspend fun cancelBooking(id: String): Response<Unit> =
     transactionService.cancelBooking(id)
+  
+  override suspend fun reSubscribeBooking(id: String): Response<Unit> =
+    transactionService.reSubscribe(ReSubscribeAssignRequest(id))
+  
+  override suspend fun assignBooking(id: String): Response<Unit> =
+    transactionService.assign(ReSubscribeAssignRequest(id))
   
   override suspend fun buy(transactionRequest: TransactionRequest): Response<Transaction> =
     transactionService.buy(transactionRequest)

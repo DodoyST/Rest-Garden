@@ -9,5 +9,7 @@ interface TransactionRepository {
   suspend fun getBookingById(id: String): Response<Transaction>
   suspend fun booking(transactionRequest: TransactionRequest): Response<Transaction>
   suspend fun cancelBooking(id: String): Response<Unit>
+  suspend fun reSubscribeBooking(id: String): Response<Unit>
+  suspend fun assignBooking(id: String): Response<Unit>
   suspend fun buy(transactionRequest: TransactionRequest): Response<Transaction>
 }

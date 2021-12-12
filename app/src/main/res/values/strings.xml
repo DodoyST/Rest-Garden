@@ -54,4 +54,6 @@
   <string name="total_payment">Total Payment</string>
   <string name="buy">Buy</string>
   <string name="ask_logout">Sure want to logout?</string>
+  <string name="subscribe">Subscribe</string>
+  <string name="assign">Assign</string>
 </resources>

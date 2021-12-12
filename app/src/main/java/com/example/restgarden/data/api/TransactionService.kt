@@ -1,6 +1,7 @@
 package com.example.restgarden.data.api
 
 import com.example.restgarden.data.model.Transaction
+import com.example.restgarden.data.model.request.ReSubscribeAssignRequest
 import com.example.restgarden.data.model.request.TransactionRequest
 import com.example.restgarden.util.Constants
 import retrofit2.Response
@@ -16,6 +17,12 @@ interface TransactionService {
   
   @POST(Constants.RESERVATION_URL)
   suspend fun booking(@Body transactionRequest: TransactionRequest): Response<Transaction>
+  
+  @PUT("${Constants.RESERVATION_URL}/${Constants.RESUBSCRIBE_URL}")
+  suspend fun reSubscribe(@Body id: ReSubscribeAssignRequest): Response<Unit>
+  
+  @PUT("${Constants.RESERVATION_URL}/${Constants.ASSIGN_URL}")
+  suspend fun assign(@Body id: ReSubscribeAssignRequest): Response<Unit>
   
   @DELETE("${Constants.RESERVATION_URL}/{id}")
   suspend fun cancelBooking(@Path("id") id: String): Response<Unit>

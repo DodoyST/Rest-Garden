@@ -133,11 +133,38 @@
       android:layout_height="wrap_content"
       android:text="@string/notes" />
     
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:orientation="horizontal">
+      
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_booking_detail_subscribe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/subscribe"
+        app:cornerRadius="30dp" />
+      
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_booking_detail_assign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/assign"
+        app:cornerRadius="30dp" />
+    </LinearLayout>
+    
     <com.google.android.material.button.MaterialButton
       android:id="@+id/btn_booking_detail_cancel"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="24dp"
+      android:layout_marginTop="8dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/cancel"
       android:textSize="25sp"

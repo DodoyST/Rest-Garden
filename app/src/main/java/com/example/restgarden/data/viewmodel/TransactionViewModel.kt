@@ -106,6 +106,33 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
     }
   }
   
+  fun reSubscribe(id: String) = liveData(Dispatchers.IO) {
+    emit(AppResource.Loading)
+    try {
+      val response = transactionRepository.reSubscribeBooking(id)
+      if (response.isSuccessful) emit(AppResource.Success(response.body()))
+      else emit(AppResource.Error(null, response.errorBody().toString()))
+    } catch (e: Exception) {
+      Log.i("BOOKING", "reSubscribe: ${e.localizedMessage}")
+      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+    }
+  }
+  
+  fun assign(id: String) = liveData(Dispatchers.IO) {
+    emit(AppResource.Loading)
+    try {
+      val response = transactionRepository.assignBooking(id)
+      if (response.isSuccessful) emit(AppResource.Success(response.body()))
+      else {
+        Log.i("BOOKING", "assign: ${response.errorBody()}")
+        emit(AppResource.Error(null, response.errorBody().toString()))
+      }
+    } catch (e: Exception) {
+      Log.i("BOOKING", "assign: ${e.localizedMessage}")
+      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+    }
+  }
+  
   fun buy(description: String, graveId: String, userId: String) = liveData(Dispatchers.IO) {
     amount.value?.let {
       val transactionRequest = TransactionRequest(description, graveId, userId, it)

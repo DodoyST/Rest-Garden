@@ -195,7 +195,7 @@ class BookingFragment : DaggerFragment() {
   }
   
   private fun bookingError(message: String) {
-    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   
