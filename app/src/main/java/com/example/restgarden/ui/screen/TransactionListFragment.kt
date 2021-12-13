@@ -68,7 +68,7 @@ class TransactionListFragment : DaggerFragment() {
   
   private fun subscribe() {
     sessionManager.fetchAuthId()?.let { id ->
-      transactionViewModel.getAllTransaction(id).observe(viewLifecycleOwner, {
+      transactionViewModel.getAll(id).observe(viewLifecycleOwner, {
         when (it) {
           is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
           is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
@@ -79,7 +79,7 @@ class TransactionListFragment : DaggerFragment() {
   }
   
   private fun subscribeSuccess(transactionList: List<Transaction>) {
-    transactionAdapter = TransactionAdapter(transactionList)
+    transactionAdapter = TransactionAdapter(transactionList, transactionViewModel)
     binding.rvTransactionList.apply {
       adapter = transactionAdapter
       layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

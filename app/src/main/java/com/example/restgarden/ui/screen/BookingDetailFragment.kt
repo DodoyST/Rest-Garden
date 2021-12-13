@@ -16,6 +16,7 @@ import com.example.restgarden.databinding.FragmentBookingDetailBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
+import com.example.restgarden.util.currencyFormat
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
@@ -109,9 +110,10 @@ class BookingDetailFragment : DaggerFragment() {
     binding.apply {
       tvBookingDetailGraveName.text = booking.graveName
       tvBookingDetailGraveAddress.text = booking.graveAddress
-      tvBookingDetailStatusValue.text = booking.status
+//      tvBookingDetailStatusValue.text = booking.status
       tvBookingDetailDateExpiredValue.text = booking.expiredDate.toString()
       tvBookingDetailReservedSlotsValue.text = booking.totalSlot.toString()
+      tvBookingDetailTotalPaymentValue.text = booking.totalPayment.currencyFormat()
       Picasso.get().load(booking.image).into(ivBookingDetail)
       if (booking.description.trim().isNotBlank()) {
         tvBookingDetailNotes.visibility = View.VISIBLE

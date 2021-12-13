@@ -63,4 +63,11 @@
   <string name="extend_for">Extend for 1 month</string>
   <string name="public_graveyard_with_available_slots">Public Graveyard with Available Slots</string>
   <string name="private_graveyard_with_available_slots">Private Graveyard with Available Slots</string>
+  <string name="date">Date</string>
+  <string name="transaction_date">Transaction Date</string>
+  <string name="slots">Slots</string>
+  <string name="total_price">Total Price</string>
+  <string name="transaction_id">Transaction ID</string>
+  <string name="history">History</string>
+  <string name="transaction_history">Transaction History</string>
 </resources>

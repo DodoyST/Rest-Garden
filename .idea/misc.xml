@@ -39,7 +39,8 @@
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_thank.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_transaction.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_transaction_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_transaction_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_transaction_list.xml" value="0.15" />
         <entry key="app/src/main/res/menu/menu_home.xml" value="0.18" />
       </map>
     </option>

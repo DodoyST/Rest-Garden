@@ -14,6 +14,9 @@ interface TransactionService {
   @POST(Constants.TRANSACTION_URL)
   suspend fun buy(@Body bookingTransactionRequest: BookingTransactionRequest): Response<Transaction>
   
-  @GET("${Constants.TRANSACTION_URL}/${Constants.USER_URL}/{id}")
-  suspend fun getAll(@Path("id") userId: String): Response<List<Transaction>>
+  @GET("${Constants.TRANSACTION_URL}/${Constants.USER_URL}/{userId}")
+  suspend fun getAll(@Path("userId") userId: String): Response<List<Transaction>>
+  
+  @GET("${Constants.TRANSACTION_URL}/{id}")
+  suspend fun getById(@Path("id") id: String): Response<Transaction>
 }

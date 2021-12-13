@@ -36,8 +36,11 @@
       android:id="@+id/tv_booking_detail_grave_name"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:ellipsize="end"
       android:fontFamily="@font/poppins_semibold"
+      android:singleLine="true"
       android:text="@string/name"
+      android:textAlignment="center"
       android:textSize="24sp" />
     
     <TextView
@@ -62,25 +65,25 @@
         android:layout_weight="1"
         android:orientation="vertical">
         
-        <TextView
-          android:id="@+id/tv_booking_detail_status"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:fontFamily="@font/poppins_semibold"
-          android:text="@string/status"
-          android:textSize="20sp" />
-        
-        <TextView
-          android:id="@+id/tv_booking_detail_status_value"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/status" />
+        <!--        <TextView-->
+        <!--          android:id="@+id/tv_booking_detail_status"-->
+        <!--          android:layout_width="match_parent"-->
+        <!--          android:layout_height="wrap_content"-->
+        <!--          android:fontFamily="@font/poppins_semibold"-->
+        <!--          android:text="@string/status"-->
+        <!--          android:textSize="20sp" />-->
+        <!--        -->
+        <!--        <TextView-->
+        <!--          android:id="@+id/tv_booking_detail_status_value"-->
+        <!--          android:layout_width="match_parent"-->
+        <!--          android:layout_height="wrap_content"-->
+        <!--          android:text="@string/status" />-->
         
         <TextView
           android:id="@+id/tv_booking_detail_date_expired"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="8dp"
+          android:layout_marginTop="4dp"
           android:fontFamily="@font/poppins_semibold"
           android:text="@string/date_expired"
           android:textSize="20sp" />
@@ -90,6 +93,21 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/date_expired" />
+        
+        <TextView
+          android:id="@+id/tv_booking_detail_total_payment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:fontFamily="@font/poppins_semibold"
+          android:text="@string/total_payment"
+          android:textSize="20sp" />
+        
+        <TextView
+          android:id="@+id/tv_booking_detail_total_payment_value"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/total_payment" />
       </LinearLayout>
       
       <LinearLayout

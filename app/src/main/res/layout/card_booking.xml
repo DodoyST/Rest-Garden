@@ -29,12 +29,12 @@
         android:text="@string/name" />
       
       <TextView
-        android:id="@+id/tv_card_booking_address"
+        android:id="@+id/tv_card_booking_date_expired"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="@string/address" />
+        android:text="@string/date_expired" />
     
     </LinearLayout>
     

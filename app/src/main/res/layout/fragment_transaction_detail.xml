@@ -1,14 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context=".ui.screen.TransactionDetailFragment">
   
-  <!-- TODO: Update blank fragment layout -->
-  <TextView
+  <ImageView
+    android:id="@+id/iv_transaction_detail"
+    android:layout_width="0dp"
+    android:layout_height="240dp"
+    android:contentDescription="@string/grave"
+    android:scaleType="centerCrop"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:src="@tools:sample/backgrounds/scenic" />
+  
+  <LinearLayout
+    android:id="@+id/lnl_transaction_detail"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+    android:layout_height="0dp"
+    android:layout_marginTop="200dp"
+    android:background="@drawable/card_white"
+    android:orientation="vertical"
+    android:padding="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    
+    
+    <TextView
+      android:id="@+id/tv_transaction_detail_grave_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ellipsize="end"
+      android:fontFamily="@font/poppins_semibold"
+      android:singleLine="true"
+      android:text="@string/name"
+      android:textAlignment="center"
+      android:textSize="24sp" />
+    
+    <TextView
+      android:id="@+id/tv_transaction_detail_grave_address"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ellipsize="end"
+      android:maxLines="2"
+      android:text="@string/address"
+      android:textSize="16sp" />
+    
+    <TextView
+      android:id="@+id/tv_transaction_detail_id"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/transaction_id"
+      android:textSize="20sp" />
+    
+    <TextView
+      android:id="@+id/tv_transaction_detail_id_value"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/transaction_id" />
+    
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:baselineAligned="false"
+      android:orientation="horizontal">
+      
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        
+        <TextView
+          android:id="@+id/tv_transaction_detail_date"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/poppins_semibold"
+          android:text="@string/transaction_date"
+          android:textSize="20sp" />
+        
+        <TextView
+          android:id="@+id/tv_transaction_detail_date_value"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/transaction_date" />
+        
+        <TextView
+          android:id="@+id/tv_transaction_detail_total_price"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:fontFamily="@font/poppins_semibold"
+          android:text="@string/total_price"
+          android:textSize="20sp" />
+        
+        <TextView
+          android:id="@+id/tv_transaction_detail_total_price_value"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/total_price" />
+      </LinearLayout>
+      
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+        
+        <TextView
+          android:id="@+id/tv_transaction_detail_slots"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/poppins_medium"
+          android:text="@string/slots"
+          android:textAlignment="center"
+          android:textSize="14sp" />
+        
+        <TextView
+          android:id="@+id/tv_transaction_detail_slots_value"
+          android:layout_width="60dp"
+          android:layout_height="60dp"
+          android:layout_gravity="center"
+          android:background="@drawable/card_green_full"
+          android:gravity="center"
+          android:text="@string/_0"
+          android:textColor="@color/white"
+          android:textSize="24sp" />
+      </LinearLayout>
+    </LinearLayout>
+    
+    <TextView
+      android:id="@+id/tv_transaction_detail_notes"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/notes"
+      android:textSize="20sp" />
+    
+    <TextView
+      android:id="@+id/tv_transaction_detail_notes_value"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/notes" />
+  </LinearLayout>
+  
+  <ProgressBar
+    android:id="@+id/pb_transaction_detail"
+    style="@android:style/Widget.Material.ProgressBar.Large"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:indeterminateTint="@color/re_black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+  
+  <ImageButton
+    android:id="@+id/btn_transaction_detail_back"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:backgroundTint="@color/transparent"
+    android:contentDescription="@string/back"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:tint="@color/black" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,5 @@ import retrofit2.Response
 interface TransactionRepository {
   suspend fun buy(bookingTransactionRequest: BookingTransactionRequest): Response<Transaction>
   suspend fun getAllTransaction(userId: String): Response<List<Transaction>>
+  suspend fun getTransactionById(id: String): Response<Transaction>
 }

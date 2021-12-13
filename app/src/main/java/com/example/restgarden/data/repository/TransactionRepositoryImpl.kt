@@ -13,4 +13,7 @@ class TransactionRepositoryImpl @Inject constructor(private val transactionServi
   
   override suspend fun getAllTransaction(userId: String): Response<List<Transaction>> =
     transactionService.getAll(userId)
+  
+  override suspend fun getTransactionById(id: String): Response<Transaction> =
+    transactionService.getById(id)
 }

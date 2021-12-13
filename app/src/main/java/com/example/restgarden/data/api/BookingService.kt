@@ -12,8 +12,8 @@ interface BookingService {
   @POST(Constants.RESERVATION_URL)
   suspend fun booking(@Body bookingTransactionRequest: BookingTransactionRequest): Response<Booking>
   
-  @GET("${Constants.RESERVATION_URL}/${Constants.USER_URL}/{id}")
-  suspend fun getAll(@Path("id") userId: String): Response<List<Booking>>
+  @GET("${Constants.RESERVATION_URL}/${Constants.USER_URL}/{userId}")
+  suspend fun getAll(@Path("userId") userId: String): Response<List<Booking>>
   
   @GET("${Constants.RESERVATION_URL}/{id}")
   suspend fun getById(@Path("id") id: String): Response<Booking>

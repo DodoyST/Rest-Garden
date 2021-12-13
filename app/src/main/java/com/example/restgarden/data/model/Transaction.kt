@@ -9,8 +9,7 @@ data class Transaction(
   var image: String,
   var gravePrice: Double,
   var totalSlot: Int,
-  var status: String,
   var date: Timestamp,
-  var totalPayment: Double,
+  var totalPrice: Double,
   var description: String,
 )

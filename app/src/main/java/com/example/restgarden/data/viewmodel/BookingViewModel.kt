@@ -105,7 +105,7 @@ class BookingViewModel @Inject constructor(private val bookingRepository: Bookin
         _booking.postValue(AppResource.Error(null, errorResponse.message))
       }
     } catch (e: Exception) {
-      Log.i("TRANSACTION", "getById: ${e.localizedMessage}")
+      Log.i("BOOKING", "getById: ${e.localizedMessage}")
       _booking.postValue(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
@@ -122,7 +122,7 @@ class BookingViewModel @Inject constructor(private val bookingRepository: Bookin
         emit(AppResource.Error(null, errorResponse.message))
       }
     } catch (e: Exception) {
-      Log.i("TRANSACTION", "reSubscribe: ${e.localizedMessage}")
+      Log.i("BOOKING", "reSubscribe: ${e.localizedMessage}")
       emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }

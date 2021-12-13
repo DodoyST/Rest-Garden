@@ -55,7 +55,13 @@
     android:id="@+id/bookingFragment"
     android:name="com.example.restgarden.ui.screen.BookingFragment"
     android:label="fragment_booking"
-    tools:layout="@layout/fragment_booking" />
+    tools:layout="@layout/fragment_booking">
+    <action
+      android:id="@+id/action_bookingFragment_to_graveDetailFragment"
+      app:destination="@id/graveDetailFragment"
+      app:popUpTo="@id/bookingFragment"
+      app:popUpToInclusive="true" />
+  </fragment>
   <action
     android:id="@+id/action_global_bookingFragment"
     app:destination="@id/bookingFragment" />
@@ -67,13 +73,19 @@
   <action
     android:id="@+id/action_global_bookingDetailFragment"
     app:destination="@id/bookingDetailFragment"
-    app:popUpTo="@id/reSubscribeFragment"
+    app:popUpTo="@id/extendFragment"
     app:popUpToInclusive="true" />
   <fragment
     android:id="@+id/buyFragment"
     android:name="com.example.restgarden.ui.screen.BuyFragment"
     android:label="fragment_buy"
-    tools:layout="@layout/fragment_buy" />
+    tools:layout="@layout/fragment_buy">
+    <action
+      android:id="@+id/action_buyFragment_to_graveDetailFragment"
+      app:destination="@id/graveDetailFragment"
+      app:popUpTo="@id/buyFragment"
+      app:popUpToInclusive="true" />
+  </fragment>
   <action
     android:id="@+id/action_global_buyFragment"
     app:destination="@id/buyFragment" />
@@ -90,13 +102,13 @@
     app:popEnterAnim="@anim/nav_default_pop_enter_anim"
     app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <fragment
-    android:id="@+id/reSubscribeFragment"
-    android:name="com.example.restgarden.ui.screen.ReSubscribeFragment"
-    android:label="fragment_re_subscribe"
-    tools:layout="@layout/fragment_re_subscribe" />
+    android:id="@+id/extendFragment"
+    android:name="com.example.restgarden.ui.screen.ExtendFragment"
+    android:label="fragment_extend"
+    tools:layout="@layout/fragment_extend" />
   <action
     android:id="@+id/action_global_reSubscribeFragment"
-    app:destination="@id/reSubscribeFragment" />
+    app:destination="@id/extendFragment" />
   <fragment
     android:id="@+id/transactionListFragment"
     android:name="com.example.restgarden.ui.screen.TransactionListFragment"
@@ -104,5 +116,15 @@
     tools:layout="@layout/fragment_transaction_list" />
   <action
     android:id="@+id/action_global_transactionListFragment"
-    app:destination="@id/transactionListFragment" />
+    app:destination="@id/transactionListFragment"
+    app:popUpTo="@id/transactionDetailFragment"
+    app:popUpToInclusive="true" />
+  <fragment
+    android:id="@+id/transactionDetailFragment"
+    android:name="com.example.restgarden.ui.screen.TransactionDetailFragment"
+    android:label="fragment_transaction_detail"
+    tools:layout="@layout/fragment_transaction_detail" />
+  <action
+    android:id="@+id/action_global_transactionDetailFragment"
+    app:destination="@id/transactionDetailFragment" />
 </navigation>

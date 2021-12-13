@@ -67,7 +67,7 @@ class BookingFragment : DaggerFragment() {
     
     binding.apply {
       btnBookingBack.setOnClickListener {
-        findNavController().navigate(R.id.action_global_graveDetailFragment)
+        findNavController().navigate(R.id.action_bookingFragment_to_graveDetailFragment)
         formClear()
       }
       btnBookingPlus.setOnClickListener {

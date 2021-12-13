@@ -67,7 +67,7 @@ class BuyFragment : DaggerFragment() {
     
     binding.apply {
       btnBuyBack.setOnClickListener {
-        findNavController().navigate(R.id.action_global_graveDetailFragment)
+        findNavController().navigate(R.id.action_buyFragment_to_graveDetailFragment)
         formClear()
       }
       btnBuyPlus.setOnClickListener {

@@ -11,15 +11,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
 import com.example.restgarden.data.repository.BookingRepository
 import com.example.restgarden.data.viewmodel.BookingViewModel
-import com.example.restgarden.databinding.FragmentReSubscribeBinding
+import com.example.restgarden.databinding.FragmentExtendBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.currencyFormat
 import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 
-class ReSubscribeFragment : Fragment() {
-  private var _binding: FragmentReSubscribeBinding? = null
+class ExtendFragment : Fragment() {
+  private var _binding: FragmentExtendBinding? = null
   private val binding get() = _binding!!
   
   private lateinit var homeActivity: HomeActivity
@@ -40,7 +40,7 @@ class ReSubscribeFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     // Inflate the layout for this fragment
-    _binding = FragmentReSubscribeBinding.inflate(inflater, container, false)
+    _binding = FragmentExtendBinding.inflate(inflater, container, false)
     return binding.root
   }
   
@@ -53,15 +53,15 @@ class ReSubscribeFragment : Fragment() {
     instanceViewModel()
     
     binding.apply {
-      btnReSubscribeBack.setOnClickListener {
+      btnExtendBack.setOnClickListener {
         findNavController().navigate(R.id.action_global_bookingDetailFragment)
         formClear()
       }
-      btnReSubscribeSubmit.setOnClickListener {
+      btnExtendSubmit.setOnClickListener {
         extend()
       }
-      rdgReSubscribePaymentMethod.setOnCheckedChangeListener { _, checkedId ->
-        btnReSubscribeSubmit.isEnabled = checkedId != -1
+      rdgExtendPaymentMethod.setOnCheckedChangeListener { _, checkedId ->
+        btnExtendSubmit.isEnabled = checkedId != -1
       }
     }
     
@@ -87,11 +87,11 @@ class ReSubscribeFragment : Fragment() {
         val data = it.data
         if (data != null) {
           id = data.id
-          tvReSubscribeName.text = data.graveName
-          tvReSubscribeAddress.text = data.graveAddress
-          tvReSubscribeGravePrice.text = data.gravePrice.currencyFormat()
-          tvReSubscribeFeeValue.text = data.gravePrice.times(0.2).currencyFormat()
-          tvReSubscribeTotalPaymentValue.text = data.gravePrice.times(0.2).currencyFormat()
+          tvExtendName.text = data.graveName
+          tvExtendAddress.text = data.graveAddress
+          tvExtendGravePrice.text = data.gravePrice.currencyFormat()
+          tvExtendFeeValue.text = data.gravePrice.times(0.2).currencyFormat()
+          tvExtendTotalPaymentValue.text = data.gravePrice.times(0.2).currencyFormat()
           isNotLoading()
         }
       })
@@ -122,28 +122,28 @@ class ReSubscribeFragment : Fragment() {
   
   private fun isNotLoading() {
     binding.apply {
-      pbReSubscribe.visibility = View.GONE
-      cslReSubscribe.visibility = View.VISIBLE
-      btnReSubscribeBack.visibility = View.VISIBLE
-      tvReSubscribeName.visibility = View.VISIBLE
-      tvReSubscribeAddress.visibility = View.VISIBLE
+      pbExtend.visibility = View.GONE
+      cslExtend.visibility = View.VISIBLE
+      btnExtendBack.visibility = View.VISIBLE
+      tvExtendName.visibility = View.VISIBLE
+      tvExtendAddress.visibility = View.VISIBLE
     }
   }
   
   private fun isLoading() {
     binding.apply {
-      pbReSubscribe.visibility = View.VISIBLE
-      cslReSubscribe.visibility = View.GONE
-      btnReSubscribeBack.visibility = View.GONE
-      tvReSubscribeName.visibility = View.GONE
-      tvReSubscribeAddress.visibility = View.GONE
+      pbExtend.visibility = View.VISIBLE
+      cslExtend.visibility = View.GONE
+      btnExtendBack.visibility = View.GONE
+      tvExtendName.visibility = View.GONE
+      tvExtendAddress.visibility = View.GONE
     }
   }
   
   private fun formClear() {
     id = ""
     binding.apply {
-      rdgReSubscribePaymentMethod.clearCheck()
+      rdgExtendPaymentMethod.clearCheck()
     }
     bookingViewModel.liveDataReset()
   }

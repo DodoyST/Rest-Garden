@@ -18,7 +18,7 @@ class BookingViewHolder(itemView: View, private val bookingViewModel: BookingVie
     id = booking.id
     binding.apply {
       tvCardBookingName.text = booking.graveName
-      tvCardBookingAddress.text = booking.graveAddress
+      tvCardBookingDateExpired.text = booking.expiredDate.toString()
       tvCardBookingSlot.text = booking.totalSlot.toString()
     }
   }

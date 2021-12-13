@@ -1,11 +1,8 @@
 package com.example.restgarden.data.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import com.example.restgarden.data.model.Booking
+import androidx.lifecycle.*
+import com.example.restgarden.data.model.Transaction
 import com.example.restgarden.data.model.request.BookingTransactionRequest
 import com.example.restgarden.data.repository.TransactionRepository
 import com.example.restgarden.util.AppResource
@@ -14,14 +11,15 @@ import com.example.restgarden.util.ErrorResponse
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class TransactionViewModel @Inject constructor(private val transactionRepository: TransactionRepository) :
   ViewModel() {
   
-  private var _booking = MutableLiveData<AppResource<Booking>>()
-  val booking: LiveData<AppResource<Booking>>
-    get() = _booking
+  private var _transaction = MutableLiveData<AppResource<Transaction>>()
+  val transaction: LiveData<AppResource<Transaction>>
+    get() = _transaction
   
   private var _amount = MutableLiveData(0)
   val amount: LiveData<Int>
@@ -79,7 +77,7 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
     }
   }
   
-  fun getAllTransaction(userId: String) = liveData(Dispatchers.IO) {
+  fun getAll(userId: String) = liveData(Dispatchers.IO) {
     emit(AppResource.Loading)
     try {
       val response = transactionRepository.getAllTransaction(userId)
@@ -90,8 +88,24 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
         emit(AppResource.Error(null, errorResponse.message))
       }
     } catch (e: Exception) {
-      Log.i("TRANSACTION", "getAllTransaction: ${e.localizedMessage}")
+      Log.i("TRANSACTION", "getAll: ${e.localizedMessage}")
       emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
+    }
+  }
+  
+  fun getById(id: String) = viewModelScope.launch(Dispatchers.IO) {
+    _transaction.postValue(AppResource.Loading)
+    try {
+      val response = transactionRepository.getTransactionById(id)
+      if (response.isSuccessful) _transaction.postValue(AppResource.Success(response.body()))
+      else {
+        val type = object : TypeToken<ErrorResponse>() {}.type
+        val errorResponse: ErrorResponse = Gson().fromJson(response.errorBody()?.charStream(), type)
+        _transaction.postValue(AppResource.Error(null, errorResponse.message))
+      }
+    } catch (e: Exception) {
+      Log.i("TRANSACTION", "getById: ${e.localizedMessage}")
+      _transaction.postValue(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
 }
