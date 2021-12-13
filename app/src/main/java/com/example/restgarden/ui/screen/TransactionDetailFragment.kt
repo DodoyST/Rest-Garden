@@ -14,6 +14,7 @@ import com.example.restgarden.data.viewmodel.TransactionViewModel
 import com.example.restgarden.databinding.FragmentTransactionDetailBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.currencyFormat
+import com.example.restgarden.util.timestampFormat
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
@@ -86,7 +87,7 @@ class TransactionDetailFragment : DaggerFragment() {
     binding.apply {
       tvTransactionDetailGraveName.text = transaction.graveName
       tvTransactionDetailGraveAddress.text = transaction.graveAddress
-      tvTransactionDetailDateValue.text = transaction.date.toString()
+      tvTransactionDetailDateValue.text = transaction.date.timestampFormat()
       tvTransactionDetailSlotsValue.text = transaction.totalSlot.toString()
       tvTransactionDetailTotalPriceValue.text = transaction.totalPrice.currencyFormat()
       tvTransactionDetailIdValue.text = transaction.id

@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import java.sql.Timestamp
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 
@@ -21,5 +22,17 @@ fun Double.currencyFormat(): String {
 @SuppressLint("SimpleDateFormat")
 fun Long.toDate(): String {
   val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+  return simpleDateFormat.format(this)
+}
+
+@SuppressLint("SimpleDateFormat")
+fun Timestamp.dateFormat(): String {
+  val simpleDateFormat = SimpleDateFormat("dd MMM yyyy")
+  return simpleDateFormat.format(this)
+}
+
+@SuppressLint("SimpleDateFormat")
+fun Timestamp.timestampFormat(): String {
+  val simpleDateFormat = SimpleDateFormat("dd MMMM yyyy, HH:mm")
   return simpleDateFormat.format(this)
 }

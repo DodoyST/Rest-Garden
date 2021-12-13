@@ -17,6 +17,7 @@ import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
 import com.example.restgarden.util.currencyFormat
+import com.example.restgarden.util.timestampFormat
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
@@ -111,7 +112,7 @@ class BookingDetailFragment : DaggerFragment() {
       tvBookingDetailGraveName.text = booking.graveName
       tvBookingDetailGraveAddress.text = booking.graveAddress
 //      tvBookingDetailStatusValue.text = booking.status
-      tvBookingDetailDateExpiredValue.text = booking.expiredDate.toString()
+      tvBookingDetailDateExpiredValue.text = booking.expiredDate.timestampFormat()
       tvBookingDetailReservedSlotsValue.text = booking.totalSlot.toString()
       tvBookingDetailTotalPaymentValue.text = booking.totalPayment.currencyFormat()
       Picasso.get().load(booking.image).into(ivBookingDetail)

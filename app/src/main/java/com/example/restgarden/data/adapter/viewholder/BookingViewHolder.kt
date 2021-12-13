@@ -7,6 +7,7 @@ import com.example.restgarden.R
 import com.example.restgarden.data.model.Booking
 import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.CardBookingBinding
+import com.example.restgarden.util.dateFormat
 
 class BookingViewHolder(itemView: View, private val bookingViewModel: BookingViewModel) :
   RecyclerView.ViewHolder(itemView) {
@@ -18,7 +19,7 @@ class BookingViewHolder(itemView: View, private val bookingViewModel: BookingVie
     id = booking.id
     binding.apply {
       tvCardBookingName.text = booking.graveName
-      tvCardBookingDateExpired.text = booking.expiredDate.toString()
+      tvCardBookingDateExpired.text = booking.expiredDate.dateFormat()
       tvCardBookingSlot.text = booking.totalSlot.toString()
     }
   }
