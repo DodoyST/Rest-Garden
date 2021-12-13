@@ -6,17 +6,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
+import com.example.restgarden.data.model.Grave
 import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.FragmentGraveDetailBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -86,35 +87,36 @@ class GraveDetailFragment : DaggerFragment() {
     _binding = null
   }
   
-  @SuppressLint("SetTextI18n")
   private fun subscribe() {
     graveViewModel.grave.observe(viewLifecycleOwner, {
       when (it) {
-        is AppResource.Success -> {
-          val response = it.data
-          if (response != null) {
-            binding.apply {
-              tvGraveDetailName.text = response.name
-              tvGraveDetailSlot.text = "${response.availableSlots} Slots"
-              tvGraveDetailType.text = response.type
-              tvGraveDetailPhoneNumberValue.text = response.phoneNumber
-              tvGraveDetailAddressValue.text = response.address
-              tvGraveDetailDescriptionValue.text = response.description
-              Picasso.get().load(response.image).into(ivGraveDetail)
-              if (response.type == "Public") btnGraveDetailBooking.visibility = View.GONE
-              else btnGraveDetailBooking.visibility = View.VISIBLE
-            }
-            isNotLoading()
-          }
-        }
-        is AppResource.Error -> Toast.makeText(
-          requireContext(),
-          getString(R.string.something_wrong),
-          Toast.LENGTH_LONG
-        ).show()
+        is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
+        is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
         is AppResource.Loading -> isLoading()
       }
     })
+  }
+  
+  @SuppressLint("SetTextI18n")
+  private fun subscribeSuccess(grave: Grave) {
+    binding.apply {
+      tvGraveDetailName.text = grave.name
+      tvGraveDetailSlot.text = "${grave.availableSlots} Slots"
+      tvGraveDetailType.text = grave.type
+      tvGraveDetailPhoneNumberValue.text = grave.phoneNumber
+      tvGraveDetailAddressValue.text = grave.address
+      tvGraveDetailDescriptionValue.text = grave.description
+      Picasso.get().load(grave.image).into(ivGraveDetail)
+      if (grave.type == "Public") btnGraveDetailBooking.visibility = View.GONE
+      else btnGraveDetailBooking.visibility = View.VISIBLE
+    }
+    isNotLoading()
+  }
+  
+  private fun subscribeError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+    findNavController().navigate(R.id.action_global_homeFragment)
+    isNotLoading()
   }
   
   private fun isNotLoading() {

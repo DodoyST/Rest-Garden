@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
@@ -20,6 +21,14 @@ class ThankFragment : Fragment() {
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    
+    requireActivity().onBackPressedDispatcher.addCallback(
+      this,
+      object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+          super.setEnabled(false)
+        }
+      })
   }
   
   override fun onCreateView(
@@ -38,7 +47,7 @@ class ThankFragment : Fragment() {
     homeActivity.hideBnvHome()
     
     Handler(Looper.getMainLooper()).postDelayed({
-      findNavController().navigate(R.id.action_thankFragment_to_homeFragment)
+      findNavController().navigate(R.id.action_global_homeFragment)
       homeActivity.showBnvHome()
     }, 2000)
   }
@@ -48,4 +57,6 @@ class ThankFragment : Fragment() {
     
     _binding = null
   }
+  
+  
 }

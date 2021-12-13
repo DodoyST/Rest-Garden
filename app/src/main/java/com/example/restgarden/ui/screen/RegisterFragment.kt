@@ -44,8 +44,8 @@ class RegisterFragment : DaggerFragment() {
     super.onViewCreated(view, savedInstanceState)
     
     instanceViewModel()
-    
-    formValidation()
+
+//    formValidation()
     
     binding.apply {
       
@@ -89,7 +89,7 @@ class RegisterFragment : DaggerFragment() {
     userViewModel.register(instanceUserRequest()).observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> registerSuccess()
-        is AppResource.Error -> registerError()
+        is AppResource.Error -> it.message?.let { it1 -> registerError(it1) }
         is AppResource.Loading -> isLoading()
       }
     })
@@ -101,8 +101,8 @@ class RegisterFragment : DaggerFragment() {
     formClear()
   }
   
-  private fun registerError() {
-    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
+  private fun registerError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   

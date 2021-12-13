@@ -58,4 +58,7 @@
   <string name="assign">Assign</string>
   <string name="private_graveyard">Private Graveyard</string>
   <string name="public_graveyard">Public Graveyard</string>
+  <string name="search_by">by Name and Address</string>
+  <string name="transaction_list">Transaction List</string>
+  <string name="extend_for">Extend for 1 month</string>
 </resources>

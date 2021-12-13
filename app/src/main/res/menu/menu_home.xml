@@ -13,4 +13,8 @@
     android:id="@+id/bookingListFragment"
     android:icon="@drawable/ic_baseline_list_24"
     android:title="@string/booking_list" />
+  <item android:id="@+id/transactionListFragment"
+    android:icon="@drawable/ic_baseline_history_24"
+    android:title="@string/transaction_list"
+    />
 </menu>

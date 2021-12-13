@@ -60,6 +60,9 @@ class ReSubscribeFragment : Fragment() {
       btnReSubscribeSubmit.setOnClickListener {
         reSubscribe()
       }
+      rdgReSubscribePaymentMethod.setOnCheckedChangeListener { _, checkedId ->
+        btnReSubscribeSubmit.isEnabled = checkedId != -1
+      }
     }
     
     subscribe()
@@ -99,21 +102,21 @@ class ReSubscribeFragment : Fragment() {
     transactionViewModel.reSubscribe(id).observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> reSubscribeSuccess()
-        is AppResource.Error -> reSubscribeError()
+        is AppResource.Error -> it.message?.let { it1 -> reSubscribeError(it1) }
         is AppResource.Loading -> isLoading()
       }
     })
   }
   
   private fun reSubscribeSuccess() {
-    isNotLoading()
     findNavController().navigate(R.id.action_global_thankFragment)
     formClear()
     homeActivity.showBnvHome()
+    isNotLoading()
   }
   
-  private fun reSubscribeError() {
-    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
+  private fun reSubscribeError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   

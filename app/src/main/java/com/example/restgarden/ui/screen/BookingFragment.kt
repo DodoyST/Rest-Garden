@@ -79,6 +79,9 @@ class BookingFragment : DaggerFragment() {
       btnBookingSubmit.setOnClickListener {
         booking()
       }
+      rdgBookingPaymentMethod.setOnCheckedChangeListener { _, checkedId ->
+        btnBookingSubmit.isEnabled = checkedId != -1
+      }
     }
     
     subscribe()
@@ -122,15 +125,8 @@ class BookingFragment : DaggerFragment() {
   private fun getById() {
     graveViewModel.grave.observe(viewLifecycleOwner, {
       when (it) {
-        is AppResource.Success -> {
-          val response = it.data
-          if (response != null) getByIdSuccess(it.data)
-          isNotLoading()
-        }
-        is AppResource.Error -> {
-          getByIdError()
-          isNotLoading()
-        }
+        is AppResource.Success -> it.data?.let { it1 -> getByIdSuccess(it1) }
+        is AppResource.Error -> it.message?.let { it1 -> getByIdError(it1) }
         is AppResource.Loading -> isLoading()
       }
     })
@@ -145,11 +141,13 @@ class BookingFragment : DaggerFragment() {
       tvBookingGravePrice.text = grave.price.currencyFormat()
       transactionViewModel.setPrice(grave.price)
     }
+    isNotLoading()
   }
   
-  private fun getByIdError() {
-    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_SHORT).show()
+  private fun getByIdError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     findNavController().navigate(R.id.action_global_graveDetailFragment)
+    isNotLoading()
   }
   
   private fun isNotLoading() {
@@ -188,14 +186,14 @@ class BookingFragment : DaggerFragment() {
   }
   
   private fun bookingSuccess() {
-    isNotLoading()
     findNavController().navigate(R.id.action_global_thankFragment)
     formClear()
+    isNotLoading()
     homeActivity.showBnvHome()
   }
   
   private fun bookingError(message: String) {
-    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   

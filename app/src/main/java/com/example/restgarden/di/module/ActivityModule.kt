@@ -44,4 +44,7 @@ abstract class ActivityModule {
   
   @ContributesAndroidInjector
   abstract fun contributeReSubscribeFragment(): ReSubscribeFragment
+  
+  @ContributesAndroidInjector
+  abstract fun contributeTransactionListFragment(): TransactionListFragment
 }

@@ -12,4 +12,5 @@ interface TransactionRepository {
   suspend fun reSubscribeBooking(id: String): Response<Unit>
   suspend fun assignBooking(id: String): Response<Unit>
   suspend fun buy(transactionRequest: TransactionRequest): Response<Transaction>
+  suspend fun getAllTransaction(userId: String): Response<List<Transaction>>
 }

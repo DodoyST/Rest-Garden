@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,11 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restgarden.R
 import com.example.restgarden.data.adapter.GraveHorizontalAdapter
 import com.example.restgarden.data.adapter.GraveVerticalAdapter
+import com.example.restgarden.data.model.Grave
 import com.example.restgarden.data.repository.GraveRepositoryImpl
 import com.example.restgarden.data.viewmodel.GraveViewModel
 import com.example.restgarden.databinding.FragmentHomeBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -81,37 +82,44 @@ class HomeFragment : DaggerFragment() {
   }
   
   private fun subscribe() {
-    graveViewModel.getAll().observe(viewLifecycleOwner, { state ->
-      when (state) {
-        is AppResource.Success -> {
-          if (state.data != null) {
-            val response = state.data
-            
-            graveHorizontalAdapter =
-              GraveHorizontalAdapter(response.filter { it.type == "Private" }, graveViewModel)
-            graveVerticalAdapter =
-              GraveVerticalAdapter(response.filter { it.type == "Public" }, graveViewModel)
-            binding.apply {
-              rvCardGraveHorizontal.apply {
-                adapter = graveHorizontalAdapter
-                layoutManager =
-                  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-              }
-              rvCardGraveVertical.apply {
-                adapter = graveVerticalAdapter
-                layoutManager =
-                  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-              }
-            }
-            isNotLoading()
-          }
-        }
-        is AppResource.Error -> {
-          Toast.makeText(requireContext(), "Something Wrong...", Toast.LENGTH_LONG).show()
-        }
+    graveViewModel.getAll().observe(viewLifecycleOwner, {
+      when (it) {
+        is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
+        is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
         is AppResource.Loading -> isLoading()
       }
     })
+  }
+  
+  private fun subscribeSuccess(graveList: List<Grave>) {
+    graveHorizontalAdapter =
+      GraveHorizontalAdapter(
+        graveList.filter { it.type == "Private" && it.availableSlots > 0 },
+        graveViewModel
+      )
+    graveVerticalAdapter =
+      GraveVerticalAdapter(
+        graveList.filter { it.type == "Public" && it.availableSlots > 0 },
+        graveViewModel
+      )
+    binding.apply {
+      rvCardGraveHorizontal.apply {
+        adapter = graveHorizontalAdapter
+        layoutManager =
+          LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+      }
+      rvCardGraveVertical.apply {
+        adapter = graveVerticalAdapter
+        layoutManager =
+          LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+      }
+    }
+    isNotLoading()
+  }
+  
+  private fun subscribeError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+    isNotLoading()
   }
   
   private fun isNotLoading() {

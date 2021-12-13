@@ -20,7 +20,7 @@
   
   <SearchView
     android:id="@+id/et_grave_list_search"
-    android:layout_width="288dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="32dp"
     android:background="@drawable/box_stroke"
@@ -28,7 +28,6 @@
     android:focusedByDefault="false"
     android:iconifiedByDefault="false"
     android:inputType="text"
-    android:paddingHorizontal="4dp"
     android:queryBackground="@color/transparent"
     android:queryHint="@string/search"
     app:layout_constraintEnd_toEndOf="parent"
@@ -40,13 +39,13 @@
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginStart="8dp"
-    android:layout_marginTop="32dp"
+    android:layout_marginTop="16dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="56dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/et_grave_list_search">
+    app:layout_constraintTop_toBottomOf="@id/tv_home_search_by">
     
     <LinearLayout
       android:layout_width="match_parent"
@@ -59,9 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/private_graveyard"
+        android:text="Private Graveyard with Available Slots"
         android:textColor="@color/re_dark_green"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
       
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_card_grave_horizontal"
@@ -80,14 +79,14 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/public_graveyard"
+        android:text="Public Graveyard with Avalable Slots"
         android:textColor="@color/re_green"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
       
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_card_grave_vertical"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_grave_vertical" />
@@ -104,5 +103,15 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/et_grave_list_search" />
+  
+  <TextView
+    android:id="@+id/tv_home_search_by"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:text="@string/search_by"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="@+id/et_grave_list_search"
+    app:layout_constraintTop_toBottomOf="@+id/et_grave_list_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

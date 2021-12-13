@@ -7,19 +7,19 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restgarden.data.adapter.BookingAdapter
+import com.example.restgarden.data.adapter.TransactionAdapter
 import com.example.restgarden.data.model.Transaction
 import com.example.restgarden.data.repository.TransactionRepository
 import com.example.restgarden.data.viewmodel.TransactionViewModel
-import com.example.restgarden.databinding.FragmentBookingListBinding
+import com.example.restgarden.databinding.FragmentTransactionListBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class BookingListFragment : DaggerFragment() {
-  private var _binding: FragmentBookingListBinding? = null
+class TransactionListFragment : DaggerFragment() {
+  private var _binding: FragmentTransactionListBinding? = null
   private val binding get() = _binding!!
   
   private lateinit var transactionViewModel: TransactionViewModel
@@ -27,10 +27,10 @@ class BookingListFragment : DaggerFragment() {
   @Inject
   lateinit var transactionRepository: TransactionRepository
   
-  private lateinit var bookingAdapter: BookingAdapter
-  
   @Inject
   lateinit var sessionManager: SessionManager
+  
+  private lateinit var transactionAdapter: TransactionAdapter
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class BookingListFragment : DaggerFragment() {
     savedInstanceState: Bundle?
   ): View? {
     // Inflate the layout for this fragment
-    _binding = FragmentBookingListBinding.inflate(inflater, container, false)
+    _binding = FragmentTransactionListBinding.inflate(inflater, container, false)
     return binding.root
   }
   
@@ -67,8 +67,8 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun subscribe() {
-    sessionManager.fetchAuthId()?.let { userId ->
-      transactionViewModel.getAll(userId).observe(viewLifecycleOwner, {
+    sessionManager.fetchAuthId()?.let { id ->
+      transactionViewModel.getAllTransaction(id).observe(viewLifecycleOwner, {
         when (it) {
           is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
           is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
@@ -79,9 +79,9 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun subscribeSuccess(transactionList: List<Transaction>) {
-    bookingAdapter = BookingAdapter(transactionList, transactionViewModel)
-    binding.rvBookingList.apply {
-      adapter = bookingAdapter
+    transactionAdapter = TransactionAdapter(transactionList)
+    binding.rvTransactionList.apply {
+      adapter = transactionAdapter
       layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
     }
     isNotLoading()
@@ -94,15 +94,15 @@ class BookingListFragment : DaggerFragment() {
   
   private fun isNotLoading() {
     binding.apply {
-      rvBookingList.visibility = View.VISIBLE
-      pbBookingList.visibility = View.GONE
+      rvTransactionList.visibility = View.VISIBLE
+      pbTransactionList.visibility = View.GONE
     }
   }
   
   private fun isLoading() {
     binding.apply {
-      rvBookingList.visibility = View.INVISIBLE
-      pbBookingList.visibility = View.VISIBLE
+      rvTransactionList.visibility = View.INVISIBLE
+      pbTransactionList.visibility = View.VISIBLE
     }
   }
 }

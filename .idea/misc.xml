@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/drawable-v24/ic_rectangle_76.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable-v24/ic_rectangle_83.xml" value="0.2140625" />
+        <entry key="app/src/main/res/drawable/box_semi_rounded.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/drawable/box_stroke.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable/card_dark_green_full.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/drawable/card_green_full.xml" value="0.2140625" />
@@ -21,22 +22,24 @@
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/card_booking.xml" value="0.47591522157996147" />
+        <entry key="app/src/main/res/layout/card_booking.xml" value="0.20445344129554655" />
         <entry key="app/src/main/res/layout/card_grave_horizontal.xml" value="0.25" />
         <entry key="app/src/main/res/layout/card_grave_vertical.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/card_transaction.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_booking_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_booking_detail.xml" value="0.3146417445482866" />
         <entry key="app/src/main/res/layout/fragment_booking_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_buy.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_grave_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_grave_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_grave_list.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.4568245125348189" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_re_subscribe.xml" value="0.18518518518518517" />
+        <entry key="app/src/main/res/layout/fragment_re_subscribe.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_thank.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_transaction.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_transaction_list.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_home.xml" value="0.18" />
       </map>
     </option>

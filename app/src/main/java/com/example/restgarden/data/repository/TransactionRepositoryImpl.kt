@@ -30,4 +30,7 @@ class TransactionRepositoryImpl @Inject constructor(private val transactionServi
   
   override suspend fun buy(transactionRequest: TransactionRequest): Response<Transaction> =
     transactionService.buy(transactionRequest)
+  
+  override suspend fun getAllTransaction(userId: String): Response<List<Transaction>> =
+    transactionService.getAllTransaction(userId)
 }

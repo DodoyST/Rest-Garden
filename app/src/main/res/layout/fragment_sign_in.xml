@@ -9,31 +9,28 @@
   
   <ImageView
     android:id="@+id/iv_sign_in_in_the_office"
-    android:layout_width="230dp"
-    android:layout_height="185dp"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
     android:layout_marginTop="32dp"
+    android:layout_marginBottom="8dp"
     android:contentDescription="@string/sign_in"
     android:src="@drawable/ic_undraw_in_the_office_re_jtgc"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/llv_sign_in_form"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0"
     tools:ignore="ImageContrastCheck" />
   
   <LinearLayout
     android:id="@+id/llv_sign_in_form"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="58dp"
     android:background="@drawable/card_white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/iv_sign_in_in_the_office"
-    app:layout_constraintVertical_bias="1.0">
+    app:layout_constraintStart_toStartOf="parent">
     
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/tv_sign_in"
@@ -73,7 +70,7 @@
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="284dp"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
+      android:layout_marginTop="4dp"
       android:hint="@string/password"
       android:textColorHint="@color/re_green"
       app:boxCornerRadiusBottomEnd="18dp"
@@ -97,7 +94,7 @@
       android:id="@+id/btn_sign_in_submit"
       android:layout_width="200dp"
       android:layout_height="wrap_content"
-      android:layout_marginTop="16dp"
+      android:layout_marginTop="8dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/sign_in"
       android:textSize="18sp"

@@ -14,6 +14,7 @@ import com.example.restgarden.data.viewmodel.UserViewModel
 import com.example.restgarden.databinding.FragmentProfileBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -47,10 +48,7 @@ class ProfileFragment : DaggerFragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     
-    userViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
-      override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        UserViewModel(userRepositoryImpl) as T
-    })[UserViewModel::class.java]
+    instanceViewModel()
     
     binding.apply {
       btnProfileLogout.setOnClickListener {
@@ -65,6 +63,13 @@ class ProfileFragment : DaggerFragment() {
     super.onDestroy()
     
     _binding = null
+  }
+  
+  private fun instanceViewModel() {
+    userViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+      override fun <T : ViewModel> create(modelClass: Class<T>): T =
+        UserViewModel(userRepositoryImpl) as T
+    })[UserViewModel::class.java]
   }
   
   private fun alertSignOut() {
@@ -87,8 +92,8 @@ class ProfileFragment : DaggerFragment() {
     sessionManager.fetchAuthId()?.let { id ->
       userViewModel.getById(id).observe(viewLifecycleOwner, {
         when (it) {
-          is AppResource.Success -> if (it.data != null) subscribeSuccess(it.data)
-          is AppResource.Error -> subscribeError()
+          is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
+          is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
           is AppResource.Loading -> isLoading()
         }
       })
@@ -106,9 +111,10 @@ class ProfileFragment : DaggerFragment() {
     isNotLoading()
   }
   
-  private fun subscribeError() {
-    isNotLoading()
+  private fun subscribeError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     signOut()
+    isNotLoading()
   }
   
   private fun isNotLoading() {

@@ -10,4 +10,5 @@ object Constants {
   const val TRANSACTION_URL = "transaction"
   const val RESUBSCRIBE_URL = "resubscribe"
   const val ASSIGN_URL = "assign"
+  const val SOMETHING_WRONG = "Something Wrong..."
 }

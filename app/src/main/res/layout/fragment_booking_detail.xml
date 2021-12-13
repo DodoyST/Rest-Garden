@@ -45,7 +45,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:ellipsize="end"
-      android:text="@string/address" />
+      android:maxLines="2"
+      android:text="@string/address"
+      android:textSize="16sp" />
     
     <LinearLayout
       android:layout_width="match_parent"
@@ -140,13 +142,13 @@
       android:orientation="horizontal">
       
       <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_booking_detail_subscribe"
+        android:id="@+id/btn_booking_detail_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
         android:layout_weight="1"
         android:fontFamily="@font/poppins_semibold"
-        android:text="@string/subscribe"
+        android:text="@string/cancel"
         app:cornerRadius="30dp" />
       
       <com.google.android.material.button.MaterialButton
@@ -158,18 +160,17 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/assign"
         app:cornerRadius="30dp" />
+    
     </LinearLayout>
     
     <com.google.android.material.button.MaterialButton
-      android:id="@+id/btn_booking_detail_cancel"
+      android:id="@+id/btn_booking_detail_subscribe"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:fontFamily="@font/poppins_semibold"
-      android:text="@string/cancel"
-      android:textSize="25sp"
+      android:text="@string/extend_for"
       app:cornerRadius="30dp" />
-  
   </LinearLayout>
   
   <ProgressBar

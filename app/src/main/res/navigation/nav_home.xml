@@ -32,16 +32,22 @@
     tools:layout="@layout/activity_auth" />
   <action
     android:id="@+id/action_global_homeFragment"
-    app:destination="@id/homeFragment" />
+    app:destination="@id/homeFragment"
+    app:popUpTo="@id/nav_home"
+    app:popUpToInclusive="true" />
   <action
     android:id="@+id/action_global_graveDetailFragment"
     app:destination="@id/graveDetailFragment" />
   <action
     android:id="@+id/action_global_profileFragment"
-    app:destination="@id/profileFragment" />
+    app:destination="@id/profileFragment"
+    app:popUpTo="@id/nav_home"
+    app:popUpToInclusive="true" />
   <action
     android:id="@+id/action_global_bookingListFragment"
-    app:destination="@id/bookingListFragment" />
+    app:destination="@id/bookingListFragment"
+    app:popUpTo="@id/nav_home"
+    app:popUpToInclusive="true" />
   <action
     android:id="@+id/action_global_authActivity"
     app:destination="@id/authActivity" />
@@ -57,16 +63,12 @@
     android:id="@+id/bookingDetailFragment"
     android:name="com.example.restgarden.ui.screen.BookingDetailFragment"
     android:label="fragment_booking_detail"
-    tools:layout="@layout/fragment_booking_detail">
-    <action
-      android:id="@+id/action_bookingDetailFragment_to_homeFragment"
-      app:destination="@id/homeFragment"
-      app:popUpTo="@id/nav_home"
-      app:popUpToInclusive="true" />
-  </fragment>
+    tools:layout="@layout/fragment_booking_detail" />
   <action
     android:id="@+id/action_global_bookingDetailFragment"
-    app:destination="@id/bookingDetailFragment" />
+    app:destination="@id/bookingDetailFragment"
+    app:popUpTo="@id/reSubscribeFragment"
+    app:popUpToInclusive="true" />
   <fragment
     android:id="@+id/buyFragment"
     android:name="com.example.restgarden.ui.screen.BuyFragment"
@@ -79,13 +81,7 @@
     android:id="@+id/thankFragment"
     android:name="com.example.restgarden.ui.screen.ThankFragment"
     android:label="fragment_thank"
-    tools:layout="@layout/fragment_thank">
-    <action
-      android:id="@+id/action_thankFragment_to_homeFragment"
-      app:destination="@id/homeFragment"
-      app:popUpTo="@id/nav_home"
-      app:popUpToInclusive="true" />
-  </fragment>
+    tools:layout="@layout/fragment_thank" />
   <action
     android:id="@+id/action_global_thankFragment"
     app:destination="@id/thankFragment"
@@ -101,4 +97,12 @@
   <action
     android:id="@+id/action_global_reSubscribeFragment"
     app:destination="@id/reSubscribeFragment" />
+  <fragment
+    android:id="@+id/transactionListFragment"
+    android:name="com.example.restgarden.ui.screen.TransactionListFragment"
+    android:label="fragment_transaction_list"
+    tools:layout="@layout/fragment_transaction_list" />
+  <action
+    android:id="@+id/action_global_transactionListFragment"
+    app:destination="@id/transactionListFragment" />
 </navigation>

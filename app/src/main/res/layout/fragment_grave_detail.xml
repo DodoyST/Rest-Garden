@@ -58,44 +58,44 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
+      android:layout_marginTop="4dp"
       android:orientation="horizontal">
       
       <TextView
         android:id="@+id/tv_grave_detail_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="45dp"
         android:layout_marginEnd="5dp"
         android:layout_weight="1"
-        android:background="@drawable/outline_black"
+        android:background="@drawable/box_semi_rounded_transparent"
         android:backgroundTint="@color/re_green"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
-        android:paddingVertical="8dp"
+        android:paddingVertical="4dp"
         android:text="@string/type"
         android:textColor="@color/re_green"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
       
       <TextView
         android:id="@+id/tv_grave_detail_slot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="45dp"
         android:layout_weight="1"
-        android:background="@drawable/card_green_full"
+        android:background="@drawable/box_semi_rounded_green"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
-        android:paddingVertical="8dp"
+        android:paddingVertical="4dp"
         android:text="@string/_0"
         android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
     </LinearLayout>
     
     <ScrollView
       android:layout_width="match_parent"
-      android:layout_height="210dp"
+      android:layout_height="180dp"
       android:layout_marginTop="8dp"
       android:fadeScrollbars="false">
       
@@ -164,7 +164,7 @@
       android:layout_width="243dp"
       android:layout_height="wrap_content"
       android:layout_gravity="center_horizontal"
-      android:layout_marginTop="8dp"
+      android:layout_marginTop="6dp"
       android:fontFamily="@font/poppins_semibold"
       android:text="@string/buy"
       android:textAllCaps="false"

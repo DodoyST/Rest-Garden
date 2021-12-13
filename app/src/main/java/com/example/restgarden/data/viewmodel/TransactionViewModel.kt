@@ -2,11 +2,14 @@ package com.example.restgarden.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.restgarden.R
 import com.example.restgarden.data.model.Transaction
 import com.example.restgarden.data.model.request.TransactionRequest
 import com.example.restgarden.data.repository.TransactionRepository
 import com.example.restgarden.util.AppResource
+import com.example.restgarden.util.Constants
+import com.example.restgarden.util.ErrorResponse
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -61,10 +64,15 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
       try {
         val response = transactionRepository.booking(transactionRequest)
         if (response.isSuccessful) emit(AppResource.Success(response.body()))
-        else emit(AppResource.Error(null, response.errorBody().toString()))
+        else {
+          val type = object : TypeToken<ErrorResponse>() {}.type
+          val errorResponse: ErrorResponse =
+            Gson().fromJson(response.errorBody()?.charStream(), type)
+          emit(AppResource.Error(null, errorResponse.message))
+        }
       } catch (e: Exception) {
         Log.i("TRANSACTION", "booking: ${e.localizedMessage}")
-        emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+        emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
       }
     }
   }
@@ -75,12 +83,13 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
       val response = transactionRepository.getAllBooking(userId)
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
       else {
-        Log.i("TRANSACTION", "getAll: ${response.errorBody()}")
-        emit(AppResource.Error(null, response.errorBody().toString()))
+        val type = object : TypeToken<ErrorResponse>() {}.type
+        val errorResponse: ErrorResponse = Gson().fromJson(response.errorBody()?.charStream(), type)
+        emit(AppResource.Error(null, errorResponse.message))
       }
     } catch (e: Exception) {
       Log.i("TRANSACTION", "getAll: ${e.localizedMessage}")
-      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+      emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
   
@@ -89,9 +98,14 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
     try {
       val response = transactionRepository.getBookingById(id)
       if (response.isSuccessful) _booking.postValue(AppResource.Success(response.body()))
-      else _booking.postValue(AppResource.Error(null, response.errorBody().toString()))
+      else {
+        val type = object : TypeToken<ErrorResponse>() {}.type
+        val errorResponse: ErrorResponse = Gson().fromJson(response.errorBody()?.charStream(), type)
+        _booking.postValue(AppResource.Error(null, errorResponse.message))
+      }
     } catch (e: Exception) {
-      _booking.postValue(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+      Log.i("TRANSACTION", "getById: ${e.localizedMessage}")
+      _booking.postValue(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
   
@@ -102,7 +116,8 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
       else emit(AppResource.Error(null, response.errorBody().toString()))
     } catch (e: Exception) {
-      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+      Log.i("Transaction", "cancelBooking: ${e.localizedMessage}")
+      emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
   
@@ -111,10 +126,14 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
     try {
       val response = transactionRepository.reSubscribeBooking(id)
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
-      else emit(AppResource.Error(null, response.errorBody().toString()))
+      else {
+        val type = object : TypeToken<ErrorResponse>() {}.type
+        val errorResponse: ErrorResponse = Gson().fromJson(response.errorBody()?.charStream(), type)
+        emit(AppResource.Error(null, errorResponse.message))
+      }
     } catch (e: Exception) {
-      Log.i("BOOKING", "reSubscribe: ${e.localizedMessage}")
-      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+      Log.i("TRANSACTION", "reSubscribe: ${e.localizedMessage}")
+      emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
   
@@ -124,12 +143,13 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
       val response = transactionRepository.assignBooking(id)
       if (response.isSuccessful) emit(AppResource.Success(response.body()))
       else {
-        Log.i("BOOKING", "assign: ${response.errorBody()}")
-        emit(AppResource.Error(null, response.errorBody().toString()))
+        val type = object : TypeToken<ErrorResponse>() {}.type
+        val errorResponse: ErrorResponse = Gson().fromJson(response.errorBody()?.charStream(), type)
+        emit(AppResource.Error(null, errorResponse.message))
       }
     } catch (e: Exception) {
       Log.i("BOOKING", "assign: ${e.localizedMessage}")
-      emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+      emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
   
@@ -141,13 +161,31 @@ class TransactionViewModel @Inject constructor(private val transactionRepository
         val response = transactionRepository.buy(transactionRequest)
         if (response.isSuccessful) emit(AppResource.Success(response.body()))
         else {
-          Log.i("TRANSACTION", "buy: ${response.errorBody()}")
-          emit(AppResource.Error(null, response.errorBody().toString()))
+          val type = object : TypeToken<ErrorResponse>() {}.type
+          val errorResponse: ErrorResponse =
+            Gson().fromJson(response.errorBody()?.charStream(), type)
+          emit(AppResource.Error(null, errorResponse.message))
         }
       } catch (e: Exception) {
         Log.i("TRANSACTION", "buy: ${e.localizedMessage}")
-        emit(AppResource.Error(null, e.message ?: R.string.error_occurred.toString()))
+        emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
       }
+    }
+  }
+  
+  fun getAllTransaction(userId: String) = liveData(Dispatchers.IO) {
+    emit(AppResource.Loading)
+    try {
+      val response = transactionRepository.getAllTransaction(userId)
+      if (response.isSuccessful) emit(AppResource.Success(response.body()))
+      else {
+        val type = object : TypeToken<ErrorResponse>() {}.type
+        val errorResponse: ErrorResponse = Gson().fromJson(response.errorBody()?.charStream(), type)
+        emit(AppResource.Error(null, errorResponse.message))
+      }
+    } catch (e: Exception) {
+      Log.i("TRANSACTION", "getAllTransaction: ${e.localizedMessage}")
+      emit(AppResource.Error(null, Constants.SOMETHING_WRONG))
     }
   }
 }

@@ -48,10 +48,7 @@ class SignInFragment : DaggerFragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     
-    authViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
-      override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        AuthViewModel(authRepositoryImpl) as T
-    })[AuthViewModel::class.java]
+    instanceViewModel()
     
     binding.apply {
       btnSignInSubmit.setOnClickListener {
@@ -70,6 +67,13 @@ class SignInFragment : DaggerFragment() {
     _binding = null
   }
   
+  private fun instanceViewModel() {
+    authViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+      override fun <T : ViewModel> create(modelClass: Class<T>): T =
+        AuthViewModel(authRepositoryImpl) as T
+    })[AuthViewModel::class.java]
+  }
+  
   private fun signIn() {
     binding.apply {
       authViewModel.signIn(
@@ -79,8 +83,8 @@ class SignInFragment : DaggerFragment() {
         )
       ).observe(viewLifecycleOwner, {
         when (it) {
-          is AppResource.Success -> if (it.data != null) signInSuccess(it.data)
-          is AppResource.Error -> signInError()
+          is AppResource.Success -> it.data?.let { it1 -> signInSuccess(it1) }
+          is AppResource.Error -> it.message?.let { it1 -> signInError(it1) }
           is AppResource.Loading -> isLoading()
         }
       })
@@ -96,8 +100,8 @@ class SignInFragment : DaggerFragment() {
     requireActivity().finish()
   }
   
-  private fun signInError() {
-    Snackbar.make(requireView(), getString(R.string.sign_in_error), Snackbar.LENGTH_LONG).show()
+  private fun signInError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
   

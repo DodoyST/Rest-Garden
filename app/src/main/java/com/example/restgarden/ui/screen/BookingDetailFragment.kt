@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -14,8 +13,9 @@ import com.example.restgarden.data.model.Transaction
 import com.example.restgarden.data.repository.TransactionRepository
 import com.example.restgarden.data.viewmodel.TransactionViewModel
 import com.example.restgarden.databinding.FragmentBookingDetailBinding
+import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
-import com.example.restgarden.util.toDate
+import com.example.restgarden.util.SessionManager
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import dagger.android.support.DaggerFragment
@@ -31,6 +31,11 @@ class BookingDetailFragment : DaggerFragment() {
   
   @Inject
   lateinit var transactionRepository: TransactionRepository
+  
+  private lateinit var homeActivity: HomeActivity
+  
+  @Inject
+  lateinit var sessionManager: SessionManager
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -48,12 +53,15 @@ class BookingDetailFragment : DaggerFragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     
+    homeActivity = activity as HomeActivity
+    if (sessionManager.isLoggedIn()) homeActivity.showBnvHome()
+    
     instanceViewModel()
     
     binding.apply {
       btnBookingDetailBack.setOnClickListener {
-        clear()
         findNavController().navigate(R.id.action_global_bookingListFragment)
+        clear()
       }
       
       btnBookingDetailSubscribe.setOnClickListener {
@@ -102,7 +110,7 @@ class BookingDetailFragment : DaggerFragment() {
       tvBookingDetailGraveName.text = transaction.graveName
       tvBookingDetailGraveAddress.text = transaction.graveAddress
       tvBookingDetailStatusValue.text = transaction.status
-      tvBookingDetailDateExpiredValue.text = transaction.expiredDate.toDate()
+      tvBookingDetailDateExpiredValue.text = transaction.expiredDate.toString()
       tvBookingDetailReservedSlotsValue.text = transaction.totalSlot.toString()
       Picasso.get().load(transaction.image).into(ivBookingDetail)
       if (transaction.description.trim().isNotBlank()) {
@@ -118,10 +126,10 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun subscribeError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     findNavController().navigate(R.id.action_global_bookingListFragment)
     isNotLoading()
     clear()
-    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
   }
   
   private fun isNotLoading() {
@@ -187,13 +195,13 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun cancelSuccess() {
-    findNavController().navigate(R.id.action_bookingDetailFragment_to_homeFragment)
-    isNotLoading()
+    findNavController().navigate(R.id.action_global_homeFragment)
     clear()
+    isNotLoading()
   }
   
   private fun cancelError(message: String) {
-    Snackbar.make(requireView(), getString(R.string.something_wrong), Snackbar.LENGTH_LONG).show()
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
 }
