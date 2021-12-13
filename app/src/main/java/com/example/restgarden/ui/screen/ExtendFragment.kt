@@ -1,5 +1,6 @@
 package com.example.restgarden.ui.screen
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -58,7 +59,7 @@ class ExtendFragment : Fragment() {
         formClear()
       }
       btnExtendSubmit.setOnClickListener {
-        extend()
+        alertExtend()
       }
       rdgExtendPaymentMethod.setOnCheckedChangeListener { _, checkedId ->
         btnExtendSubmit.isEnabled = checkedId != -1
@@ -96,6 +97,17 @@ class ExtendFragment : Fragment() {
         }
       })
     }
+  }
+  
+  private fun alertExtend() {
+    AlertDialog.Builder(requireContext())
+      .setMessage("Are you sure you want to extend it for another month?")
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        extend()
+        dialog.dismiss()
+      }.show()
   }
   
   private fun extend() {

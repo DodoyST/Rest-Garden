@@ -1,5 +1,6 @@
 package com.example.restgarden.ui.screen
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -77,7 +78,7 @@ class BookingFragment : DaggerFragment() {
         bookingViewModel.decrement()
       }
       btnBookingSubmit.setOnClickListener {
-        booking()
+        alertBooking()
       }
       rdgBookingPaymentMethod.setOnCheckedChangeListener { _, checkedId ->
         btnBookingSubmit.isEnabled = checkedId != -1
@@ -168,6 +169,17 @@ class BookingFragment : DaggerFragment() {
       tvBookingName.visibility = View.GONE
       tvBookingAddress.visibility = View.GONE
     }
+  }
+  
+  private fun alertBooking() {
+    AlertDialog.Builder(requireContext())
+      .setMessage("Are you sure you want to order this grave?")
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        booking()
+        dialog.dismiss()
+      }.show()
   }
   
   private fun booking() {

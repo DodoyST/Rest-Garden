@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -77,7 +78,7 @@ class BuyFragment : DaggerFragment() {
         transactionViewModel.decrement()
       }
       btnBuySubmit.setOnClickListener {
-        buy()
+        alertBuy()
       }
       rdgBuyPaymentMethod.setOnCheckedChangeListener { _, checkedId ->
         btnBuySubmit.isEnabled = checkedId != -1
@@ -167,6 +168,17 @@ class BuyFragment : DaggerFragment() {
       tvBuyName.visibility = View.GONE
       tvBuyAddress.visibility = View.GONE
     }
+  }
+  
+  private fun alertBuy() {
+    AlertDialog.Builder(requireContext())
+      .setMessage("Are you sure you want to buy this grave?")
+      .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+        dialog.dismiss()
+      }.setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+        buy()
+        dialog.dismiss()
+      }.show()
   }
   
   private fun buy() {
