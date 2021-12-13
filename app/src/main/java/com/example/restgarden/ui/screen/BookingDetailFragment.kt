@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
-import com.example.restgarden.data.model.Transaction
-import com.example.restgarden.data.repository.TransactionRepository
-import com.example.restgarden.data.viewmodel.TransactionViewModel
+import com.example.restgarden.data.model.Booking
+import com.example.restgarden.data.repository.BookingRepository
+import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.FragmentBookingDetailBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
@@ -27,10 +27,10 @@ class BookingDetailFragment : DaggerFragment() {
   
   private var id = ""
   
-  private lateinit var transactionViewModel: TransactionViewModel
+  private lateinit var bookingViewModel: BookingViewModel
   
   @Inject
-  lateinit var transactionRepository: TransactionRepository
+  lateinit var bookingRepository: BookingRepository
   
   private lateinit var homeActivity: HomeActivity
   
@@ -88,14 +88,14 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun instanceViewModel() {
-    transactionViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+    bookingViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        TransactionViewModel(transactionRepository) as T
-    })[TransactionViewModel::class.java]
+        BookingViewModel(bookingRepository) as T
+    })[BookingViewModel::class.java]
   }
   
   private fun subscribe() {
-    transactionViewModel.transaction.observe(viewLifecycleOwner, {
+    bookingViewModel.booking.observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
         is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
@@ -104,19 +104,19 @@ class BookingDetailFragment : DaggerFragment() {
     })
   }
   
-  private fun subscribeSuccess(transaction: Transaction) {
-    id = transaction.id
+  private fun subscribeSuccess(booking: Booking) {
+    id = booking.id
     binding.apply {
-      tvBookingDetailGraveName.text = transaction.graveName
-      tvBookingDetailGraveAddress.text = transaction.graveAddress
-      tvBookingDetailStatusValue.text = transaction.status
-      tvBookingDetailDateExpiredValue.text = transaction.expiredDate.toString()
-      tvBookingDetailReservedSlotsValue.text = transaction.totalSlot.toString()
-      Picasso.get().load(transaction.image).into(ivBookingDetail)
-      if (transaction.description.trim().isNotBlank()) {
+      tvBookingDetailGraveName.text = booking.graveName
+      tvBookingDetailGraveAddress.text = booking.graveAddress
+      tvBookingDetailStatusValue.text = booking.status
+      tvBookingDetailDateExpiredValue.text = booking.expiredDate.toString()
+      tvBookingDetailReservedSlotsValue.text = booking.totalSlot.toString()
+      Picasso.get().load(booking.image).into(ivBookingDetail)
+      if (booking.description.trim().isNotBlank()) {
         tvBookingDetailNotes.visibility = View.VISIBLE
         tvBookingDetailNotesValue.visibility = View.VISIBLE
-        tvBookingDetailNotesValue.text = transaction.description
+        tvBookingDetailNotesValue.text = booking.description
       } else {
         tvBookingDetailNotes.visibility = View.GONE
         tvBookingDetailNotesValue.visibility = View.GONE
@@ -175,7 +175,7 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun assign() {
-    transactionViewModel.assign(id).observe(viewLifecycleOwner, {
+    bookingViewModel.assign(id).observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> cancelSuccess()
         is AppResource.Error -> it.message?.let { it1 -> cancelError(it1) }
@@ -185,7 +185,7 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun cancel() {
-    transactionViewModel.cancelBooking(id).observe(viewLifecycleOwner, {
+    bookingViewModel.cancel(id).observe(viewLifecycleOwner, {
       when (it) {
         is AppResource.Success -> cancelSuccess()
         is AppResource.Error -> it.message?.let { it1 -> cancelError(it1) }

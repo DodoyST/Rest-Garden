@@ -1,9 +1,9 @@
 package com.example.restgarden.data.repository
 
 import com.example.restgarden.data.api.TransactionService
-import com.example.restgarden.data.model.Transaction
-import com.example.restgarden.data.model.request.ReSubscribeAssignRequest
-import com.example.restgarden.data.model.request.TransactionRequest
+import com.example.restgarden.data.model.Booking
+import com.example.restgarden.data.model.request.BookingTransactionRequest
+import com.example.restgarden.data.model.request.ExtendAssignRequest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -19,13 +19,13 @@ import retrofit2.Response
 
 @RunWith(JUnit4::class)
 @ExperimentalCoroutinesApi
-class TransactionRepositoryImplTest {
+class BookingRepositoryImplTest {
   
   @Mock
   lateinit var transactionServiceMock: TransactionService
   private lateinit var transactionRepository: TransactionRepository
   private val transactionListDummy = listOf(
-    Transaction(
+    Booking(
       "1",
       "grave1",
       "grave1",
@@ -39,7 +39,7 @@ class TransactionRepositoryImplTest {
       1,
       "grave1"
     ),
-    Transaction(
+    Booking(
       "2",
       "grave2",
       "grave2",
@@ -55,12 +55,12 @@ class TransactionRepositoryImplTest {
     )
   )
   private val transactionDummy = transactionListDummy[0]
-  private val transactionRequestDummy = TransactionRequest("transaction1", "1", "1", 1)
-  private val reSubscribeAssignRequestDummy = ReSubscribeAssignRequest("1")
+  private val transactionRequestDummy = BookingTransactionRequest("transaction1", "1", "1", 1)
+  private val reSubscribeAssignRequestDummy = ExtendAssignRequest("1")
   
   @Before
   fun registerMock() {
-    MockitoAnnotations.openMocks(this@TransactionRepositoryImplTest)
+    MockitoAnnotations.openMocks(this@BookingRepositoryImplTest)
     transactionRepository = TransactionRepositoryImpl(transactionServiceMock)
   }
   

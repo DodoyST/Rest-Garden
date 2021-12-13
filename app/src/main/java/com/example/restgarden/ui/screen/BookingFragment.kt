@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
 import com.example.restgarden.data.model.Grave
+import com.example.restgarden.data.repository.BookingRepository
 import com.example.restgarden.data.repository.GraveRepositoryImpl
-import com.example.restgarden.data.repository.TransactionRepositoryImpl
+import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.data.viewmodel.GraveViewModel
-import com.example.restgarden.data.viewmodel.TransactionViewModel
 import com.example.restgarden.databinding.FragmentBookingBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
@@ -36,10 +36,10 @@ class BookingFragment : DaggerFragment() {
   @Inject
   lateinit var graveRepositoryImpl: GraveRepositoryImpl
   
-  private lateinit var transactionViewModel: TransactionViewModel
+  private lateinit var bookingViewModel: BookingViewModel
   
   @Inject
-  lateinit var transactionRepositoryImpl: TransactionRepositoryImpl
+  lateinit var bookingRepository: BookingRepository
   
   @Inject
   lateinit var sessionManager: SessionManager
@@ -71,10 +71,10 @@ class BookingFragment : DaggerFragment() {
         formClear()
       }
       btnBookingPlus.setOnClickListener {
-        transactionViewModel.increment(slot)
+        bookingViewModel.increment(slot)
       }
       btnBookingMinus.setOnClickListener {
-        transactionViewModel.decrement()
+        bookingViewModel.decrement()
       }
       btnBookingSubmit.setOnClickListener {
         booking()
@@ -100,15 +100,15 @@ class BookingFragment : DaggerFragment() {
         GraveViewModel(graveRepositoryImpl) as T
     })[GraveViewModel::class.java]
     
-    transactionViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+    bookingViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        TransactionViewModel(transactionRepositoryImpl) as T
-    })[TransactionViewModel::class.java]
+        BookingViewModel(bookingRepository) as T
+    })[BookingViewModel::class.java]
   }
   
   private fun subscribe() {
     binding.apply {
-      transactionViewModel.apply {
+      bookingViewModel.apply {
         amount.observe(viewLifecycleOwner, {
           tvBookingAmount.text = it.toString()
           btnBookingSubmit.visibility = if (it < 1) View.GONE else View.VISIBLE
@@ -139,7 +139,7 @@ class BookingFragment : DaggerFragment() {
       tvBookingName.text = grave.name
       tvBookingAddress.text = grave.address
       tvBookingGravePrice.text = grave.price.currencyFormat()
-      transactionViewModel.setPrice(grave.price)
+      bookingViewModel.setPrice(grave.price)
     }
     isNotLoading()
   }
@@ -173,7 +173,7 @@ class BookingFragment : DaggerFragment() {
   private fun booking() {
     binding.apply {
       sessionManager.fetchAuthId()?.let { userId ->
-        transactionViewModel.booking(binding.etBookingNotesValue.text.toString(), id, userId)
+        bookingViewModel.booking(binding.etBookingNotesValue.text.toString(), id, userId)
           .observe(viewLifecycleOwner, {
             when (it) {
               is AppResource.Success -> bookingSuccess()
@@ -202,6 +202,6 @@ class BookingFragment : DaggerFragment() {
       etBookingNotesValue.text?.clear()
       rdgBookingPaymentMethod.clearCheck()
     }
-    transactionViewModel.liveDataReset()
+    bookingViewModel.liveDataReset()
   }
 }

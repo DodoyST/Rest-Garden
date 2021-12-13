@@ -61,4 +61,6 @@
   <string name="search_by">by Name and Address</string>
   <string name="transaction_list">Transaction List</string>
   <string name="extend_for">Extend for 1 month</string>
+  <string name="public_graveyard_with_available_slots">Public Graveyard with Available Slots</string>
+  <string name="private_graveyard_with_available_slots">Private Graveyard with Available Slots</string>
 </resources>

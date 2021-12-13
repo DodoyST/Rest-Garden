@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
-import com.example.restgarden.data.repository.TransactionRepository
-import com.example.restgarden.data.viewmodel.TransactionViewModel
+import com.example.restgarden.data.repository.BookingRepository
+import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.FragmentReSubscribeBinding
 import com.example.restgarden.ui.HomeActivity
 import com.example.restgarden.util.AppResource
@@ -26,10 +26,10 @@ class ReSubscribeFragment : Fragment() {
   
   private var id = ""
   
-  private lateinit var transactionViewModel: TransactionViewModel
+  private lateinit var bookingViewModel: BookingViewModel
   
   @Inject
-  lateinit var transactionRepository: TransactionRepository
+  lateinit var bookingRepository: BookingRepository
   
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -58,7 +58,7 @@ class ReSubscribeFragment : Fragment() {
         formClear()
       }
       btnReSubscribeSubmit.setOnClickListener {
-        reSubscribe()
+        extend()
       }
       rdgReSubscribePaymentMethod.setOnCheckedChangeListener { _, checkedId ->
         btnReSubscribeSubmit.isEnabled = checkedId != -1
@@ -75,15 +75,15 @@ class ReSubscribeFragment : Fragment() {
   }
   
   private fun instanceViewModel() {
-    transactionViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+    bookingViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        TransactionViewModel(transactionRepository) as T
-    })[TransactionViewModel::class.java]
+        BookingViewModel(bookingRepository) as T
+    })[BookingViewModel::class.java]
   }
   
   private fun subscribe() {
     binding.apply {
-      transactionViewModel.transaction.observe(viewLifecycleOwner, {
+      bookingViewModel.booking.observe(viewLifecycleOwner, {
         val data = it.data
         if (data != null) {
           id = data.id
@@ -98,24 +98,24 @@ class ReSubscribeFragment : Fragment() {
     }
   }
   
-  private fun reSubscribe() {
-    transactionViewModel.reSubscribe(id).observe(viewLifecycleOwner, {
+  private fun extend() {
+    bookingViewModel.extend(id).observe(viewLifecycleOwner, {
       when (it) {
-        is AppResource.Success -> reSubscribeSuccess()
-        is AppResource.Error -> it.message?.let { it1 -> reSubscribeError(it1) }
+        is AppResource.Success -> extendSuccess()
+        is AppResource.Error -> it.message?.let { it1 -> extendError(it1) }
         is AppResource.Loading -> isLoading()
       }
     })
   }
   
-  private fun reSubscribeSuccess() {
+  private fun extendSuccess() {
     findNavController().navigate(R.id.action_global_thankFragment)
     formClear()
     homeActivity.showBnvHome()
     isNotLoading()
   }
   
-  private fun reSubscribeError(message: String) {
+  private fun extendError(message: String) {
     Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     isNotLoading()
   }
@@ -145,6 +145,6 @@ class ReSubscribeFragment : Fragment() {
     binding.apply {
       rdgReSubscribePaymentMethod.clearCheck()
     }
-    transactionViewModel.liveDataReset()
+    bookingViewModel.liveDataReset()
   }
 }

@@ -2,7 +2,7 @@ package com.example.restgarden.data.model
 
 import java.sql.Timestamp
 
-data class Transaction(
+data class Booking(
   var id: String,
   var graveName: String,
   var graveAddress: String,
@@ -10,7 +10,7 @@ data class Transaction(
   var gravePrice: Double,
   var totalSlot: Int,
   var status: String,
-  var date: Timestamp,
+  var expiredDate: Timestamp,
   var totalPayment: Double,
   var description: String,
 )

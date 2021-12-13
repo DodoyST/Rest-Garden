@@ -27,6 +27,11 @@ class ApiModule {
   
   @Provides
   @Singleton
+  fun provideBookingService(retrofit: Retrofit): BookingService =
+    retrofit.create(BookingService::class.java)
+  
+  @Provides
+  @Singleton
   fun provideTransactionService(retrofit: Retrofit): TransactionService =
     retrofit.create(TransactionService::class.java)
   

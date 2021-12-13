@@ -8,9 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restgarden.data.adapter.BookingAdapter
-import com.example.restgarden.data.model.Transaction
-import com.example.restgarden.data.repository.TransactionRepository
-import com.example.restgarden.data.viewmodel.TransactionViewModel
+import com.example.restgarden.data.model.Booking
+import com.example.restgarden.data.repository.BookingRepository
+import com.example.restgarden.data.viewmodel.BookingViewModel
 import com.example.restgarden.databinding.FragmentBookingListBinding
 import com.example.restgarden.util.AppResource
 import com.example.restgarden.util.SessionManager
@@ -22,10 +22,10 @@ class BookingListFragment : DaggerFragment() {
   private var _binding: FragmentBookingListBinding? = null
   private val binding get() = _binding!!
   
-  private lateinit var transactionViewModel: TransactionViewModel
+  private lateinit var bookingViewModel: BookingViewModel
   
   @Inject
-  lateinit var transactionRepository: TransactionRepository
+  lateinit var bookingRepository: BookingRepository
   
   private lateinit var bookingAdapter: BookingAdapter
   
@@ -60,15 +60,15 @@ class BookingListFragment : DaggerFragment() {
   }
   
   private fun instanceViewModel() {
-    transactionViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+    bookingViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
       override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        TransactionViewModel(transactionRepository) as T
-    })[TransactionViewModel::class.java]
+        BookingViewModel(bookingRepository) as T
+    })[BookingViewModel::class.java]
   }
   
   private fun subscribe() {
     sessionManager.fetchAuthId()?.let { userId ->
-      transactionViewModel.getAll(userId).observe(viewLifecycleOwner, {
+      bookingViewModel.getAll(userId).observe(viewLifecycleOwner, {
         when (it) {
           is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
           is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
@@ -78,8 +78,8 @@ class BookingListFragment : DaggerFragment() {
     }
   }
   
-  private fun subscribeSuccess(transactionList: List<Transaction>) {
-    bookingAdapter = BookingAdapter(transactionList, transactionViewModel)
+  private fun subscribeSuccess(bookingList: List<Booking>) {
+    bookingAdapter = BookingAdapter(bookingList, bookingViewModel)
     binding.rvBookingList.apply {
       adapter = bookingAdapter
       layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
