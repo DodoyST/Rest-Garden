@@ -72,4 +72,8 @@
   <string name="transaction_history">Transaction History</string>
   <string name="save">Save</string>
   <string name="personal_information">Personal Information</string>
+  <string name="cash">Cash</string>
+  <string name="bank_transfer">Bank Transfer</string>
+  <string name="m_banking">M-Banking</string>
+  <string name="e_wallet">E-Wallet</string>
 </resources>

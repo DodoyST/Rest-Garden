@@ -115,48 +115,48 @@
       app:layout_constraintTop_toBottomOf="@+id/tv_extend_payment_method">
       
       <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rdbtn_extend_dana"
-        android:layout_width="match_parent"
+        android:id="@+id/rdbtn_extend_bank_transfer"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginHorizontal="4dp"
+        android:layout_marginHorizontal="2dp"
         android:layout_weight="1"
         android:background="@drawable/radio_corner"
-        android:backgroundTint="@color/dana"
+        android:backgroundTint="@color/bank_transfer"
         android:buttonTint="@color/re_black"
-        android:text="@string/dana"
+        android:text="@string/bank_transfer"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         tools:ignore="TouchTargetSizeCheck" />
       
       <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rdbtn_extend_ovo"
-        android:layout_width="match_parent"
+        android:id="@+id/rdbtn_extend_m_banking"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginHorizontal="4dp"
+        android:layout_marginHorizontal="2dp"
         android:layout_weight="1"
         android:background="@drawable/radio_corner"
-        android:backgroundTint="@color/ovo"
+        android:backgroundTint="@color/m_banking"
         android:buttonTint="@color/re_black"
-        android:text="@string/ovo"
+        android:text="@string/m_banking"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         tools:ignore="TouchTargetSizeCheck" />
       
       <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rdbtn_extend_link_aja"
-        android:layout_width="match_parent"
+        android:id="@+id/rdbtn_extend_e_wallet"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginHorizontal="4dp"
+        android:layout_marginHorizontal="2dp"
         android:layout_weight="1"
         android:background="@drawable/radio_corner"
-        android:backgroundTint="@color/link_aja"
+        android:backgroundTint="@color/e_wallet"
         android:buttonTint="@color/re_black"
-        android:text="@string/link_aja"
+        android:text="@string/e_wallet"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
     

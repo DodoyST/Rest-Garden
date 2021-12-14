@@ -20,4 +20,8 @@
   <color name="dana">#058CEE</color>
   <color name="ovo">#AD4AA3</color>
   <color name="link_aja">#EB1037</color>
+  <color name="cash">#118C4F</color>
+  <color name="bank_transfer">#058CEE</color>
+  <color name="m_banking">#EB1037</color>
+  <color name="e_wallet">#AD4AA3</color>
 </resources>
