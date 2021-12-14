@@ -90,9 +90,11 @@ class ExtendFragment : Fragment() {
           id = data.id
           tvExtendName.text = data.graveName
           tvExtendAddress.text = data.graveAddress
+          tvExtendReservedSlotsValue.text = data.totalSlot.toString()
           tvExtendGravePrice.text = data.gravePrice.currencyFormat()
-          tvExtendFeeValue.text = data.gravePrice.times(0.2).currencyFormat()
-          tvExtendTotalPaymentValue.text = data.gravePrice.times(0.2).currencyFormat()
+          tvExtendFeeValue.text = data.gravePrice.times(data.totalSlot).times(0.2).currencyFormat()
+          tvExtendTotalPaymentValue.text =
+            data.gravePrice.times(data.totalSlot).times(0.2).currencyFormat()
           isNotLoading()
         }
       })

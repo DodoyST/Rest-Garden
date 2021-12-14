@@ -232,7 +232,26 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/tv_extend_total_payment" />
-  
+    
+    <TextView
+      android:id="@+id/tv_extend_reserved_slots"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/reserved_slots"
+      app:layout_constraintBottom_toBottomOf="@+id/tv_extend_grave"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/tv_extend_grave"
+      app:layout_constraintVertical_bias="1.0" />
+    
+    <TextView
+      android:id="@+id/tv_extend_reserved_slots_value"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/_0"
+      app:layout_constraintEnd_toEndOf="@+id/tv_extend_reserved_slots"
+      app:layout_constraintStart_toStartOf="@+id/tv_extend_reserved_slots"
+      app:layout_constraintTop_toBottomOf="@+id/tv_extend_reserved_slots" />
   </androidx.constraintlayout.widget.ConstraintLayout>
   
   <ProgressBar
