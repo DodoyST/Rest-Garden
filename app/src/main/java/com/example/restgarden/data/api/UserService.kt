@@ -2,12 +2,10 @@ package com.example.restgarden.data.api
 
 import com.example.restgarden.data.model.User
 import com.example.restgarden.data.model.request.UserRequest
+import com.example.restgarden.data.model.request.UserUpdateRequest
 import com.example.restgarden.util.Constants
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface UserService {
   @GET("${Constants.USER_URL}/{id}")
@@ -15,4 +13,7 @@ interface UserService {
   
   @POST(Constants.REGISTER_URL)
   suspend fun register(@Body userRequest: UserRequest): Response<User>
+  
+  @PUT(Constants.USER_URL)
+  suspend fun update(@Body userUpdateRequest: UserUpdateRequest): Response<User>
 }

@@ -94,15 +94,13 @@ class ProfileFragment : DaggerFragment() {
   }
   
   private fun subscribe() {
-    sessionManager.fetchAuthId()?.let { id ->
-      userViewModel.getById(id).observe(viewLifecycleOwner, {
-        when (it) {
-          is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
-          is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
-          is AppResource.Loading -> isLoading()
-        }
-      })
-    }
+    userViewModel.user.observe(viewLifecycleOwner, {
+      when (it) {
+        is AppResource.Success -> it.data?.let { it1 -> subscribeSuccess(it1) }
+        is AppResource.Error -> it.message?.let { it1 -> subscribeError(it1) }
+        is AppResource.Loading -> isLoading()
+      }
+    })
   }
   
   private fun subscribeSuccess(user: User) {

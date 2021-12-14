@@ -33,7 +33,7 @@
     
     
     <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/tv_user_form_username_field"
+      android:id="@+id/et_user_form_username_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -49,14 +49,14 @@
       app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tv_user_form_username"
+        android:id="@+id/et_user_form_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/tv_user_form_full_name_field"
+      android:id="@+id/et_user_form_full_name_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -72,14 +72,14 @@
       app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tv_user_form_full_name"
+        android:id="@+id/et_user_form_full_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/tv_user_form_address_field"
+      android:id="@+id/et_user_form_address_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
       app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tv_user_form_address"
+        android:id="@+id/et_user_form_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
@@ -104,7 +104,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/tv_user_form_email_field"
+      android:id="@+id/et_user_form_email_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -120,14 +120,14 @@
       app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tv_user_form_email"
+        android:id="@+id/et_user_form_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
     
     <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/tv_user_form_phone_number_field"
+      android:id="@+id/et_user_form_phone_number_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
       app:hintTextColor="@color/re_black">
       
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tv_user_form_phone_number"
+        android:id="@+id/et_user_form_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="phone" />
@@ -167,6 +167,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:indeterminateTint="@color/re_black"
+    android:visibility="gone"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"

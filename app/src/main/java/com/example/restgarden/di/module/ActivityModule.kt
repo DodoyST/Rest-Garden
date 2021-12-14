@@ -50,4 +50,7 @@ abstract class ActivityModule {
   
   @ContributesAndroidInjector
   abstract fun contributeTransactionDetailFragment(): TransactionDetailFragment
+  
+  @ContributesAndroidInjector
+  abstract fun contributeUserFormFragment(): UserFormFragment
 }
