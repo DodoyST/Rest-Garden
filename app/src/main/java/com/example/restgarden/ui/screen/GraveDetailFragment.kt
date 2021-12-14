@@ -122,14 +122,18 @@ class GraveDetailFragment : DaggerFragment() {
   private fun isNotLoading() {
     binding.apply {
       pbGraveDetail.visibility = View.GONE
+      ivGraveDetail.visibility = View.VISIBLE
       lnlGraveDetail.visibility = View.VISIBLE
+      btnGraveDetailBack.visibility = View.VISIBLE
     }
   }
   
   private fun isLoading() {
     binding.apply {
       pbGraveDetail.visibility = View.VISIBLE
-      lnlGraveDetail.visibility = View.GONE
+      ivGraveDetail.visibility = View.INVISIBLE
+      lnlGraveDetail.visibility = View.INVISIBLE
+      btnGraveDetailBack.visibility = View.INVISIBLE
     }
   }
   

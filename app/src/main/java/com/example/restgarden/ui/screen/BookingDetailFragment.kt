@@ -149,7 +149,7 @@ class BookingDetailFragment : DaggerFragment() {
       pbBookingDetail.visibility = View.VISIBLE
       ivBookingDetail.visibility = View.INVISIBLE
       lnlBookingDetail.visibility = View.INVISIBLE
-      btnBookingDetailBack.visibility = View.GONE
+      btnBookingDetailBack.visibility = View.INVISIBLE
     }
   }
   

@@ -125,7 +125,7 @@ class TransactionDetailFragment : DaggerFragment() {
       pbTransactionDetail.visibility = View.VISIBLE
       ivTransactionDetail.visibility = View.INVISIBLE
       lnlTransactionDetail.visibility = View.INVISIBLE
-      btnTransactionDetailBack.visibility = View.GONE
+      btnTransactionDetailBack.visibility = View.INVISIBLE
     }
   }
   
