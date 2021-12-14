@@ -69,6 +69,12 @@ class ExtendFragment : Fragment() {
     subscribe()
   }
   
+  override fun onResume() {
+    super.onResume()
+    
+    homeActivity.hideBnvHome()
+  }
+  
   override fun onDestroy() {
     super.onDestroy()
     

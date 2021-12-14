@@ -89,6 +89,12 @@ class BookingFragment : DaggerFragment() {
     getById()
   }
   
+  override fun onResume() {
+    super.onResume()
+    
+    homeActivity.hideBnvHome()
+  }
+  
   override fun onDestroy() {
     super.onDestroy()
     

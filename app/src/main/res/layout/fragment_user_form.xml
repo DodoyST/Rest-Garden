@@ -23,7 +23,7 @@
     android:id="@+id/lnl_user_form"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="142dp"
+    android:layout_marginTop="160dp"
     android:orientation="vertical"
     android:paddingHorizontal="56dp"
     app:layout_constraintBottom_toBottomOf="parent"
