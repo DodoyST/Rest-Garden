@@ -122,6 +122,11 @@ class UserFormFragment : DaggerFragment() {
   
   private fun updateSuccess(user: User) {
     userViewModel.setUser(user)
+    Snackbar.make(
+      requireView(),
+      "Your personal data has been successfully updated",
+      Snackbar.LENGTH_LONG
+    ).show()
     findNavController().navigate(R.id.action_global_profileFragment)
     isNotLoading()
   }

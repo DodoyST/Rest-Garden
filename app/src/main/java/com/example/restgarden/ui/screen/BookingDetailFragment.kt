@@ -167,6 +167,29 @@ class BookingDetailFragment : DaggerFragment() {
       }.show()
   }
   
+  private fun assign() {
+    bookingViewModel.assign(id).observe(viewLifecycleOwner, {
+      when (it) {
+        is AppResource.Success -> assignSuccess()
+        is AppResource.Error -> it.message?.let { it1 -> assignError(it1) }
+        is AppResource.Loading -> isLoading()
+      }
+    })
+  }
+  
+  private fun assignSuccess() {
+    Snackbar.make(requireView(), "Your order has been successfully assigned", Snackbar.LENGTH_LONG)
+      .show()
+    findNavController().navigate(R.id.action_global_homeFragment)
+    clear()
+    isNotLoading()
+  }
+  
+  private fun assignError(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
+    isNotLoading()
+  }
+  
   private fun alertCancel() {
     AlertDialog.Builder(requireContext()).setMessage("Do you want to cancel this order?")
       .setNegativeButton(getString(R.string.no)) { dialog, _ ->
@@ -175,16 +198,6 @@ class BookingDetailFragment : DaggerFragment() {
         dialog.dismiss()
         cancel()
       }.show()
-  }
-  
-  private fun assign() {
-    bookingViewModel.assign(id).observe(viewLifecycleOwner, {
-      when (it) {
-        is AppResource.Success -> cancelSuccess()
-        is AppResource.Error -> it.message?.let { it1 -> cancelError(it1) }
-        is AppResource.Loading -> isLoading()
-      }
-    })
   }
   
   private fun cancel() {
@@ -198,6 +211,8 @@ class BookingDetailFragment : DaggerFragment() {
   }
   
   private fun cancelSuccess() {
+    Snackbar.make(requireView(), "Your order has been successfully canceled", Snackbar.LENGTH_LONG)
+      .show()
     findNavController().navigate(R.id.action_global_homeFragment)
     clear()
     isNotLoading()
