@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.restgarden.R
 import com.example.restgarden.data.model.User
 import com.example.restgarden.data.repository.UserRepositoryImpl
@@ -53,6 +54,10 @@ class ProfileFragment : DaggerFragment() {
     binding.apply {
       btnProfileLogout.setOnClickListener {
         alertSignOut()
+      }
+      
+      btnProfileEditProfile.setOnClickListener {
+        findNavController().navigate(R.id.action_global_userFormFragment)
       }
     }
     

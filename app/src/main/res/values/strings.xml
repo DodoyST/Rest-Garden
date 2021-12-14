@@ -70,4 +70,6 @@
   <string name="transaction_id">Transaction ID</string>
   <string name="history">History</string>
   <string name="transaction_history">Transaction History</string>
+  <string name="save">Save</string>
+  <string name="personal_information">Personal Information</string>
 </resources>

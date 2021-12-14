@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.screen.UserFormFragment">
+  
+  <TextView
+    android:id="@+id/tv_user_form_personal_information"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/ropa_sans"
+    android:paddingHorizontal="8dp"
+    android:text="@string/personal_information"
+    android:textAlignment="center"
+    android:textSize="50sp"
+    app:layout_constraintBottom_toTopOf="@+id/lnl_user_form"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+  
+  <LinearLayout
+    android:id="@+id/lnl_user_form"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="142dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="56dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/tv_user_form_username_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/username"
+      android:textColorHint="@color/re_green"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp"
+      app:hintTextColor="@color/re_black">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_form_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/tv_user_form_full_name_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/full_name"
+      android:textColorHint="@color/re_green"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp"
+      app:hintTextColor="@color/re_black">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_form_full_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/tv_user_form_address_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/address"
+      android:textColorHint="@color/re_green"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp"
+      app:hintTextColor="@color/re_black">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_form_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:maxLines="3"
+        android:minLines="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/tv_user_form_email_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/email"
+      android:textColorHint="@color/re_green"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp"
+      app:hintTextColor="@color/re_black">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_form_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/tv_user_form_phone_number_field"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/phone_number"
+      android:textColorHint="@color/re_green"
+      app:boxCornerRadiusBottomEnd="18dp"
+      app:boxCornerRadiusBottomStart="18dp"
+      app:boxCornerRadiusTopEnd="18dp"
+      app:boxCornerRadiusTopStart="18dp"
+      app:boxStrokeColor="@color/re_green"
+      app:boxStrokeWidth="5dp"
+      app:boxStrokeWidthFocused="5dp"
+      app:hintTextColor="@color/re_black">
+      
+      <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_form_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_user_form_save"
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="16dp"
+      android:fontFamily="@font/poppins_semibold"
+      android:text="@string/save"
+      app:cornerRadius="20dp" />
+  
+  </LinearLayout>
+  
+  <ProgressBar
+    android:id="@+id/pb_user_form"
+    style="@android:style/Widget.Material.ProgressBar.Large"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:indeterminateTint="@color/re_black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

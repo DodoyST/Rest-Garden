@@ -127,4 +127,12 @@
   <action
     android:id="@+id/action_global_transactionDetailFragment"
     app:destination="@id/transactionDetailFragment" />
+  <fragment
+    android:id="@+id/userFormFragment"
+    android:name="com.example.restgarden.ui.screen.UserFormFragment"
+    android:label="fragment_user_form"
+    tools:layout="@layout/fragment_user_form" />
+  <action
+    android:id="@+id/action_global_userFormFragment"
+    app:destination="@id/userFormFragment" />
 </navigation>

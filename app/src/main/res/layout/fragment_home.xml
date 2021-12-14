@@ -68,7 +68,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/card_grave_horizontal"></androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/card_grave_horizontal" />
       
       <TextView
         android:id="@+id/tv_home_public"
