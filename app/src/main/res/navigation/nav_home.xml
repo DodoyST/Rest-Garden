@@ -33,24 +33,44 @@
   <action
     android:id="@+id/action_global_homeFragment"
     app:destination="@id/homeFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     app:popUpTo="@id/nav_home"
     app:popUpToInclusive="true" />
   <action
     android:id="@+id/action_global_graveDetailFragment"
-    app:destination="@id/graveDetailFragment" />
+    app:destination="@id/graveDetailFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <action
     android:id="@+id/action_global_profileFragment"
     app:destination="@id/profileFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     app:popUpTo="@id/nav_home"
     app:popUpToInclusive="true" />
   <action
     android:id="@+id/action_global_bookingListFragment"
     app:destination="@id/bookingListFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     app:popUpTo="@id/nav_home"
     app:popUpToInclusive="true" />
   <action
     android:id="@+id/action_global_authActivity"
-    app:destination="@id/authActivity" />
+    app:destination="@id/authActivity"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <fragment
     android:id="@+id/bookingFragment"
     android:name="com.example.restgarden.ui.screen.BookingFragment"
@@ -59,12 +79,20 @@
     <action
       android:id="@+id/action_bookingFragment_to_graveDetailFragment"
       app:destination="@id/graveDetailFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim"
+      app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+      app:popExitAnim="@anim/nav_default_pop_exit_anim"
       app:popUpTo="@id/bookingFragment"
       app:popUpToInclusive="true" />
   </fragment>
   <action
     android:id="@+id/action_global_bookingFragment"
-    app:destination="@id/bookingFragment" />
+    app:destination="@id/bookingFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <fragment
     android:id="@+id/bookingDetailFragment"
     android:name="com.example.restgarden.ui.screen.BookingDetailFragment"
@@ -73,6 +101,10 @@
   <action
     android:id="@+id/action_global_bookingDetailFragment"
     app:destination="@id/bookingDetailFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     app:popUpTo="@id/extendFragment"
     app:popUpToInclusive="true" />
   <fragment
@@ -83,12 +115,20 @@
     <action
       android:id="@+id/action_buyFragment_to_graveDetailFragment"
       app:destination="@id/graveDetailFragment"
+      app:enterAnim="@anim/nav_default_enter_anim"
+      app:exitAnim="@anim/nav_default_exit_anim"
+      app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+      app:popExitAnim="@anim/nav_default_pop_exit_anim"
       app:popUpTo="@id/buyFragment"
       app:popUpToInclusive="true" />
   </fragment>
   <action
     android:id="@+id/action_global_buyFragment"
-    app:destination="@id/buyFragment" />
+    app:destination="@id/buyFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <fragment
     android:id="@+id/thankFragment"
     android:name="com.example.restgarden.ui.screen.ThankFragment"
@@ -105,18 +145,34 @@
     android:id="@+id/extendFragment"
     android:name="com.example.restgarden.ui.screen.ExtendFragment"
     android:label="fragment_extend"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     tools:layout="@layout/fragment_extend" />
   <action
     android:id="@+id/action_global_reSubscribeFragment"
-    app:destination="@id/extendFragment" />
+    app:destination="@id/extendFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <fragment
     android:id="@+id/transactionListFragment"
     android:name="com.example.restgarden.ui.screen.TransactionListFragment"
     android:label="fragment_transaction_list"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     tools:layout="@layout/fragment_transaction_list" />
   <action
     android:id="@+id/action_global_transactionListFragment"
     app:destination="@id/transactionListFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
     app:popUpTo="@id/transactionDetailFragment"
     app:popUpToInclusive="true" />
   <fragment
@@ -126,7 +182,11 @@
     tools:layout="@layout/fragment_transaction_detail" />
   <action
     android:id="@+id/action_global_transactionDetailFragment"
-    app:destination="@id/transactionDetailFragment" />
+    app:destination="@id/transactionDetailFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
   <fragment
     android:id="@+id/userFormFragment"
     android:name="com.example.restgarden.ui.screen.UserFormFragment"
@@ -134,5 +194,9 @@
     tools:layout="@layout/fragment_user_form" />
   <action
     android:id="@+id/action_global_userFormFragment"
-    app:destination="@id/userFormFragment" />
+    app:destination="@id/userFormFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 </navigation>
