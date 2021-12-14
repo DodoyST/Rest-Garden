@@ -77,7 +77,6 @@ class UserFormFragment : DaggerFragment() {
       val user = it.data
       if (user != null) {
         binding.apply {
-          etUserFormUsername.setText(user.username)
           etUserFormFullName.setText(user.name)
           etUserFormAddress.setText(user.address)
           etUserFormEmail.setText(user.email)
@@ -92,7 +91,6 @@ class UserFormFragment : DaggerFragment() {
       UserUpdateRequest(
         it,
         binding.etUserFormFullName.text.toString(),
-        binding.etUserFormUsername.text.toString(),
         binding.etUserFormEmail.text.toString(),
         binding.etUserFormPhoneNumber.text.toString(),
         binding.etUserFormAddress.text.toString()

@@ -33,29 +33,6 @@
     
     
     <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/et_user_form_username_field"
-      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="@string/username"
-      android:textColorHint="@color/re_green"
-      app:boxCornerRadiusBottomEnd="18dp"
-      app:boxCornerRadiusBottomStart="18dp"
-      app:boxCornerRadiusTopEnd="18dp"
-      app:boxCornerRadiusTopStart="18dp"
-      app:boxStrokeColor="@color/re_green"
-      app:boxStrokeWidth="5dp"
-      app:boxStrokeWidthFocused="5dp"
-      app:hintTextColor="@color/re_black">
-      
-      <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_user_form_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-    
-    <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/et_user_form_full_name_field"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       android:layout_width="match_parent"
